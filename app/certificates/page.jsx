@@ -12,7 +12,7 @@ const certificates = [
   year: '2013',
   issuer: 'Dept. of Science & Technology, Govt. of India',
   category: 'fellowship',
-  file: 'assets/certificates/dst-inspire-2013.pdf'
+  file: 'assets/certificates/cer-pdf/cer1.pdf'
  },
  {
   image: '/assets/certificates/cer-images/cer1.png',
