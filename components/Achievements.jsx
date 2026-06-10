@@ -1,4 +1,5 @@
 'use client'
+import { useRef, useState, useEffect } from 'react'
 
 const achievements = [
   {
@@ -44,12 +45,78 @@ const achievements = [
 ]
 
 export default function Achievements({ onOpenLightbox }) {
+
+
+  const scrollRef = useRef(null)
+
+  const [showLeft, setShowLeft] = useState(false)
+  const [showRight, setShowRight] = useState(true)
+
+  const checkButtons = () => {
+    const el = scrollRef.current
+    if (!el) return
+
+    setShowLeft(el.scrollLeft > 10)
+
+    setShowRight(
+      el.scrollLeft <
+      el.scrollWidth - el.clientWidth - 10
+    )
+  }
+
+  useEffect(() => {
+    checkButtons()
+
+    const el = scrollRef.current
+    if (!el) return
+
+    el.addEventListener('scroll', checkButtons)
+
+    return () => {
+      el.removeEventListener('scroll', checkButtons)
+    }
+  }, [])
+
+  const scrollLeft = () => {
+    scrollRef.current?.scrollBy({
+      left: -360,
+      behavior: 'smooth',
+    })
+  }
+
+  const scrollRight = () => {
+    scrollRef.current?.scrollBy({
+      left: 360,
+      behavior: 'smooth',
+    })
+  }
+
+
   return (
     <section id="achievements">
       <div className="section-inner">
+
+        {showLeft && (
+          <button
+            className="carousel-btn left"
+            onClick={scrollLeft}
+          >
+            ‹
+          </button>
+        )}
+
+        {showRight && (
+          <button
+            className="carousel-btn right"
+            onClick={scrollRight}
+          >
+            ›
+          </button>
+        )}
+
         <div className="section-label">Recognition &amp; Credentials</div>
         <h2 className="section-title">Achievements &amp; Qualifications</h2>
-        <div className="achievements-grid">
+        <div ref={scrollRef} className="achievements-grid">
           {achievements.map((ach, i) => (
             <div className="ach-card reveal" key={i}>
               <div className="ach-icon">{ach.icon}</div>

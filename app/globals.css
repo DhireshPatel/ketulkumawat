@@ -632,6 +632,43 @@ section {
   transform: scale(1.03);
 }
 
+/* for arrow button  */
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+
+  width: 46px;
+  height: 46px;
+
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  background: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .12);
+
+  font-size: 28px;
+  font-weight: 600;
+
+  transition: all .25s;
+}
+
+.carousel-btn:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-btn.left {
+  left: -22px;
+}
+
+.carousel-btn.right {
+  right: -22px;
+}
+
 /* ── BOOK ── */
 .book-block {
   display: grid;
