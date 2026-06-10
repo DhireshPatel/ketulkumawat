@@ -12,20 +12,20 @@ const certificates = [
     file: 'assets/certificates/cer-pdf/cer1.pdf'
   },
   {
-    image: '/assets/certificates/dst-inspire.jpg',
+    image: 'assets/certificates/cer-images/cer2.png',
     name: 'DST INSPIRE Fellowship',
     year: '2013',
     issuer: 'Dept. of Science & Technology, Govt. of India',
     category: 'fellowship',
-    file: '/assets/certificates/dst-inspire-2013.pdf'
+    file: 'assets/certificates/cer-pdf/cer2.pdf'
   },
   {
-    image: '/assets/certificates/dst-inspire.jpg',
+    image: 'assets/certificates/cer-images/cer3.png',
     name: 'DST INSPIRE Fellowship',
     year: '2013',
     issuer: 'Dept. of Science & Technology, Govt. of India',
     category: 'fellowship',
-    file: '/assets/certificates/dst-inspire-2013.pdf'
+    file: 'assets/certificates/cer-pdf/cer3.pdf'
   },
   // { icon: '📐', name: 'GATE Chemistry', year: '2016', issuer: 'IIT / IISC — Graduate Aptitude Test', category: 'exam', file: 'assets/certificates/gate.pdf' },
   // { icon: '🎓', name: 'CGSET Certificate', year: '2020', issuer: 'Chhattisgarh State Eligibility Test', category: 'exam', file: 'assets/certificates/cgset.pdf' },
