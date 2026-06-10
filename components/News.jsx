@@ -15,13 +15,13 @@ const newsItems = [
     placeholder: 'News Photo 2',
     placeholderNote: 'Place news-2.jpg in assets/news/',
   },
-  {
-    img: 'assets/news/news2.jpeg',
-    source: '📰 [Newspaper Name] · [Date]',
-    caption: 'Patent holder and DST INSPIRE fellow makes Rajasthan proud',
-    placeholder: 'News Photo 3',
-    placeholderNote: 'Place news-3.jpg in assets/news/',
-  },
+  // {
+  //   img: 'assets/news/news2.jpeg',
+  //   source: '📰 [Newspaper Name] · [Date]',
+  //   caption: 'Patent holder and DST INSPIRE fellow makes Rajasthan proud',
+  //   placeholder: 'News Photo 3',
+  //   placeholderNote: 'Place news-3.jpg in assets/news/',
+  // },
 ]
 
 function NewsCard({ item, onOpenLightbox }) {

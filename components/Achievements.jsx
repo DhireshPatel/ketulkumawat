@@ -1,5 +1,7 @@
 'use client'
 import { useRef, useState, useEffect } from 'react'
+import { GrNext } from "react-icons/gr";
+import { GrPrevious } from "react-icons/gr";
 
 const achievements = [
   {
@@ -101,7 +103,7 @@ export default function Achievements({ onOpenLightbox }) {
             className="carousel-btn left"
             onClick={scrollLeft}
           >
-            ‹
+            <GrPrevious />
           </button>
         )}
 
@@ -110,7 +112,7 @@ export default function Achievements({ onOpenLightbox }) {
             className="carousel-btn right"
             onClick={scrollRight}
           >
-            ›
+            <GrNext />
           </button>
         )}
 

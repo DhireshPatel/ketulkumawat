@@ -636,7 +636,7 @@ section {
 
 .carousel-btn {
   position: absolute;
-  top: 50%;
+  top: 60%;
   transform: translateY(-50%);
   z-index: 20;
 
@@ -648,13 +648,13 @@ section {
 
   cursor: pointer;
 
-  background: white;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, .12);
+  background: transparent; 
+  /* box-shadow: 0 6px 20px rgba(0, 0, 0, .12); */
 
   font-size: 28px;
   font-weight: 600;
 
-  transition: all .25s; 
+  transition: all .25s;
 }
 
 .carousel-btn:hover {
@@ -827,6 +827,21 @@ section {
 .book-buy.pothi:hover {
   background: var(--deep);
   transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .book-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    /* overflow: hidden; */
+    width: 90%;
+  }
+
+  .book-buy {
+    font-size: 12px;
+    padding: 10px 6px;
+  }
 }
 
 /* ── GALLERY ── */
