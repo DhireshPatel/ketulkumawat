@@ -654,7 +654,7 @@ section {
   font-size: 28px;
   font-weight: 600;
 
-  transition: all .25s;
+  transition: all .25s; 
 }
 
 .carousel-btn:hover {

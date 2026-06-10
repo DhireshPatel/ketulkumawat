@@ -79,14 +79,14 @@ export default function Achievements({ onOpenLightbox }) {
 
   const scrollLeft = () => {
     scrollRef.current?.scrollBy({
-      left: -360,
+      left: -300,
       behavior: 'smooth',
     })
   }
 
   const scrollRight = () => {
     scrollRef.current?.scrollBy({
-      left: 360,
+      left: 300,
       behavior: 'smooth',
     })
   }
