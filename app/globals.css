@@ -491,7 +491,7 @@ section {
   position: relative;
 }
 
-.Back-btn{
+.Back-btn {
   padding: 10px;
   position: fixed;
 }
@@ -524,13 +524,45 @@ section {
 }
 
 /* ── ACHIEVEMENTS ── */
-.achievements-grid {
+/* .achievements-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
+} */
+
+.achievements-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  scroll-snap-type: x proximity;
 }
 
+.achievements-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.achievements-grid {
+  scroll-snap-type: x proximity;
+}
+
+.ach-scroll-hint {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
 .ach-card {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
   background: var(--card-bg);
   border: 1.5px solid var(--border);
   border-radius: 14px;
