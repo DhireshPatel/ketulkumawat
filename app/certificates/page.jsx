@@ -114,12 +114,19 @@ export default function Certificates() {
   return (
     <>
 
-      <Navbar />
+      {/* <Navbar /> */}
+      {/* Breadcrumb */}
+      <nav className="np-breadcrumb" aria-label="Breadcrumb">
+        <a href="/#certificates">Home</a>
+        {/* <span className="np-breadcrumb__sep" aria-hidden="true">›</span> */}
+        <span className="np-breadcrumb__current">Certificates</span>
+      </nav>
+
       <section id="certificates" style={{ background: 'var(--section-bg)' }}>
         <div className="section-inner">
-          <button className='Back-btn'>
+          {/* <button className='Back-btn'>
             <Link href="/#certificates">BACK</Link>
-          </button>
+          </button> */}
           <div className="section-label">Credentials &amp; Certifications</div>
           <h2 className="section-title">30+ Certificates</h2>
           <p className="section-sub">A collection of certificates earned across competitive examinations, fellowships, workshops, and research achievements.</p>

@@ -2,45 +2,53 @@
 import { useRef, useState, useEffect } from 'react'
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
+import { RiAwardLine } from "react-icons/ri";
+import { GrCertificate } from "react-icons/gr";
+import { FaBookOpen } from "react-icons/fa";
+import { TbMicroscope } from "react-icons/tb";
+import { FaGraduationCap } from "react-icons/fa";
+import { GiCheckMark } from "react-icons/gi";
+import { BsFlask } from "react-icons/bs";
+import { FaRegStar } from "react-icons/fa6";
 
 const achievements = [
   {
-    icon: '🏅',
+    icon: <RiAwardLine />,
     title: 'Young Scientist Award — ICS 2025',
     desc: 'Awarded the prestigious Young Scientist Award by the Indian Chemical Society (ICS), recognizing outstanding contribution to chemical research at an early career stage.',
   },
   {
-    icon: '📜',
+    icon: <GrCertificate />,
     title: 'Patent Holder',
     desc: 'Holds a patent in the field of Chemical Sciences, reflecting innovative and applied research with real-world impact and intellectual property recognition.',
   },
   {
-    icon: '📖',
+    icon: <FaBookOpen />,
     title: 'Published Author',
     desc: 'Research work has been published in scientific journals, contributing original insights and experimental findings to the broader chemical science literature.',
   },
   {
-    icon: '🔬',
+    icon: <TbMicroscope />,
     title: 'CSIR NET JRF & SRF',
     desc: 'Qualified both Junior Research Fellowship (JRF) and Senior Research Fellowship (SRF) under CSIR-NET, one of India\'s most competitive research fellowships in science.',
   },
   {
-    icon: '⭐',
+    icon: <FaRegStar />,
     title: 'DST INSPIRE Fellow — 2013',
     desc: "Awarded the Department of Science & Technology INSPIRE Fellowship in 2013, one of India's flagship programs to attract young talent to scientific research.",
   },
   {
-    icon: '📐',
+    icon: <FaGraduationCap />,
     title: 'GATE Qualified',
     desc: 'Successfully qualified the Graduate Aptitude Test in Engineering (GATE) in Chemistry, demonstrating thorough command of core chemical sciences concepts.',
   },
   {
-    icon: '🎓',
+    icon: <GiCheckMark />,
     title: 'CGSET Qualified',
     desc: 'Qualified the Chhattisgarh State Eligibility Test (CGSET), validating eligibility for Assistant Professor positions in state universities.',
   },
   {
-    icon: '🧪',
+    icon: <BsFlask />,
     title: 'Research in Chemical Sciences',
     desc: 'Extensive hands-on experimental research experience ranging from synthesis and analysis to applied chemistry projects with real-world applications.',
   },

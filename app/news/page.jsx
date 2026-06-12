@@ -1,44 +1,38 @@
 "use client"
 import React, { useState } from "react";
-
-/* ─────────────────────────────────────────────
-   Apni images yahan import karo:
-   import collageImg from "./images/collage.jpg";
-   import toi from "./images/toi.jpg";
-   etc.
-───────────────────────────────────────────── */
+import Link from 'next/link';
 
 const BEST_NEWS = [
   { id: 1, paper: "Times of India", title: "Youngest scientist recognition — front page story", date: "January 2024", category: "youngest", image: "assets/news/news1.jpeg" },
-  { id: 2, paper: "Dainik Bhaskar", title: "Exclusive interview on research journey", date: "January 2024", category: "youngest", image: "assets/news/news2.jpeg" },
-  { id: 3, paper: "Rajasthan Patrika", title: "Rajasthan ka sabse yuva vaigyanik", date: "January 2024", category: "youngest", image: "assets/news/news4.jpeg" },
-  { id: 4, paper: "Hindustan Times", title: "Research breakthrough covered nationally", date: "March 2024", category: "research", image: "assets/news/news3.jpeg" },
-  { id: 5, paper: "Navbharat Times", title: "Award ceremony feature story", date: "February 2024", category: "award", image: "assets/news/news5.jpeg" },
-  { id: 6, paper: "Amar Ujala", title: "Science conference highlight", date: "April 2024", category: "research", image: "assets/news/news6.jpeg" },
+  { id: 2, paper: "Dainik Bhaskar", title: "Exclusive interview on research journey", date: "January 2024", category: "", image: "assets/news/news2.jpeg" },
+  { id: 3, paper: "Rajasthan Patrika", title: "Rajasthan ka sabse yuva vaigyanik", date: "January 2024", category: "patent", image: "assets/news/news4.jpeg" },
+  { id: 4, paper: "Hindustan Times", title: "Research breakthrough covered nationally", date: "March 2024", category: "patent", image: "assets/news/news3.jpeg" },
+  { id: 5, paper: "Navbharat Times", title: "Award ceremony feature story", date: "February 2024", category: "youngest", image: "assets/news/news5.jpeg" },
+  { id: 6, paper: "Amar Ujala", title: "Science conference highlight", date: "April 2024", category: "Book", image: "assets/news/news6.jpeg" },
 ];
 
 const ALL_NEWS = [
-  { id: 7, paper: "Patrika", title: "Special report on innovation", date: "May 2024", category: "research", image: "assets/news/news7.jpeg" },
+  { id: 7, paper: "Patrika", title: "Special report on innovation", date: "May 2024", category: "youngest", image: "assets/news/news7.jpeg" },
   { id: 8, paper: "Jan Satta", title: "Rising star in science", date: "Mar 2024", category: "youngest", image: "assets/news/news8.jpeg" },
   { id: 9, paper: "Divya Bhaskar", title: "Young achiever profile", date: "Feb 2024", category: "youngest", image: "assets/news/news9.jpeg" },
-  { id: 10, paper: "The Hindu", title: "Academic excellence mention", date: "Jan 2024", category: "research", image: "assets/news/news10.jpeg" },
-  { id: 11, paper: "Tribune", title: "Science award coverage", date: "Jun 2024", category: "award", image: "assets/news/news11.jpeg" },
-  { id: 12, paper: "Lokmat", title: "Regional pride story", date: "Apr 2024", category: "youngest", image: "assets/news/news12.jpeg" },
+  { id: 10, paper: "The Hindu", title: "Academic excellence mention", date: "Jan 2024", category: "youngest", image: "assets/news/news10.jpeg" },
+  { id: 11, paper: "Tribune", title: "Science award coverage", date: "Jun 2024", category: "youngest", image: "assets/news/news11.jpeg" },
+  { id: 12, paper: "Lokmat", title: "Regional pride story", date: "Apr 2024", category: "Book", image: "assets/news/news12.jpeg" },
 
 ];
 
 const FILTERS = [
-  { key: "all", label: "All (27)" },
-  { key: "youngest", label: "Youngest Scientist (10+)" },
-  { key: "research", label: "Research (8)" },
-  { key: "award", label: "Awards (5)" },
+  { key: "all", label: "All (12+)" },
+  { key: "youngest", label: "Youngest Scientist" },
+  { key: "Book", label: "Book" },
+  { key: "patent", label: "Patent" },
 ];
 
 /* category → badge class */
 const BADGE = {
   youngest: "np-badge np-badge--gold",
   research: "np-badge np-badge--green",
-  award: "np-badge np-badge--brown",
+  patent: "np-badge np-badge--brown",
 };
 
 export default function NewsPage() {
@@ -80,7 +74,7 @@ export default function NewsPage() {
 
       {/* Breadcrumb */}
       <nav className="np-breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a>
+        <Link href="/">Home</Link>
         <span className="np-breadcrumb__sep" aria-hidden="true">›</span>
         <span className="np-breadcrumb__current">In the news</span>
       </nav>
@@ -97,16 +91,16 @@ export default function NewsPage() {
       {/* Stats */}
       <div className="np-stats">
         <div className="np-stat">
-          <div className="np-stat__number">27</div>
+          <div className="np-stat__number">12+</div>
           <div className="np-stat__label">Total coverages</div>
         </div>
         <div className="np-stat">
-          <div className="np-stat__number">10+</div>
+          <div className="np-stat__number">7+</div>
           <div className="np-stat__label">Youngest scientist</div>
         </div>
         <div className="np-stat">
-          <div className="np-stat__number">15+</div>
-          <div className="np-stat__label">Publications</div>
+          <div className="np-stat__number">3</div>
+          <div className="np-stat__label">PATENT HOLDING</div>
         </div>
       </div>
 
@@ -154,7 +148,7 @@ export default function NewsPage() {
 
       {/* Best 6 cards */}
       {filteredBest.length > 0 && (
-        <section>
+        <section className="sectionOfNews">
           <div className="np-section-head">
             <h2 className="np-section-head__title">Best coverages</h2>
             <span className="np-section-head__count">{filteredBest.length} selected</span>
@@ -163,7 +157,8 @@ export default function NewsPage() {
             {filteredBest.map((item) => (
               <article
                 key={item.id}
-                className={`np-card np-card--best${item.category === "youngest" ? " np-card--highlight" : ""}`}
+                // className={`np-card np-card--best${item.category === "youngest" ? " np-card--highlight" : ""}`}
+                className="np-card np-card--best np-card--highlight"
                 onClick={() => {
                   if (item.image) {
                     setOpenImage(item.image);
@@ -195,7 +190,7 @@ export default function NewsPage() {
 
       {/* All remaining news */}
       {filteredAll.length > 0 && (
-        <section>
+        <section className="sectionOfNews">
           <div className="np-section-head">
             <h2 className="np-section-head__title">All other coverages</h2>
             <span className="np-section-head__count">{filteredAll.length} more</span>

@@ -27,13 +27,13 @@ const Hero = ({ onOpenLightbox }) => {
               A dedicated researcher and educator in Chemical Sciences, recognized as a Young Scientist by the Indian Chemical Society. Patent holder, published author, and passionate faculty committed to advancing scientific knowledge across academia and research.
             </p>
             <div className="hero-badges">
-              <span className="badge">🏅 Young Scientist Award — ICS 2025</span>
-              <span className="badge">📜 Patent Holder</span>
-              <span className="badge">📖 Published Author</span>
-              <span className="badge">🔬 CSIR NET JRF &amp; SRF</span>
-              <span className="badge">⭐ DST INSPIRE Fellow &apos;13</span>
-              <span className="badge">📐 GATE Qualified</span>
-              <span className="badge">🎓 CGSET Qualified</span>
+              <span className="badge">Young Scientist Award — ICS 2025</span>
+              <span className="badge">Patent Holder</span>
+              <span className="badge">Published Author</span>
+              <span className="badge">CSIR NET JRF &amp; SRF</span>
+              <span className="badge">DST INSPIRE Fellow &apos;13</span>
+              <span className="badge">GATE Qualified</span>
+              <span className="badge">CGSET Qualified</span>
             </div>
             <div className="hero-ctas">
               {/* <a href="assets/resume.pdf" download className="btn-primary">⬇ Download Resume</a> */}
@@ -70,7 +70,7 @@ const Hero = ({ onOpenLightbox }) => {
             <div className="card-sub">Chemical Sciences<br />Jai Narain Vyas University, Jodhpur</div>
             <div className="card-stats">
               <div className="stat-box">
-                <div className="stat-num">1</div>
+                <div className="stat-num">3</div>
                 <div className="stat-lbl">Patent</div>
               </div>
               <div className="stat-box">

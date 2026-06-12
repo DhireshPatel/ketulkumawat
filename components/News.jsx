@@ -1,5 +1,7 @@
 'use client'
 
+import ViewAllButton from "./ViewAllButton"
+
 const newsItems = [
   {
     img: 'assets/news/news1.jpeg',
@@ -60,7 +62,9 @@ export default function News({ onOpenLightbox }) {
           {newsItems.map((item, i) => (
             <NewsCard key={i} item={item} onOpenLightbox={onOpenLightbox} />
           ))}
-          <a href="/news" className="View-news">View all</a>
+          {/* <a href="/news" className="View-news">View all</a> */}
+          <ViewAllButton/>
+
         </div>
 
         <div className="news-story reveal">

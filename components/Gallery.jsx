@@ -19,7 +19,7 @@ export default function Gallery({ onOpenLightbox }) {
       <div className="section-inner">
         <div className="section-label">Moments &amp; Memories</div>
         <h2 className="section-title">Photo Gallery</h2>
-        <p className="section-sub">Snapshots from conferences, award ceremonies, teaching sessions, and research milestones.</p>
+        <p className="section-sub">Showcasing milestones of research excellence, academic achievements, and professional recognition.</p>
 
         <div className="gallery-grid">
           {galleryItems.map((item, i) => (
@@ -42,7 +42,7 @@ export default function Gallery({ onOpenLightbox }) {
         </div>
 
         <p className="gallery-note">
-          📸 Place your photos (gallery1.jpeg, gallery2.jpeg, etc.) inside the <code>public/assets/photos/</code> folder
+          Glimpses of achievement and recognition — celebrating the journey of research, dedication, and impact.
         </p>
       </div>
     </section>
