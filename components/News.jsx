@@ -15,13 +15,13 @@ const newsItems = [
     placeholder: 'News Photo 2',
     placeholderNote: 'Place news-2.jpg in assets/news/',
   },
-  // {
-  //   img: 'assets/news/news2.jpeg',
-  //   source: '📰 [Newspaper Name] · [Date]',
-  //   caption: 'Patent holder and DST INSPIRE fellow makes Rajasthan proud',
-  //   placeholder: 'News Photo 3',
-  //   placeholderNote: 'Place news-3.jpg in assets/news/',
-  // },
+  {
+    img: 'assets/news/news4.jpeg',
+    source: '📰 [Newspaper Name] · [Date]',
+    caption: 'Patent holder and DST INSPIRE fellow makes Rajasthan proud',
+    placeholder: 'News Photo 3',
+    placeholderNote: 'Place news-3.jpg in assets/news/',
+  },
 ]
 
 function NewsCard({ item, onOpenLightbox }) {
@@ -60,9 +60,10 @@ export default function News({ onOpenLightbox }) {
           {newsItems.map((item, i) => (
             <NewsCard key={i} item={item} onOpenLightbox={onOpenLightbox} />
           ))}
+          <a href="/news" className="View-news">View all</a>
         </div>
 
-        {/* <div className="news-story reveal">
+        <div className="news-story reveal">
           <div className="news-story-text">
             <h3>A Milestone Moment — Recognized as Youngest Scientist</h3>
             <p>In a proud moment for Rajasthan&apos;s scientific community, news features highlighted the remarkable journey of this young researcher who, at a notably early age, earned a Doctorate in Chemical Sciences and secured a patent — all while continuing to serve as an educator and mentor.</p>
@@ -74,7 +75,7 @@ export default function News({ onOpenLightbox }) {
             <p className="news-quote">Behind every recognition lies a journey of hard work, sacrifice, and the determination to never give up.</p>
             <div className="news-quote-author">— Dr. Ketul Kumawat</div>
           </div>
-        </div> */}
+        </div>
 
         <p className="gallery-note">
           📸 Place your newspaper images (news-1.jpg, news-2.jpg, etc.) inside the <code>public/assets/news/</code> folder

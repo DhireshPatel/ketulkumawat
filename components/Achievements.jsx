@@ -51,6 +51,10 @@ export default function Achievements({ onOpenLightbox }) {
 
   const scrollRef = useRef(null)
 
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [startScrollLeft, setStartScrollLeft] = useState(0)
+
   const [showLeft, setShowLeft] = useState(false)
   const [showRight, setShowRight] = useState(true)
 
@@ -93,6 +97,27 @@ export default function Achievements({ onOpenLightbox }) {
     })
   }
 
+  const handleMouseDown = (e) => {
+    if (!scrollRef.current) return
+
+    setIsDragging(true)
+    setStartX(e.pageX)
+    setStartScrollLeft(scrollRef.current.scrollLeft)
+  }
+
+  const handleMouseMove = (e) => {
+    if (!isDragging || !scrollRef.current) return
+
+    e.preventDefault()
+
+    const walk = (e.pageX - startX) * 1.5
+    scrollRef.current.scrollLeft = startScrollLeft - walk
+  }
+
+  const stopDragging = () => {
+    setIsDragging(false)
+  }
+
 
   return (
     <section id="achievements">
@@ -118,7 +143,14 @@ export default function Achievements({ onOpenLightbox }) {
 
         <div className="section-label">Recognition &amp; Credentials</div>
         <h2 className="section-title">Achievements &amp; Qualifications</h2>
-        <div ref={scrollRef} className="achievements-grid">
+        <div
+          ref={scrollRef}
+          className="achievements-grid"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={stopDragging}
+          onMouseLeave={stopDragging}
+        >
           {achievements.map((ach, i) => (
             <div className="ach-card reveal" key={i}>
               <div className="ach-icon">{ach.icon}</div>
