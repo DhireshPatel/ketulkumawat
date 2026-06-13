@@ -2,31 +2,31 @@ const educationData = [
     {
         year: 'Pursuing',
         degree: 'Doctor of Philosophy (Ph.D.)',
-        pursuing: true,
+        // pursuing: true,
         field: 'Chemical Sciences',
         univ: 'Jai Narain Vyas University (JNVU), Jodhpur',
-        icon: '🎓',
+        // icon: '🎓',
     },
     {
         year: 'Completed',
         degree: 'Master of Science (M.Sc.)',
         field: 'Chemistry',
         univ: 'University of Kota, Kota',
-        icon: '🔬',
+        // icon: '🔬',
     },
     {
         year: 'Completed',
         degree: 'Bachelor of Education (B.Ed.)',
         field: 'Teacher Education — Multiple Levels',
         univ: 'University of Rajasthan, Jaipur',
-        icon: '📚',
+        // icon: '📚',
     },
     {
         year: 'Completed',
         degree: 'Bachelor of Science (B.Sc.)',
         field: 'Chemistry, Botany, Zoology (CBZ)',
         univ: 'University of Rajasthan, Jaipur',
-        icon: '🧪',
+        // icon: '🧪',
     },
 ]
 
@@ -50,7 +50,7 @@ export default function Education() {
                                 <div className="edu-field">{edu.field}</div>
                                 <div className="edu-univ">{edu.univ}</div>
                             </div>
-                            <div className="edu-icon">{edu.icon}</div>
+                            {/* <div className="edu-icon">{edu.icon}</div> */}
                         </div>
                     ))}
                 </div>

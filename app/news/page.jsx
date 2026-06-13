@@ -1,12 +1,15 @@
 "use client"
 import React, { useState } from "react";
 import Link from 'next/link';
+import { PiMedalDuotone } from "react-icons/pi";
+import { FaBookOpen } from "react-icons/fa";
+import { Fa3 } from "react-icons/fa6";
 
 const BEST_NEWS = [
   {
     id: 1,
     paper: "Hamara Samachar",
-    title: "Youngest scientist recognition — front page story",
+    title: "Young Scientist Award Winner from Kotputli",
     date: "January 2024",
     category: "youngest",
     image: "assets/news/news1.jpeg"
@@ -14,7 +17,7 @@ const BEST_NEWS = [
   {
     id: 2,
     paper: "Jan Jaagran Sandesh",
-    title: "Exclusive interview on research journey",
+    title: "Scientific writing receives global recognition",
     date: "January 2024",
     category: "Book",
     image: "assets/news/news2.jpeg"
@@ -22,7 +25,7 @@ const BEST_NEWS = [
   {
     id: 3,
     paper: "City Reporter",
-    title: "Rajasthan ka sabse yuva vaigyanik",
+    title: "Patent granted for innovative research",
     date: "January 2024",
     category: "patent",
     image: "assets/news/news4.jpeg"
@@ -30,7 +33,7 @@ const BEST_NEWS = [
   {
     id: 4,
     paper: "Hindustan Express",
-    title: "Research breakthrough covered nationally",
+    title: "Second patent builds national recognition",
     date: "March 2024",
     category: "patent",
     image: "assets/news/news3.jpeg"
@@ -38,7 +41,7 @@ const BEST_NEWS = [
   {
     id: 5,
     paper: "Tevar Times",
-    title: "Award ceremony feature story",
+    title: "Rising Star of Science",
     date: "February 2024",
     category: "youngest",
     image: "assets/news/news5.jpeg"
@@ -46,7 +49,8 @@ const BEST_NEWS = [
   {
     id: 6,
     paper: "Badhata Rajasthan",
-    title: "Science conference highlight",
+    // title: "Chemistry's Young Champion",
+    title: "Young Scientist's Book Goes Global",
     date: "April 2024",
     category: "Book",
     image: "assets/news/news6.jpeg"
@@ -57,7 +61,7 @@ const ALL_NEWS = [
   {
     id: 7,
     paper: "Patrika",
-    title: "Special report on innovation",
+    title: "Recognized for outstanding research excellence",
     date: "May 2024",
     category: "youngest",
     image: "assets/news/news7.jpeg"
@@ -73,7 +77,7 @@ const ALL_NEWS = [
   {
     id: 9,
     paper: "Jaipur Times",
-    title: "Young achiever profile",
+    title: "Science Excellence Recognized",
     date: "Feb 2024",
     category: "youngest",
     image: "assets/news/news9.jpeg"
@@ -81,7 +85,7 @@ const ALL_NEWS = [
   {
     id: 10,
     paper: "The Hindu",
-    title: "Academic excellence mention",
+    title: "Young Scientist Making Big Strides in Chemistry",
     date: "Jan 2024",
     category: "youngest",
     image: "assets/news/news10.jpeg"
@@ -89,7 +93,7 @@ const ALL_NEWS = [
   {
     id: 11,
     paper: "Patrika",
-    title: "Science award coverage",
+    title: "Excellence in chemical research recognized",
     date: "Jun 2024",
     category: "youngest",
     image: "assets/news/news11.jpeg"
@@ -97,7 +101,7 @@ const ALL_NEWS = [
   {
     id: 12,
     paper: "News Today",
-    title: "Regional pride story",
+    title: "Chemistry's Young Champion",
     date: "Apr 2024",
     category: "Book",
     image: "assets/news/news12.jpeg"
@@ -168,26 +172,26 @@ export default function NewsPage() {
 
       {/* Page header */}
       <header className="np-header">
-        <p className="np-header__label">Media coverage</p>
-        <h1 className="np-header__title">In the news</h1>
+        <p className="np-header__label">PRESS & MEDIA</p>
+        <h1 className="np-header__title">Where Science Meets the Headlines</h1>
         <p className="np-header__sub">
-          27 coverages across national &amp; regional publications
+          Covered by top national & regional media across India
         </p>
       </header>
 
       {/* Stats */}
       <div className="np-stats">
         <div className="np-stat">
-          <div className="np-stat__number">12+</div>
-          <div className="np-stat__label">Total coverages</div>
+          <div className="np-stat__number"><PiMedalDuotone /></div>
+          <div className="np-stat__label">Youngest Scientist Award</div>
         </div>
         <div className="np-stat">
-          <div className="np-stat__number">7+</div>
-          <div className="np-stat__label">Youngest scientist</div>
+          <div className="np-stat__number"><FaBookOpen /> </div>
+          <div className="np-stat__label">International Book Recognition</div>
         </div>
         <div className="np-stat">
-          <div className="np-stat__number">3</div>
-          <div className="np-stat__label">PATENT HOLDING</div>
+          <div className="np-stat__number"><Fa3 /> </div>
+          <div className="np-stat__label">PATENTS GRANTED</div>
         </div>
       </div>
 
@@ -237,7 +241,7 @@ export default function NewsPage() {
       {filteredBest.length > 0 && (
         <section className="sectionOfNews">
           <div className="np-section-head">
-            <h2 className="np-section-head__title">Best coverages</h2>
+            <h2 className="np-section-head__title">Top Media Moment</h2>
             <span className="np-section-head__count">{filteredBest.length} selected</span>
           </div>
           <div className="np-best-grid">
@@ -279,7 +283,7 @@ export default function NewsPage() {
       {filteredAll.length > 0 && (
         <section className="sectionOfNews">
           <div className="np-section-head">
-            <h2 className="np-section-head__title">All other coverages</h2>
+            <h2 className="np-section-head__title">More Media Moments</h2>
             <span className="np-section-head__count">{filteredAll.length} more</span>
           </div>
           <div className="np-all-grid">

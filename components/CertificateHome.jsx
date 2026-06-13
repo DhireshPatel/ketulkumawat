@@ -6,25 +6,25 @@ import ViewAllButton from './ViewAllButton'
 const certificates = [
   {
     image: '/assets/certificates/cer-images/cer1.png',
-    name: 'DST INSPIRE Fellowship',
-    year: '2013',
-    issuer: 'Dept. of Science & Technology, Govt. of India',
+    name: 'Research Problem Formulation Webinar',
+    year: '18 December 2021',
+    issuer: 'Research Graduate',
     category: 'fellowship',
     file: 'assets/certificates/cer-pdf/cer1.pdf'
   },
   {
     image: 'assets/certificates/cer-images/cer2.png',
-    name: 'DST INSPIRE Fellowship',
-    year: '2013',
-    issuer: 'Dept. of Science & Technology, Govt. of India',
+    name: 'National Voters Day Participation',
+    year: '19 January 2022',
+    issuer: 'Bell IHMCT',
     category: 'fellowship',
     file: 'assets/certificates/cer-pdf/cer2.pdf'
   },
   {
     image: 'assets/certificates/cer-images/cer3.png',
-    name: 'DST INSPIRE Fellowship',
-    year: '2013',
-    issuer: 'Dept. of Science & Technology, Govt. of India',
+    name: 'Emerging Innovations in Biotechnology',
+    year: '22 December 2021',
+    issuer: 'MS University',
     category: 'fellowship',
     file: 'assets/certificates/cer-pdf/cer3.pdf'
   },
@@ -83,7 +83,7 @@ export default function CertificateHome() {
               <div className="cert-issuer">{cert.issuer}</div>
               <div className="cert-year">{cert.year}</div>
               <div className="cert-actions">
-                <a href={cert.file} target="_blank" className="cert-view" rel="noopener"> View Certificates</a>
+                <a href={cert.file} target="_blank" className="cert-view" rel="noopener"> View Certificate</a>
                 {/* <a href={cert.file} download className="cert-dl">⬇ Download</a> */}
               </div>
             </div>

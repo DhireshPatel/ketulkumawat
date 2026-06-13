@@ -8,64 +8,65 @@ import { FaChevronUp } from "react-icons/fa";
 const certificates = [
   {
     image: '/assets/certificates/cer-images/cer1.png',
-    name: 'DST INSPIRE Fellowship',
+    name: '[Name of certificate]',
     year: '2013',
-    issuer: 'Dept. of Science & Technology, Govt. of India',
+    issuer: '[issuer name]',
     category: 'fellowship',
     file: 'assets/certificates/cer-pdf/cer1.pdf'
   },
   {
     image: 'assets/certificates/cer-images/cer2.png',
-    name: 'CSIR NET JRF Certificate',
+    name: '[Name of certificate]',
     year: '2017',
-    issuer: 'Council of Scientific & Industrial Research',
+    issuer: '[issuer name]',
     category: 'fellowship',
     file: 'assets/certificates/cer-pdf/cer2.pdf'
   },
   {
     image: '/assets/certificates/cer-images/cer3.png',
-    name: 'CSIR NET SRF Certificate',
+    name: '[Name of certificate]',
     year: '2019',
-    issuer: 'Council of Scientific & Industrial Research',
+    issuer: '[issuer name]',
     category: 'fellowship',
     file: 'assets/certificates/cer-pdf/cer3.pdf'
   },
   {
     image: '/assets/certificates/cer-images/cer4.png',
-    name: 'GATE Chemistry',
+    name: '[Name of certificate]',
     year: '2016',
-    issuer: 'IIT / IISC — Graduate Aptitude Test',
+    issuer: '[issuer name]',
     category: 'exam',
     file: 'assets/certificates/cer-pdf/cer4.pdf'
   },
   {
     image: '/assets/certificates/cer-images/cer5.png',
-    name: 'CGSET Certificate',
+    name: '[Name of certificate]',
     year: '2020',
-    issuer: 'Chhattisgarh State Eligibility Test',
+    issuer: '[issuer name]',
     category: 'exam',
     file: 'assets/certificates/cer-pdf/cer5.pdf'
   },
   {
     image: '/assets/certificates/cer-images/cer6.png',
-    name: 'Young Scientist Award — ICS',
+    name: '[Name of certificate]',
     year: '2025',
-    issuer: 'Indian Chemical Society',
+    issuer: '[issuer name]',
     category: 'award',
     file: 'assets/certificates/cer-pdf/cer6.pdf'
   },
   {
     image: '/assets/certificates/cer-images/cer7.png',
-    name: 'Patent Certificate',
-    year: '2023', issuer: 'Indian Patent Office',
+    name: '[Name of certificate]',
+    year: '2023',
+    issuer: '[issuer name]',
     category: 'award',
     file: 'assets/certificates/cer-pdf/cer7.pdf'
   },
   {
     image: '/assets/certificates/cer-images/cer8.png',
-    name: 'Workshop on Advanced Spectroscopy',
+    name: '[Name of certificate]',
     year: '2022',
-    issuer: 'IIT / National Institute',
+    issuer: '[issuer name]',
     category: 'workshop',
     file: 'assets/certificates/cer-pdf/cer8.pdf'
   },
@@ -92,19 +93,19 @@ export default function Certificates() {
 
   const certificateGroups = [
     {
-      title: 'Fellowships',
+      title: 'Name of Category 1',
       key: 'fellowship',
     },
     {
-      title: 'Competitive Exams',
+      title: 'Name of Category 2',
       key: 'exam',
     },
     {
-      title: 'Awards & Recognition',
+      title: 'Name of Category 3',
       key: 'award',
     },
     {
-      title: 'Workshops & Training',
+      title: 'Name of Category 4',
       key: 'workshop',
     },
   ]
@@ -117,7 +118,7 @@ export default function Certificates() {
       {/* <Navbar /> */}
       {/* Breadcrumb */}
       <nav className="np-breadcrumb" aria-label="Breadcrumb">
-        <a href="/#certificates">Home</a>
+        <Link href="/#certificates">Home</Link>
         {/* <span className="np-breadcrumb__sep" aria-hidden="true">›</span> */}
         <span className="np-breadcrumb__current">Certificates</span>
       </nav>
@@ -168,7 +169,8 @@ export default function Certificates() {
                     }}
                   >
                     <span>
-                      {group.title} ({groupCertificates.length})
+                      {group.title}  
+                      {/* ({groupCertificates.length}) */}
                     </span>
 
                     <span>
