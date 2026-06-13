@@ -3,21 +3,105 @@ import React, { useState } from "react";
 import Link from 'next/link';
 
 const BEST_NEWS = [
-  { id: 1, paper: "Times of India", title: "Youngest scientist recognition — front page story", date: "January 2024", category: "youngest", image: "assets/news/news1.jpeg" },
-  { id: 2, paper: "Dainik Bhaskar", title: "Exclusive interview on research journey", date: "January 2024", category: "", image: "assets/news/news2.jpeg" },
-  { id: 3, paper: "Rajasthan Patrika", title: "Rajasthan ka sabse yuva vaigyanik", date: "January 2024", category: "patent", image: "assets/news/news4.jpeg" },
-  { id: 4, paper: "Hindustan Times", title: "Research breakthrough covered nationally", date: "March 2024", category: "patent", image: "assets/news/news3.jpeg" },
-  { id: 5, paper: "Navbharat Times", title: "Award ceremony feature story", date: "February 2024", category: "youngest", image: "assets/news/news5.jpeg" },
-  { id: 6, paper: "Amar Ujala", title: "Science conference highlight", date: "April 2024", category: "Book", image: "assets/news/news6.jpeg" },
+  {
+    id: 1,
+    paper: "Hamara Samachar",
+    title: "Youngest scientist recognition — front page story",
+    date: "January 2024",
+    category: "youngest",
+    image: "assets/news/news1.jpeg"
+  },
+  {
+    id: 2,
+    paper: "Jan Jaagran Sandesh",
+    title: "Exclusive interview on research journey",
+    date: "January 2024",
+    category: "Book",
+    image: "assets/news/news2.jpeg"
+  },
+  {
+    id: 3,
+    paper: "City Reporter",
+    title: "Rajasthan ka sabse yuva vaigyanik",
+    date: "January 2024",
+    category: "patent",
+    image: "assets/news/news4.jpeg"
+  },
+  {
+    id: 4,
+    paper: "Hindustan Express",
+    title: "Research breakthrough covered nationally",
+    date: "March 2024",
+    category: "patent",
+    image: "assets/news/news3.jpeg"
+  },
+  {
+    id: 5,
+    paper: "Tevar Times",
+    title: "Award ceremony feature story",
+    date: "February 2024",
+    category: "youngest",
+    image: "assets/news/news5.jpeg"
+  },
+  {
+    id: 6,
+    paper: "Badhata Rajasthan",
+    title: "Science conference highlight",
+    date: "April 2024",
+    category: "Book",
+    image: "assets/news/news6.jpeg"
+  },
 ];
 
 const ALL_NEWS = [
-  { id: 7, paper: "Patrika", title: "Special report on innovation", date: "May 2024", category: "youngest", image: "assets/news/news7.jpeg" },
-  { id: 8, paper: "Jan Satta", title: "Rising star in science", date: "Mar 2024", category: "youngest", image: "assets/news/news8.jpeg" },
-  { id: 9, paper: "Divya Bhaskar", title: "Young achiever profile", date: "Feb 2024", category: "youngest", image: "assets/news/news9.jpeg" },
-  { id: 10, paper: "The Hindu", title: "Academic excellence mention", date: "Jan 2024", category: "youngest", image: "assets/news/news10.jpeg" },
-  { id: 11, paper: "Tribune", title: "Science award coverage", date: "Jun 2024", category: "youngest", image: "assets/news/news11.jpeg" },
-  { id: 12, paper: "Lokmat", title: "Regional pride story", date: "Apr 2024", category: "Book", image: "assets/news/news12.jpeg" },
+  {
+    id: 7,
+    paper: "Patrika",
+    title: "Special report on innovation",
+    date: "May 2024",
+    category: "youngest",
+    image: "assets/news/news7.jpeg"
+  },
+  {
+    id: 8,
+    paper: "Dainik Bhaskar",
+    title: "Rising star in science",
+    date: "Mar 2024",
+    category: "youngest",
+    image: "assets/news/news8.jpeg"
+  },
+  {
+    id: 9,
+    paper: "Jaipur Times",
+    title: "Young achiever profile",
+    date: "Feb 2024",
+    category: "youngest",
+    image: "assets/news/news9.jpeg"
+  },
+  {
+    id: 10,
+    paper: "The Hindu",
+    title: "Academic excellence mention",
+    date: "Jan 2024",
+    category: "youngest",
+    image: "assets/news/news10.jpeg"
+  },
+  {
+    id: 11,
+    paper: "Patrika",
+    title: "Science award coverage",
+    date: "Jun 2024",
+    category: "youngest",
+    image: "assets/news/news11.jpeg"
+  },
+  {
+    id: 12,
+    paper: "News Today",
+    title: "Regional pride story",
+    date: "Apr 2024",
+    category: "Book",
+    image: "assets/news/news12.jpeg"
+  },
 
 ];
 
@@ -30,9 +114,12 @@ const FILTERS = [
 
 /* category → badge class */
 const BADGE = {
-  youngest: "np-badge np-badge--gold",
-  research: "np-badge np-badge--green",
+  // youngest: "np-badge np-badge--gold",
+  // research: "np-badge np-badge--green",
+  youngest: "np-badge np-badge--brown",
+  research: "np-badge np-badge--brown",
   patent: "np-badge np-badge--brown",
+  Book: "np-badge np-badge--brown"
 };
 
 export default function NewsPage() {

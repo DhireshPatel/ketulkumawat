@@ -1,12 +1,21 @@
+import { MdOutlineScience } from "react-icons/md";
+import { FaFlaskVial } from "react-icons/fa6";
+import { TbMicroscopeFilled } from "react-icons/tb";
+import { GiGraduateCap } from "react-icons/gi";
+import { IoStar } from "react-icons/io5";
+import { GiCheckMark } from "react-icons/gi";
+import { PiTestTubeDuotone } from "react-icons/pi";
+import { FaBookOpen } from "react-icons/fa";
+
 const teachingItems = [
-    { icon: '🏥', label: 'NEET Faculty' },
-    { icon: '📊', label: 'JEE Faculty' },
-    { icon: '🔬', label: 'CSIR NET / JRF / SRF' },
-    { icon: '📐', label: 'GATE Chemistry' },
-    { icon: '🎓', label: 'CGSET Coaching' },
-    { icon: '⭐', label: 'DST INSPIRE Mentoring' },
-    { icon: '🧪', label: 'Chemical Sciences Research' },
-    { icon: '📖', label: 'Published Author' },
+    { icon: <MdOutlineScience />, label: 'NEET Faculty' },
+    { icon: <FaFlaskVial />, label: 'JEE Faculty' },
+    { icon: <TbMicroscopeFilled />, label: 'CSIR NET / JRF / SRF' },
+    { icon: <GiGraduateCap />, label: 'GATE Chemistry' },
+    { icon: <GiCheckMark />, label: 'CGSET Coaching' },
+    { icon: <IoStar />, label: 'DST INSPIRE Mentoring' },
+    { icon: <PiTestTubeDuotone />, label: 'Chemical Sciences Research' },
+    { icon: <FaBookOpen />, label: 'Published Author' },
 ]
 
 export default function Teaching() {

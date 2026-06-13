@@ -4,7 +4,7 @@ import Link from "next/link";
 const styles = `
   .view-all-wrapper {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     padding: 2rem 1rem;
   }
 

@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import ViewAllButton from './ViewAllButton'
 
 const certificates = [
   {
@@ -88,9 +89,12 @@ export default function CertificateHome() {
             </div>
           ))}
         </div>
-        <button>
-          <Link href="/certificates">View all</Link>
-        </button>
+
+        {/* <Link href="/certificates">View all</Link> */}
+        <ViewAllButton 
+        href='/certificates'
+        />
+
 
 
         {/* <div className="cert-download-all">
