@@ -31,6 +31,184 @@ const certificates = [
     file: 'assets/certificates/cer-pdf/cer3.pdf'
   },
   {
+    image: '/assets/certificates/cer-images/cer5.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer5.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer6.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer6.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer7.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer7.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer8.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer8.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer9.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer9.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer10.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer10.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer11.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer11.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer12.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer12.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer13.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer13.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer15.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer15.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer16.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer16.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer17.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer17.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer19.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer19.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer20.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer20.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer21.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer21.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer23.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer23.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer24.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer24.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer25.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer25.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer26.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer26.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer27.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer27.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer28.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer28.pdf'
+  },
+  {
+    image: '/assets/certificates/cer-images/cer29.png',
+    name: '[Name of certificate]',
+    year: '2019',
+    issuer: '[issuer name]',
+    category: 'fellowship',
+    file: 'assets/certificates/cer-pdf/cer29.pdf'
+  },
+
+
+  {
     image: '/assets/certificates/cer-images/cer4.png',
     name: '[Name of certificate]',
     year: '2016',
@@ -39,28 +217,29 @@ const certificates = [
     file: 'assets/certificates/cer-pdf/cer4.pdf'
   },
   {
-    image: '/assets/certificates/cer-images/cer5.png',
+    image: '/assets/certificates/cer-images/cer4.png',
     name: '[Name of certificate]',
     year: '2020',
     issuer: '[issuer name]',
     category: 'exam',
-    file: 'assets/certificates/cer-pdf/cer5.pdf'
+    file: 'assets/certificates/cer-pdf/cer14.pdf'
   },
+
   {
     image: '/assets/certificates/cer-images/cer6.png',
     name: '[Name of certificate]',
     year: '2025',
     issuer: '[issuer name]',
     category: 'award',
-    file: 'assets/certificates/cer-pdf/cer6.pdf'
+    file: 'assets/certificates/cer-pdf/cer18.pdf'
   },
   {
-    image: '/assets/certificates/cer-images/cer7.png',
+    image: '/assets/certificates/cer-images/cer22.png',
     name: '[Name of certificate]',
     year: '2023',
     issuer: '[issuer name]',
     category: 'award',
-    file: 'assets/certificates/cer-pdf/cer7.pdf'
+    file: 'assets/certificates/cer-pdf/cer22.pdf'
   },
   {
     image: '/assets/certificates/cer-images/cer8.png',
@@ -68,7 +247,7 @@ const certificates = [
     year: '2022',
     issuer: '[issuer name]',
     category: 'workshop',
-    file: 'assets/certificates/cer-pdf/cer8.pdf'
+    file: 'assets/certificates/cer-pdf/cer30.pdf'
   },
 ]
 
@@ -169,7 +348,7 @@ export default function Certificates() {
                     }}
                   >
                     <span>
-                      {group.title}  
+                      {group.title}
                       {/* ({groupCertificates.length}) */}
                     </span>
 
