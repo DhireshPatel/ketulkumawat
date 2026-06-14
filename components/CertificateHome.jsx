@@ -80,8 +80,8 @@ export default function CertificateHome() {
                 />
               </div>
               <div className="cert-name">{cert.name}</div>
-              <div className="cert-issuer">{cert.issuer}</div>
               <div className="cert-year">{cert.year}</div>
+              <div className="cert-issuer">{cert.issuer}</div>
               <div className="cert-actions">
                 <a href={cert.file} target="_blank" className="cert-view" rel="noopener"> View Certificate</a>
                 {/* <a href={cert.file} download className="cert-dl">⬇ Download</a> */}

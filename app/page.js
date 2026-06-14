@@ -2,7 +2,7 @@
 import Achievements from "@/components/Achievements";
 import Book from "@/components/Book";
 import CertificateHome from "@/components/CertificateHome";
-import Certificates from "@/components/Certificates";
+// import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
 import Education from "@/components/Education";
 import Footer from "@/components/Footer";
@@ -47,7 +47,6 @@ export default function Home() {
       <Gallery onOpenLightbox={openLightbox} />
       <News onOpenLightbox={openLightbox} />
       <Education />
-      {/* <Certificates /> */}
       <CertificateHome />
       <Teaching />
       <Contact />
