@@ -56,6 +56,34 @@ export default function Book() {
           </div>
         </div>
       </div>
+
+      <section className="featured-paper">
+        <div className="paper-card">
+
+          <div className="paper-right">
+            <span className="paper-tag">
+              RESEARCH PUBLICATION
+            </span>
+
+            <h3 className="paper-title">
+              Oxidation of Aliphatic Primary Alcohols
+            </h3>
+
+            <p className="paper-journal">
+              Journal of Applicable Chemistry • 2025
+            </p>
+
+            <a
+              href="assets/applicable.pdf"
+              target="_blank"
+              className="paper-btn"
+            >
+              View Paper
+            </a>
+          </div>
+
+        </div>
+      </section>
     </section>
   )
 }

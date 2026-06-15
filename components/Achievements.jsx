@@ -187,7 +187,7 @@ export default function Achievements({ onOpenLightbox }) {
 
       <div className="featured-letter reveal">
         <div className="featured-letter-content">
-          <span className="featured-tag">Official Recognition</span>
+          <span className="featured-tag">AICTE INVITATION</span>
 
           <h3>AICTE IIC Regional Meet Invitation 2025</h3>
 
