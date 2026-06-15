@@ -174,7 +174,7 @@ export default function NewsPage() {
       {/* Page header */}
       <header className="np-header">
 
-        <Link href="/">
+        <Link href="/#news">
           <button className='Back-btn' title='Back to Home'>
             <IoIosArrowBack className='back-arrow' />
           </button>

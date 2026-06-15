@@ -302,7 +302,7 @@ export default function Certificates() {
         </Link>
         <span className="np-breadcrumb__current">Certificates</span>
       </nav> */}
-      <Link href="/">
+      <Link href="/#certificates">
         <button className='Back-btn' title='Back to Home'>
           <IoIosArrowBack className='back-arrow' />
         </button>

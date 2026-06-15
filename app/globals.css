@@ -534,7 +534,7 @@ section {
   z-index: 9999;
 }
 
-.back-arrow{
+.back-arrow {
   font-size: large;
 }
 
@@ -2641,4 +2641,23 @@ footer {
   .np-all-grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+.thesis-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+}
+
+.thesis-btn:hover {
+  transform: translateY(-2px);
 }

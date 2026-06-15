@@ -5,6 +5,7 @@ const educationData = [
         // pursuing: true,
         field: 'Chemical Sciences',
         univ: 'Jai Narain Vyas University (JNVU), Jodhpur',
+        thesisImage: 'assets/photos/PhdThesis.jpeg', // image path
         // icon: '🎓',
     },
     {
@@ -49,6 +50,16 @@ export default function Education() {
                                 </div>
                                 <div className="edu-field">{edu.field}</div>
                                 <div className="edu-univ">{edu.univ}</div>
+                                {edu.thesisImage && (
+                                    <a
+                                        href={edu.thesisImage}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="thesis-btn"
+                                    >
+                                        View Thesis
+                                    </a>
+                                )}
                             </div>
                             {/* <div className="edu-icon">{edu.icon}</div> */}
                         </div>
