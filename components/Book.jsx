@@ -44,13 +44,13 @@ export default function Book() {
             </div>
             <div className="book-links">
               <a href="https://www.amazon.in/dp/1968436030" target="_blank" rel="noopener" className="book-buy amazon">
-                 Buy on Amazon
+                Buy on Amazon
               </a>
               <a href="https://dl.flipkart.com/dl/molecular-insights-spectroscopic-tools-kinetic-reaction-studies/p/itm2ae9ce5330e60?pid=9781968436032&lid=LSTBOK9781968436032HVV2WL&marketplace=FLIPKART&hl_lid=&q=molecular+insights+spectroscopic+tools+for+kinetic+reaction+studies&store=bks&ctx=eyJkZWxpdmVyZWRCeSI6IiIsImRpc3BsYXlQcmljZSI6IjY4OSJ9&fm=eyJ3dHAiOiJwcm9kdWN0Q2FyZExpc3QiLCJwcnB0Ijoic3AiLCJtaWQiOiJQUk9EVUNUIn0&_refId=&_appId=CL" target="_blank" rel="noopener" className="book-buy flipkart">
                 Buy on Flipkart
               </a>
               <a href="https://store.pothi.com/book/mr-ketul-kumawat-molecular-insights-spectroscopic-tools-kinetic-reaction-studies/" target="_blank" rel="noopener" className="book-buy pothi">
-                Buy on Pothi.com
+                Pothi.com
               </a>
             </div>
           </div>

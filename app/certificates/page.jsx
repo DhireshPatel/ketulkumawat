@@ -297,21 +297,22 @@ export default function Certificates() {
 
       {/* <Navbar /> */}
       {/* <nav className="np-breadcrumb" aria-label="Breadcrumb">
-        <Link href="/#certificates">Home</Link>
+        <Link href="/#certificates">
+          <IoIosArrowBack className='back-arrow' />
+        </Link>
         <span className="np-breadcrumb__current">Certificates</span>
       </nav> */}
+      <Link href="/">
+        <button className='Back-btn' title='Back to Home'>
+          <IoIosArrowBack className='back-arrow' />
+        </button>
+      </Link>
 
-
-      <section className='certificates' id="certificates" style={{ background: 'var(--section-bg)' }}>
-
+      <section id="certificates" style={{ background: 'var(--section-bg)' }}>
         <div className="section-inner">
-
-          <Link href="/#certificates">
-            <button className='Back-btn'>
-              <IoIosArrowBack className='back-arrow'/>
-            </button>
-          </Link>
-
+          {/* <button className='Back-btn'>
+            <Link href="/#certificates">BACK</Link>
+          </button> */}
           <div className="section-label">Credentials &amp; Certifications</div>
           <h2 className="section-title">Professional Credentials</h2>
           <p className="section-sub">A curated collection of certifications, workshops, and research activities that reflect academic excellence, continuous learning, and professional growth.</p>

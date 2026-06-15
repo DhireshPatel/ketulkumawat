@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { PiMedalDuotone } from "react-icons/pi";
 import { FaBookOpen } from "react-icons/fa";
 import { Fa3 } from "react-icons/fa6";
+import { IoIosArrowBack } from "react-icons/io";
 
 const BEST_NEWS = [
   {
@@ -164,14 +165,21 @@ export default function NewsPage() {
     <main className="news-page">
 
       {/* Breadcrumb */}
-      <nav className="np-breadcrumb" aria-label="Breadcrumb">
+      {/* <nav className="np-breadcrumb" aria-label="Breadcrumb">
         <Link href="/">Home</Link>
         <span className="np-breadcrumb__sep" aria-hidden="true">›</span>
         <span className="np-breadcrumb__current">In the news</span>
-      </nav>
+      </nav> */}
 
       {/* Page header */}
       <header className="np-header">
+
+        <Link href="/">
+          <button className='Back-btn' title='Back to Home'>
+            <IoIosArrowBack className='back-arrow' />
+          </button>
+        </Link>
+
         <p className="np-header__label">PRESS & MEDIA</p>
         <h1 className="np-header__title">Where Science Meets the Headlines</h1>
         <p className="np-header__sub">
