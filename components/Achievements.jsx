@@ -181,6 +181,36 @@ export default function Achievements({ onOpenLightbox }) {
         <div className="ach-scroll-hint">
           ← Swipe to View More →
         </div>
+
+      </div>
+
+
+      <div className="featured-letter reveal">
+        <div className="featured-letter-content">
+          <span className="featured-tag">Official Recognition</span>
+
+          <h3>AICTE IIC Regional Meet Invitation 2025</h3>
+
+          <p>
+            Official invitation issued by AICTE for participation in the
+            IIC Regional Meet 2025, recognizing involvement in innovation,
+            entrepreneurship, and academic activities.
+          </p>
+
+          <div className="featured-meta">
+            <span>Issued by AICTE</span>
+            <span>14 Nov 2025</span>
+          </div>
+
+          <a
+            href="assets/invitation.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="featured-btn"
+          >
+            View Letter
+          </a>
+        </div>
       </div>
 
     </section>

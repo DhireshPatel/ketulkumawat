@@ -3,7 +3,7 @@
 const galleryItems = [
   { src: 'assets/photos/gallery1.jpeg', caption: 'Award Ceremony' },
   { src: 'assets/photos/gallery2.jpeg', caption: 'Research Lab' },
-  // { src: 'assets/photos/PhdThesis.jpeg', caption: 'Conference' },
+  { src: 'assets/photos/PrAnimesh.jpeg', caption: 'Conference' },
   // { src: 'assets/photos/gallery-4.jpg', caption: 'Teaching' },
   // { src: 'assets/photos/gallery-5.jpg', caption: 'ICS 2025' },
   // { src: 'assets/photos/gallery-6.jpg', caption: 'Patent Award' },

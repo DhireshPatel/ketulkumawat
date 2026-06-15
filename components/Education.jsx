@@ -31,7 +31,7 @@ const educationData = [
     },
 ]
 
-export default function Education() {
+export default function Education({ onOpenLightbox }) {
     return (
         <section id="education">
             <div className="section-inner">
@@ -51,14 +51,12 @@ export default function Education() {
                                 <div className="edu-field">{edu.field}</div>
                                 <div className="edu-univ">{edu.univ}</div>
                                 {edu.thesisImage && (
-                                    <a
-                                        href={edu.thesisImage}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <button
                                         className="thesis-btn"
+                                        onClick={() => onOpenLightbox('/assets/photos/PhdThesis.jpeg')}
                                     >
                                         View Thesis
-                                    </a>
+                                    </button>
                                 )}
                             </div>
                             {/* <div className="edu-icon">{edu.icon}</div> */}

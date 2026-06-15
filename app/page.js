@@ -18,6 +18,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [lightboxSrc, setLightboxSrc] = useState(null)
+  // const [lightboxImage, setLightboxImage] = useState(null)
 
   const [currentPage, setCurrentPage] = useState("home");
 
@@ -37,6 +38,16 @@ export default function Home() {
   const closeLightbox = () => {
     setLightboxSrc(null)
   }
+
+
+
+  // const openLightbox = (src) => {
+  //   setLightboxImage(src)
+  // }
+
+  // const closeLightbox = () => {
+  //   setLightboxImage(null)
+  // }
   return (
     <>
       <ScrollReveal />
@@ -46,7 +57,7 @@ export default function Home() {
       <Book />
       <Gallery onOpenLightbox={openLightbox} />
       <News onOpenLightbox={openLightbox} />
-      <Education />
+      <Education onOpenLightbox={openLightbox} />
       <CertificateHome />
       <Teaching />
       <Contact />

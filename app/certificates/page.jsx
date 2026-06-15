@@ -242,14 +242,14 @@ const certificates = [
     category: 'award',
     file: 'assets/certificates/cer-pdf/cer22.pdf'
   },
-  // {
-  //   image: '/assets/certificates/cer-images/cer30.png',
-  //   name: '[Name of certificate]',
-  //   year: '2022',
-  //   issuer: '[issuer name]',
-  //   category: 'workshop',
-  //   file: 'assets/certificates/cer-pdf/cer30.pdf'
-  // },
+  {
+    image: '/assets/certificates/cer-images/cer31.png',
+    name: '[Name of certificate]',
+    year: '2022',
+    issuer: '[issuer name]',
+    category: 'workshop',
+    file: 'assets/certificates/cer-pdf/cer31.pdf'
+  },
 ]
 
 // const filters = [
