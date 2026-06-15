@@ -17,9 +17,9 @@ export default function Gallery({ onOpenLightbox }) {
   return (
     <section id="gallery">
       <div className="section-inner">
-        <div className="section-label">Moments &amp; Memories</div>
-        <h2 className="section-title">Photo Gallery</h2>
-        <p className="section-sub">Showcasing milestones of research excellence, academic achievements, and professional recognition.</p>
+        <div className="section-label">ACADEMIC MOMENTS & MILESTONES</div>
+        <h2 className="section-title">Journey in Frames</h2>
+        <p className="section-sub">A collection of memorable moments highlighting academic achievements, research milestones, and professional recognition.</p>
 
         <div className="gallery-grid">
           {galleryItems.map((item, i) => (
@@ -42,7 +42,7 @@ export default function Gallery({ onOpenLightbox }) {
         </div>
 
         <p className="gallery-note">
-          Glimpses of achievement and recognition — celebrating the journey of research, dedication, and impact.
+          Highlights from a journey of research, academic excellence, and professional achievements.
         </p>
       </div>
     </section>

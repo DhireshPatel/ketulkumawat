@@ -6,21 +6,21 @@ const newsItems = [
   {
     img: 'assets/news/news1.jpeg',
     // source: '📰 [Newspaper Name] · [Date]',
-    caption: 'Young scientist from Rajasthan achieves remarkable milestone in chemical research',
+    caption: 'Young Scientist from Rajasthan Receives Prestigious Recognition for Chemical Research',
     placeholder: 'News Photo 1',
     placeholderNote: 'Place news-1.jpg in assets/news/',
   },
   {
     img: 'assets/news/news2.jpeg',
     // source: '📰 [Newspaper Name] · [Date]',
-    caption: 'Young Scientist Award conferred at ICS 2025 annual convention',
+    caption: 'Book publication by Dr. Ketul Kumawat and Dr. O. P. Bishnoi celebrated by the scientific community.',
     placeholder: 'News Photo 2',
     placeholderNote: 'Place news-2.jpg in assets/news/',
   },
   {
     img: 'assets/news/news4.jpeg',
     // source: '📰 [Newspaper Name] · [Date]',
-    caption: 'Patent holder and DST INSPIRE fellow makes Rajasthan proud',
+    caption: 'Dr. Ketul Kumawat awarded a patent for his research innovation, bringing pride to Rajasthan.',
     placeholder: 'News Photo 3',
     placeholderNote: 'Place news-3.jpg in assets/news/',
   },
@@ -44,7 +44,7 @@ function NewsCard({ item, onOpenLightbox }) {
       <div className="news-card-body">
         <div className="news-source">{item.source}</div>
         <p className="news-caption">{item.caption}</p>
-        <span className="news-view-btn">View Full Image </span>
+        <span className="news-view-btn">View Article →</span>
       </div>
     </div>
   )
@@ -55,8 +55,8 @@ export default function News({ onOpenLightbox }) {
     <section id="news" style={{ background: 'var(--section-bg)' }}>
       <div className="section-inner">
         <div className="section-label">Media Coverage</div>
-        <h2 className="section-title">In the News</h2>
-        <p className="section-sub">Newspaper features and media coverage highlighting remarkable achievements.</p>
+        <h2 className="section-title">Media Highlights</h2>
+        <p className="section-sub">A collection of newspaper features and media recognitions showcasing research excellence, awards, patents, and impactful scientific contributions.</p>
 
         <div className="news-grid">
           {newsItems.map((item, i) => (

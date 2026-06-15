@@ -8,8 +8,8 @@ export default function Book() {
   return (
     <section id="book" style={{ background: 'var(--section-bg)' }}>
       <div className="section-inner">
-        <div className="section-label">Authored Work</div>
-        <h2 className="section-title">Published Book</h2>
+        <div className="section-label">AUTHORED PUBLICATION</div>
+        <h2 className="section-title">Featured Book</h2>
         <div className="book-block">
           <div className="book-cover-wrap reveal">
             <div className="book-3d">
@@ -30,15 +30,15 @@ export default function Book() {
           </div>
           <div className="book-info reveal">
             <div className="book-badge"> Available on Major Platforms</div>
-            <h3 className="book-title">Applied Chemistry in Modern Research</h3>
-            <p className="book-subtitle">A Comprehensive Guide for Students &amp; Researchers</p>
+            <h3 className="book-title">MOLECULAR &nbsp;INSIGHTS</h3>
+            <p className="book-subtitle">Spectroscopic Tools for Kinetic Reaction Studies</p>
             <p className="book-author">by <strong>Dr. Ketul Kumawat</strong></p>
             <p className="book-desc">
-              This book bridges fundamental chemical principles with modern research methodologies. Written for undergraduate, postgraduate students and competitive examination aspirants, it covers core topics in physical, organic, and inorganic chemistry with practical insights from the author&apos;s own research experience. An essential companion for CSIR-NET, GATE, and PhD aspirants.
+              A valuable contribution to molecular science, offering clear insights into advanced molecular research and practical applications for students, researchers, and chemistry enthusiasts.
             </p>
             <div className="book-meta">
               <span className="book-meta-item">ISBN: 978-1-968436-03-2</span>
-              <span className="book-meta-item">Publisher: Dr. KETUL KUMAWAT</span>
+              <span className="book-meta-item">Author: Dr. Ketul Kumawat</span>
               {/* <span className="book-meta-item">Year: 2024</span> */}
               <span className="book-meta-item">Pages: 352</span>
             </div>

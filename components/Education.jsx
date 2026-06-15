@@ -17,14 +17,14 @@ const educationData = [
     {
         year: 'Completed',
         degree: 'Bachelor of Education (B.Ed.)',
-        field: 'Teacher Education — Multiple Levels',
+        field: 'Education',
         univ: 'University of Rajasthan, Jaipur',
         // icon: '📚',
     },
     {
         year: 'Completed',
         degree: 'Bachelor of Science (B.Sc.)',
-        field: 'Chemistry, Botany, Zoology (CBZ)',
+        field: 'Chemistry, Botany & Zoology (CBZ)',
         univ: 'University of Rajasthan, Jaipur',
         // icon: '🧪',
     },

@@ -1,6 +1,7 @@
 'use client'
 import Navbar from '@/components/Navbar'
 import Link from 'next/link'
+import { IoIosArrowBack } from "react-icons/io";
 // import { useState } from 'react'
 // import { FaAngleDown } from "react-icons/fa6";
 // import { FaChevronUp } from "react-icons/fa";
@@ -295,20 +296,25 @@ export default function Certificates() {
     <>
 
       {/* <Navbar /> */}
-      <nav className="np-breadcrumb" aria-label="Breadcrumb">
+      {/* <nav className="np-breadcrumb" aria-label="Breadcrumb">
         <Link href="/#certificates">Home</Link>
-        {/* <span className="np-breadcrumb__sep" aria-hidden="true">›</span> */}
         <span className="np-breadcrumb__current">Certificates</span>
-      </nav>
+      </nav> */}
 
-      <section id="certificates" style={{ background: 'var(--section-bg)' }}>
+
+      <section className='certificates' id="certificates" style={{ background: 'var(--section-bg)' }}>
+
         <div className="section-inner">
-          {/* <button className='Back-btn'>
-            <Link href="/#certificates">BACK</Link>
-          </button> */}
+
+          <Link href="/#certificates">
+            <button className='Back-btn'>
+              <IoIosArrowBack className='back-arrow'/>
+            </button>
+          </Link>
+
           <div className="section-label">Credentials &amp; Certifications</div>
-          <h2 className="section-title">30+ Certificates</h2>
-          <p className="section-sub">A collection of certificates earned across competitive examinations, participations, workshops, and research achievements.</p>
+          <h2 className="section-title">Professional Credentials</h2>
+          <p className="section-sub">A curated collection of certifications, workshops, and research activities that reflect academic excellence, continuous learning, and professional growth.</p>
 
           <div className="cert-grid">
 

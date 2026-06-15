@@ -8,14 +8,14 @@ import { PiTestTubeDuotone } from "react-icons/pi";
 import { FaBookOpen } from "react-icons/fa";
 
 const teachingItems = [
-    { icon: <MdOutlineScience />, label: 'NEET Faculty' },
-    { icon: <FaFlaskVial />, label: 'JEE Faculty' },
+    { icon: <MdOutlineScience />, label: 'NEET Mentorship' },
+    { icon: <FaFlaskVial />, label: 'JEE Mentorship' },
     { icon: <TbMicroscopeFilled />, label: 'CSIR NET / JRF / SRF' },
-    { icon: <GiGraduateCap />, label: 'GATE Chemistry' },
-    { icon: <GiCheckMark />, label: 'CGSET Coaching' },
-    { icon: <IoStar />, label: 'DST INSPIRE Mentoring' },
-    { icon: <PiTestTubeDuotone />, label: 'Chemical Sciences Research' },
-    { icon: <FaBookOpen />, label: 'Published Author' },
+    { icon: <GiGraduateCap />, label: 'GATE Chemistry Mentorship' },
+    { icon: <GiCheckMark />, label: 'CGSET Mentorship' },
+    { icon: <IoStar />, label: 'DST INSPIRE Guidance' },
+    { icon: <PiTestTubeDuotone />, label: 'Chemical Sciences Research Guidance' },
+    { icon: <FaBookOpen />, label: 'Scientific Author' },
 ]
 
 export default function Teaching() {
@@ -24,7 +24,7 @@ export default function Teaching() {
             <div className="section-inner">
                 <div className="section-label">Academic Expertise</div>
                 <h2 className="section-title">Teaching &amp; Mentorship</h2>
-                <p className="section-sub">Beyond research — guiding students through competitive examinations and shaping the next generation of scientists.</p>
+                <p className="section-sub">Dedicated to mentoring students, fostering scientific curiosity, and guiding aspirants toward academic and competitive excellence.</p>
                 <div className="teach-grid">
                     {teachingItems.map((item, i) => (
                         <div className="teach-pill reveal" key={i}>

@@ -18,18 +18,18 @@ const Hero = ({ onOpenLightbox }) => {
         <div className="hero-noise"></div>
         <div className="hero-inner">
           <div className="hero-text">
-            <div className="hero-tag">✦ PhD Scholar · Patent Holder · Young Scientist</div>
+            <div className="hero-tag">✦ Researcher · Patent Holder · Young Scientist</div>
             <h1 className="hero-name">
               Dr. <em>Ketul Kumawat</em>
             </h1>
-            <p className="hero-title">Doctor of Philosophy — Chemical Sciences</p>
+            <p className="hero-title">Doctorate in Chemical Sciences | Research & Innovation</p>
             <p className="hero-desc">
-              A dedicated researcher and educator in Chemical Sciences, recognized as a Young Scientist by the Indian Chemical Society. Patent holder, published author, and passionate faculty committed to advancing scientific knowledge across academia and research.
+              Young Scientist and Chemical Sciences researcher dedicated to innovation, patents, and impactful academic research, committed to advancing scientific knowledge and education.
             </p>
             <div className="hero-badges">
-              <span className="badge">Young Scientist Award — ICS 2025</span>
-              <span className="badge">Patent Holder</span>
-              <span className="badge">Published Author</span>
+              <span className="badge">ICS Young Scientist 2025</span>
+              <span className="badge">Patent Innovator</span>
+              <span className="badge">Research Author</span>
               <span className="badge">CSIR NET JRF &amp; SRF</span>
               <span className="badge">DST INSPIRE Fellow &apos;13</span>
               <span className="badge">GATE Qualified</span>
@@ -43,7 +43,7 @@ const Hero = ({ onOpenLightbox }) => {
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                View Resume
+                View CV
               </a>
               <a href="https://www.linkedin.com/in/dr-ketul-kumawat-3b3591181/" target="_blank" rel="noopener" className="btn-linkedin">
                 <LinkedInIcon /> LinkedIn
@@ -67,7 +67,7 @@ const Hero = ({ onOpenLightbox }) => {
               </div>
             </div>
             <div className="card-name">Dr. KETUL KUMAWAT</div>
-            <div className="card-sub">Chemical Sciences<br />Jai Narain Vyas University, Jodhpur</div>
+            <div className="card-sub">Chemical Science Researcher<br />Jai Narain Vyas University, Jodhpur</div>
             <div className="card-stats">
               <div className="stat-box">
                 <div className="stat-num">3</div>
@@ -79,11 +79,11 @@ const Hero = ({ onOpenLightbox }) => {
               </div>
               <div className="stat-box">
                 <div className="stat-num">PhD</div>
-                <div className="stat-lbl">Pursuing</div>
+                <div className="stat-lbl">Research</div>
               </div>
               <div className="stat-box">
-                <div className="stat-num">30+</div>
-                <div className="stat-lbl">Certificates</div>
+                <div className="stat-num">25+</div>
+                <div className="stat-lbl">Certifications</div>
               </div>
             </div>
             <div className="card-social">

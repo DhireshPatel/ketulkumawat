@@ -14,43 +14,43 @@ import { FaRegStar } from "react-icons/fa6";
 const achievements = [
   {
     icon: <RiAwardLine />,
-    title: 'Young Scientist Award — ICS 2025',
-    desc: 'Awarded the prestigious Young Scientist Award by the Indian Chemical Society (ICS), recognizing outstanding contribution to chemical research at an early career stage.',
+    title: 'ICS Young Scientist Award 2025',
+    desc: 'Recognized by the Indian Chemical Society (ICS) for outstanding contribution and excellence in Chemical Sciences research and innovation.',
   },
   {
     icon: <GrCertificate />,
     title: 'Patent Holder',
-    desc: 'Holds a patent in the field of Chemical Sciences, reflecting innovative and applied research with real-world impact and intellectual property recognition.',
+    desc: 'Holder of patents in Chemical Sciences, reflecting innovative research, scientific problem-solving, and real-world applications.',
   },
   {
     icon: <FaBookOpen />,
-    title: 'Published Author',
-    desc: 'Research work has been published in scientific journals, contributing original insights and experimental findings to the broader chemical science literature.',
+    title: 'Research Author',
+    desc: 'Published research work in scientific journals, contributing valuable insights and advancements in the field of Chemical Sciences.',
   },
   {
     icon: <TbMicroscope />,
     title: 'CSIR NET JRF & SRF',
-    desc: 'Qualified both Junior Research Fellowship (JRF) and Senior Research Fellowship (SRF) under CSIR-NET, one of India\'s most competitive research fellowships in science.',
+    desc: 'Qualified CSIR NET-JRF & SRF, demonstrating research excellence and strong academic proficiency in Chemical Sciences.',
   },
   {
     icon: <FaRegStar />,
     title: 'DST INSPIRE Fellow — 2013',
-    desc: "Awarded the Department of Science & Technology INSPIRE Fellowship in 2013, one of India's flagship programs to attract young talent to scientific research.",
+    desc: "Selected for the DST INSPIRE Fellowship in recognition of academic excellence and potential in scientific research.",
   },
   {
     icon: <FaGraduationCap />,
     title: 'GATE Qualified',
-    desc: 'Successfully qualified the Graduate Aptitude Test in Engineering (GATE) in Chemistry, demonstrating thorough command of core chemical sciences concepts.',
+    desc: 'Successfully qualified GATE in Chemistry, reflecting strong subject expertise and analytical understanding in Chemical Sciences.',
   },
   {
     icon: <GiCheckMark />,
     title: 'CGSET Qualified',
-    desc: 'Qualified the Chhattisgarh State Eligibility Test (CGSET), validating eligibility for Assistant Professor positions in state universities.',
+    desc: 'Qualified CGSET, demonstrating academic proficiency and subject expertise in Chemical Sciences.',
   },
   {
     icon: <BsFlask />,
     title: 'Research in Chemical Sciences',
-    desc: 'Extensive hands-on experimental research experience ranging from synthesis and analysis to applied chemistry projects with real-world applications.',
+    desc: 'Dedicated to experimental research in Chemical Sciences with a focus on innovation, scientific analysis, and applied research.',
   },
 ]
 
@@ -149,8 +149,8 @@ export default function Achievements({ onOpenLightbox }) {
           </button>
         )}
 
-        <div className="section-label">Recognition &amp; Credentials</div>
-        <h2 className="section-title">Achievements &amp; Qualifications</h2>
+        <div className="section-label">ACADEMIC ACHIEVEMENTS &amp; RECOGNITION </div>
+        <h2 className="section-title">Achievements &amp; Recognition</h2>
         <div
           ref={scrollRef}
           className="achievements-grid"
@@ -179,7 +179,7 @@ export default function Achievements({ onOpenLightbox }) {
           ))}
         </div>
         <div className="ach-scroll-hint">
-          ← Swipe to explore achievements →
+          ← Swipe to View More →
         </div>
       </div>
 
