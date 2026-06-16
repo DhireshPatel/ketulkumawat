@@ -60,7 +60,7 @@ export default function CertificateHome() {
 
   return (
     <section id="certificates" style={{ background: 'var(--section-bg)' }}>
-      <div className="section-inner">
+      <div className="section-inner reveal">
         <div className="section-label">Credentials &amp; Certifications</div>
         <h2 className="section-title">Academic & Professional Certifications</h2>
         <p className="section-sub">A showcase of certifications, workshops, and research activities that reflect academic excellence and continuous professional growth.</p>

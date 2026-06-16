@@ -3,7 +3,7 @@
   --warm-white: #f5f0e8;
   --deep: #12100d;
   --brown: #4a2e1c;
-  --gold: #a0721a;
+  --gold: #a0611a;
   --gold-light: #c49030;
   --muted: #5a4a38;
   --border: #c8b89a;
@@ -2657,27 +2657,36 @@ footer {
   gap: 6px;
   margin-top: 10px;
   padding: 8px 14px;
-  border-radius: 8px;
+  border-radius: 4px;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
   border: 1px solid #ddd;
   transition: 0.3s;
+  color: #222;
+  border: 1.5px solid #8B6914;
+  cursor: pointer;
+  background-color: #f8efc5;
 }
 
 .thesis-btn:hover {
   transform: translateY(-2px);
+  background: #8B6914;
+  border-color: #8B6914;
+  color: white;
 }
 
 .featured-letter {
   margin: 60px auto 10px;
   border: 0.5px solid #d4b06a;
+  border: 0.5px solid #d4b06a;
   border-radius: 16px;
   overflow: hidden;
-  background: var(--bg, #faf8f3);
+  /* background: var(--bg, #faf8f3); */
   max-width: 1100px;
   position: relative;
   transition: border-color 0.2s ease;
+  /* animation: fadeUp 0.7s ease both; */
 }
 
 .featured-letter:hover {
@@ -2689,7 +2698,8 @@ footer {
   content: '';
   display: block;
   height: 3px;
-  background: linear-gradient(90deg, #d4b06a 0%, #e8c97a 60%, #d4b06a 100%);
+  /* background: linear-gradient(90deg, #d4b06a 0%, #e8c97a 60%, #d4b06a 100%); */
+  background-color: var(--gold);
 }
 
 .featured-letter-content {
@@ -2763,11 +2773,11 @@ footer {
   align-items: center;
   gap: 7px;
   padding: 10px 18px;
-  margin-top: 10px;
+  margin-top: 20px;
   border-radius: 8px;
   border: 1px solid #d4b06a;
-  background: transparent;
-  color: #a97b1f;
+  /* background: var(--gold); */
+  color: #222;
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
@@ -2775,9 +2785,9 @@ footer {
 }
 
 .featured-btn:hover {
-  background: #fdf3df;
-  color: #8a6215;
-  transform: translateY(-1px);
+  background: var(--gold);
+  color: white;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
@@ -2802,7 +2812,7 @@ footer {
 
 
 .featured-paper {
-  margin-top: 80px;
+  margin-top: 10px;
 }
 
 .paper-card {
@@ -2810,10 +2820,10 @@ footer {
   align-items: center;
   gap: 50px;
 
-  border: 1px solid #d4b06a;
+  border: 1px solid #3d2e1ede;
   border-radius: 20px;
   padding: 35px;
-  background: #faf8f3;
+  /* background: #faf8f3; */
 }
 
 .paper-left img {
@@ -2852,7 +2862,7 @@ footer {
 }
 
 .paper-btn:hover {
-  background: #c79a32;
+  background: var(--gold);
   color: #fff;
 }
 

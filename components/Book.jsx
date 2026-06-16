@@ -57,7 +57,7 @@ export default function Book() {
         </div>
       </div>
 
-      <section className="featured-paper">
+      <section className="featured-paper reveal">
         <div className="paper-card">
 
           <div className="paper-right">

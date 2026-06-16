@@ -185,8 +185,8 @@ export default function Achievements({ onOpenLightbox }) {
       </div>
 
 
-      <div className="featured-letter reveal">
-        <div className="featured-letter-content">
+      <div className="featured-letter reveal visible">
+        <div className="featured-letter-content reveal">
           <span className="featured-tag">AICTE INVITATION</span>
 
           <h3>AICTE IIC Regional Meet Invitation 2025</h3>
@@ -212,6 +212,7 @@ export default function Achievements({ onOpenLightbox }) {
           </a>
         </div>
       </div>
+      
 
     </section>
   )
