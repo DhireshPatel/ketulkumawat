@@ -105,10 +105,6 @@ const Hero = ({ onOpenLightbox }) => {
             </div>
           </div>
         </div>
-        {/* <div className="hero-scroll-hint">
-          <span>Scroll to explore</span>
-          <div className="scroll-arrow"></div>
-        </div> */}
       </section>
     </div>
   )

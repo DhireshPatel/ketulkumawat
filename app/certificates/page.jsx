@@ -2,9 +2,6 @@
 import Navbar from '@/components/Navbar'
 import Link from 'next/link'
 import { IoIosArrowBack } from "react-icons/io";
-// import { useState } from 'react'
-// import { FaAngleDown } from "react-icons/fa6";
-// import { FaChevronUp } from "react-icons/fa";
 
 const certificates = [
   {
@@ -183,14 +180,6 @@ const certificates = [
 
     file: 'assets/certificates/cer-pdf/cer26.pdf'
   },
-  // {
-  //   image: '/assets/certificates/cer-images/cer27.png',
-  //   name: '[Name of certificate]',
-  //   year: '2019',
-  //   issuer: '[issuer name]',
-  //   category: 'participation',
-  //   file: 'assets/certificates/cer-pdf/cer27.pdf'
-  // },
   {
     image: '/assets/certificates/cer-images/cer28.png',
     name: 'Research Proposal Writing Webinar',
@@ -214,26 +203,8 @@ const certificates = [
     name: 'Young Scientist Award (Oral Presentation)',
     year: '21 Dec 2024',
     issuer: 'Indian Chemical Society',
-    category: 'exam',
     file: 'assets/certificates/cer-pdf/cer4.pdf'
   },
-  // {
-  //   image: '/assets/certificates/cer-images/cer4.png',
-  //   name: '[Name of certificate]',
-  //   year: '2020',
-  //   issuer: '[issuer name]',
-  //   category: 'exam',
-  //   file: 'assets/certificates/cer-pdf/cer14.pdf'
-  // },
-
-  // {
-  //   image: '/assets/certificates/cer-images/cer18.png',
-  //   name: '[Name of certificate]',
-  //   year: '2025',
-  //   issuer: '[issuer name]',
-  //   category: 'award',
-  //   file: 'assets/certificates/cer-pdf/cer18.pdf'
-  // },
   {
     image: '/assets/certificates/cer-images/cer22.png',
     name: 'Climate Change Webinar',
@@ -252,56 +223,12 @@ const certificates = [
   },
 ]
 
-// const filters = [
-//   { label: 'All', value: 'all' },
-//   { label: 'participations', value: 'participation' },
-//   { label: 'Exams', value: 'exam' },
-//   { label: 'Workshops', value: 'workshop' },
-//   { label: 'Awards', value: 'award' },
-// ]
-
-
 
 export default function Certificates() {
-  // const [activeFilter, setActiveFilter] = useState('all')
-
-  // const filtered = certificates.filter(
-  //   c => activeFilter === 'all' || c.category === activeFilter
-  // )
-
-  // const [openSection, setOpenSection] = useState('participation')
-
-  // const certificateGroups = [
-  //   {
-  //     title: 'Certificates of Participation',
-  //     key: 'participation',
-  //   },
-  //   {
-  //     title: 'Certificates of Appreciation',
-  //     key: 'exam',
-  //   },
-  //   {
-  //     title: 'Name of Category 3',
-  //     key: 'award',
-  //   },
-  //   {
-  //     title: 'Name of Category 4',
-  //     key: 'workshop',
-  //   },
-  // ]
-
-
 
   return (
     <>
 
-      {/* <Navbar /> */}
-      {/* <nav className="np-breadcrumb" aria-label="Breadcrumb">
-        <Link href="/#certificates">
-          <IoIosArrowBack className='back-arrow' />
-        </Link>
-        <span className="np-breadcrumb__current">Certificates</span>
-      </nav> */}
       <Link href="/#certificates">
         <button className='Back-btn' title='Back to Home'>
           <IoIosArrowBack className='back-arrow' />
@@ -310,9 +237,6 @@ export default function Certificates() {
 
       <section id="certificates" style={{ background: 'var(--section-bg)' }}>
         <div className="section-inner">
-          {/* <button className='Back-btn'>
-            <Link href="/#certificates">BACK</Link>
-          </button> */}
           <div className="section-label">Credentials &amp; Certifications</div>
           <h2 className="section-title">Professional Credentials</h2>
           <p className="section-sub">A curated collection of certifications, workshops, and research activities that reflect academic excellence, continuous learning, and professional growth.</p>
@@ -361,6 +285,3 @@ export default function Certificates() {
     </>
   )
 }
-
-
-

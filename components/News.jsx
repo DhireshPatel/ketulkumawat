@@ -66,24 +66,6 @@ export default function News({ onOpenLightbox }) {
           <ViewAllButton />
 
         </div>
-
-        {/* <div className="news-story reveal">
-          <div className="news-story-text">
-            <h3>A Milestone Moment — Recognized as Youngest Scientist</h3>
-            <p>In a proud moment for Rajasthan&apos;s scientific community, news features highlighted the remarkable journey of this young researcher who, at a notably early age, earned a Doctorate in Chemical Sciences and secured a patent — all while continuing to serve as an educator and mentor.</p>
-            <p>The coverage drew attention to the rare combination of academic excellence and practical innovation: holding CSIR NET JRF, SRF, GATE, CGSET, and DST INSPIRE qualifications while simultaneously contributing original research and teaching NEET and JEE aspirants.</p>
-            <p>The Young Scientist Award from the Indian Chemical Society (ICS 2025) further cemented the recognition as a trailblazer in chemical research — inspiring a generation of young scientists from Rajasthan and beyond.</p>
-          </div>
-          <div className="news-quote-block">
-            <div className="news-quote-mark">&quot;</div>
-            <p className="news-quote">Behind every recognition lies a journey of hard work, sacrifice, and the determination to never give up.</p>
-            <div className="news-quote-author">— Dr. Ketul Kumawat</div>
-          </div>
-        </div> */}
-
-        {/* <p className="gallery-note">
-          📸 Place your newspaper images (news-1.jpg, news-2.jpg, etc.) inside the <code>public/assets/news/</code> folder
-        </p> */}
       </div>
     </section>
   )

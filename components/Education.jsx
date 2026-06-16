@@ -59,7 +59,6 @@ export default function Education({ onOpenLightbox }) {
                                     </button>
                                 )}
                             </div>
-                            {/* <div className="edu-icon">{edu.icon}</div> */}
                         </div>
                     ))}
                 </div>

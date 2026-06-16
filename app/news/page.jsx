@@ -119,8 +119,6 @@ const FILTERS = [
 
 /* category → badge class */
 const BADGE = {
-  // youngest: "np-badge np-badge--gold",
-  // research: "np-badge np-badge--green",
   youngest: "np-badge np-badge--brown",
   research: "np-badge np-badge--brown",
   patent: "np-badge np-badge--brown",
@@ -164,13 +162,6 @@ export default function NewsPage() {
   return (
     <main className="news-page">
 
-      {/* Breadcrumb */}
-      {/* <nav className="np-breadcrumb" aria-label="Breadcrumb">
-        <Link href="/">Home</Link>
-        <span className="np-breadcrumb__sep" aria-hidden="true">›</span>
-        <span className="np-breadcrumb__current">In the news</span>
-      </nav> */}
-
       {/* Page header */}
       <header className="np-header">
 
@@ -203,34 +194,6 @@ export default function NewsPage() {
         </div>
       </div>
 
-      {/* Collage hero */}
-      {/* <section className="np-collage" aria-label="Newspaper collage">
-        <div className="np-collage__header">
-          <span className="np-collage__label">
-            Youngest Scientist — all newspaper clippings
-          </span>
-          <span className="np-collage__count">10+ newspapers</span>
-        </div>
-
-        <div className="np-collage__placeholder">
-
-          <div
-            className="np-collage__placeholder-text"
-            onClick={() => setOpenImage("/assets/news/collage1.jpeg")}
-          >
-            <img
-              src="/assets/news/collage1.jpeg"
-              alt="Newspaper collage"
-              className="np-collage__img"
-            />
-          </div>
-
-          <p className="np-collage__placeholder-sub">
-            Times of India · Dainik Bhaskar · Rajasthan Patrika · Navbharat Times · +6 more
-          </p>
-        </div>
-      </section> */}
-
       {/* Filters */}
       <div className="np-filters" role="group" aria-label="Filter by category">
         {FILTERS.map(({ key, label }) => (
@@ -256,7 +219,6 @@ export default function NewsPage() {
             {filteredBest.map((item) => (
               <article
                 key={item.id}
-                // className={`np-card np-card--best${item.category === "youngest" ? " np-card--highlight" : ""}`}
                 className="np-card np-card--best np-card--highlight"
                 onClick={() => {
                   if (item.image) {

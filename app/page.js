@@ -2,7 +2,6 @@
 import Achievements from "@/components/Achievements";
 import Book from "@/components/Book";
 import CertificateHome from "@/components/CertificateHome";
-// import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
 import Education from "@/components/Education";
 import Footer from "@/components/Footer";
@@ -39,15 +38,6 @@ export default function Home() {
     setLightboxSrc(null)
   }
 
-
-
-  // const openLightbox = (src) => {
-  //   setLightboxImage(src)
-  // }
-
-  // const closeLightbox = () => {
-  //   setLightboxImage(null)
-  // }
   return (
     <>
       <ScrollReveal />

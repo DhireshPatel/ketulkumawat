@@ -36,20 +36,8 @@ const certificates = [
     category: 'fellowship',
     file: 'assets/certificates/cer-pdf/cer3.pdf'
   },
-  // { icon: '📐', name: 'GATE Chemistry', year: '2016', issuer: 'IIT / IISC — Graduate Aptitude Test', category: 'exam', file: 'assets/certificates/gate.pdf' },
-  // { icon: '🎓', name: 'CGSET Certificate', year: '2020', issuer: 'Chhattisgarh State Eligibility Test', category: 'exam', file: 'assets/certificates/cgset.pdf' },
-  // { icon: '🏅', name: 'Young Scientist Award — ICS', year: '2025', issuer: 'Indian Chemical Society', category: 'award', file: 'assets/certificates/ics-young-scientist-2025.pdf' },
-  // { icon: '📜', name: 'Patent Certificate', year: '2023', issuer: 'Indian Patent Office', category: 'award', file: 'assets/certificates/patent.pdf' },
-  // { icon: '🧪', name: 'Workshop on Advanced Spectroscopy', year: '2022', issuer: 'IIT / National Institute', category: 'workshop', file: 'assets/certificates/workshop-spectroscopy.pdf' },
 ]
 
-// const filters = [
-//   { label: 'All', value: 'all' },
-//   { label: 'Fellowships', value: 'fellowship' },
-//   { label: 'Exams', value: 'exam' },
-//   { label: 'Workshops', value: 'workshop' },
-//   { label: 'Awards', value: 'award' },
-// ]
 
 export default function CertificateHome() {
   const [activeFilter, setActiveFilter] = useState('all')
@@ -64,18 +52,6 @@ export default function CertificateHome() {
         <div className="section-label">Credentials &amp; Certifications</div>
         <h2 className="section-title">Academic & Professional Certifications</h2>
         <p className="section-sub">A showcase of certifications, workshops, and research activities that reflect academic excellence and continuous professional growth.</p>
-
-        {/* <div className="cert-filters">
-          {filters.map(f => (
-            <button
-              key={f.value}
-              className={`cert-filter${activeFilter === f.value ? ' active' : ''}`}
-              onClick={() => setActiveFilter(f.value)}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div> */}
 
 
         <div className="cert-grid">
@@ -92,25 +68,13 @@ export default function CertificateHome() {
               <div className="cert-issuer">{cert.issuer}</div>
               <div className="cert-actions">
                 <a href={cert.file} target="_blank" className="cert-view" rel="noopener"> View Certificate</a>
-                {/* <a href={cert.file} download className="cert-dl">⬇ Download</a> */}
               </div>
             </div>
           ))}
         </div>
-
-        {/* <Link href="/certificates">View all</Link> */}
         <ViewAllButton
           href='/certificates'
         />
-
-
-
-        {/* <div className="cert-download-all">
-          <p style={{ color: 'var(--muted)', fontSize: '14px', marginBottom: '16px' }}>
-            📁 All certificates are available as individual PDF files
-          </p>
-          <a href="assets/certificates/" className="btn-primary" download>⬇ Browse All Certificates</a>
-        </div> */}
       </div>
     </section>
   )
