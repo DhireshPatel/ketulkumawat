@@ -26,7 +26,7 @@ const Navbar = () => {
                 <span></span><span></span><span></span>
             </button>
             <ul className={`nav-links${menuOpen ? ' open' : ''}`}>
-                <li><Link href="/" onClick={closeMenu}>About</Link></li>
+                <li><Link href="#about" onClick={closeMenu}>About</Link></li>
                 <li><a href="#achievements" onClick={closeMenu}>Achievements</a></li>
                 <li><a href="#book" onClick={closeMenu}>Publications</a></li>
                 <li><a href="#gallery" onClick={closeMenu}>Gallery</a></li>
@@ -35,6 +35,9 @@ const Navbar = () => {
                 <li><a href="#certificates" onClick={closeMenu}>Certificates</a></li>
                 <li><a href="#teaching" onClick={closeMenu}>Teaching</a></li>
                 <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
+                {/* New Page link adding ->  */}
+                <li><a href="/research-consulting" onClick={closeMenu}>Research Consulting</a></li>
+
             </ul>
         </nav>
     )
