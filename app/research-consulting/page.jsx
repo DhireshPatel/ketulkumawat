@@ -1274,7 +1274,7 @@ export default function ResearchConsultingPage() {
       </section>
 
       {/* STATISTICS SECTION */}
-      <section ref={statsRef} className="stats-section">
+      {/* <section ref={statsRef} className="stats-section">
         <div className="stats-grid-bg" />
         <div className="stats-container">
           {stats.map((stat) => (
@@ -1284,7 +1284,7 @@ export default function ResearchConsultingPage() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */} 
 
       {/* FAQ SECTION */}
       <section className="faq-section">
