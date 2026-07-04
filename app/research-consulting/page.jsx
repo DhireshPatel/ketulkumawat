@@ -1114,7 +1114,7 @@ export default function ResearchConsultingPage() {
 
             <h1 className="hero-title1">
               Research Consulting
-              <span className="hero-title__highlight">Services</span>
+              <span className="hero-title1__highlight">Services</span>
             </h1>
 
             <p className="hero-description">
