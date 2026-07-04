@@ -1107,12 +1107,12 @@ export default function ResearchConsultingPage() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="hero-content"
           >
-            <div className="badge">
+            <div className="badge1 ">
               <FlaskConical size={14} />
               Professional Research Consulting
             </div>
 
-            <h1 className="hero-title">
+            <h1 className="hero-title1">
               Research Consulting
               <span className="hero-title__highlight">Services</span>
             </h1>
