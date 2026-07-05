@@ -6,6 +6,7 @@ import path from "path";
 const DATA_FILE = path.join(process.cwd(), "data", "books.json");
 
 function readData() {
+  if (!fs.existsSync(DATA_FILE)) return [];
   return JSON.parse(fs.readFileSync(DATA_FILE, "utf8"));
 }
 
@@ -13,25 +14,33 @@ function writeData(data) {
   fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
 }
 
-// 1. DELETE Request: बुक और उसकी फाइल्स डिलीट करने के लिए
+// 1. DELETE Request
 export async function DELETE(request, { params }) {
   try {
-    const { id } = params;
+    // Next.js dynamic routing mein params ko fetch karna
+    const { id } = await params;
     let books = readData();
-    const bookToDelete = books.find((b) => b.id === parseInt(id));
+
+    const bookToDelete = books.find((b) => String(b.id) === String(id));
 
     if (!bookToDelete) {
       return NextResponse.json({ error: "Book not found" }, { status: 404 });
     }
 
-    // (ऑप्शनल) सर्वर से फाइलें भी डिलीट करना चाहते हैं तो:
+    // Local storage se file delete karna (optional)
     if (bookToDelete.pdfUrl) {
       const pdfPath = path.join(process.cwd(), "public", bookToDelete.pdfUrl);
-      if (fs.existsSync(pdfPath)) fs.unlinkSync(pdfPath);
+      if (fs.existsSync(pdfPath)) {
+        try {
+          fs.unlinkSync(pdfPath);
+        } catch (e) {
+          console.log(e);
+        }
+      }
     }
 
-    // लिस्ट से हटाकर सेव करें
-    books = books.filter((b) => b.id !== parseInt(id));
+    // Filter out the deleted book
+    books = books.filter((b) => String(b.id) !== String(id));
     writeData(books);
 
     return NextResponse.json(
@@ -39,23 +48,25 @@ export async function DELETE(request, { params }) {
       { status: 200 },
     );
   } catch (error) {
+    console.error("Delete Error:", error);
     return NextResponse.json({ error: "Delete failed" }, { status: 500 });
   }
 }
 
-// 2. PUT Request: बुक डिटेल्स अपडेट करने के लिए
+// 2. PUT Request (Edit)
 export async function PUT(request, { params }) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const formData = await request.formData();
     let books = readData();
-    const index = books.findIndex((b) => b.id === parseInt(id));
+
+    const index = books.findIndex((b) => String(b.id) === String(id));
 
     if (index === -1) {
       return NextResponse.json({ error: "Book not found" }, { status: 404 });
     }
 
-    // पुराने डेटा में नए डेटा को मर्ज करें
+    // Naye data ko update karna
     books[index] = {
       ...books[index],
       title: formData.get("title") || books[index].title,
@@ -73,10 +84,11 @@ export async function PUT(request, { params }) {
 
     writeData(books);
     return NextResponse.json(
-      { message: "Book updated successfully" },
+      { message: "Book updated successfully", book: books[index] },
       { status: 200 },
     );
   } catch (error) {
+    console.error("Update Error:", error);
     return NextResponse.json({ error: "Update failed" }, { status: 500 });
   }
 }

@@ -67,31 +67,38 @@ export default function AdminPanel() {
   // Upload & Edit Handler
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Multi-part Form Data Setup (File upload के लिए ज़रूरी है)
+    
     const data = new FormData();
     Object.keys(formData).forEach((key) => {
-      if (key === "images") {
-        formData.images.forEach((file) => data.append("images", file));
-      } else {
-        data.append(key, formData[key]);
-      }
+        if (key === "images") {
+            if (formData.images && formData.images.length > 0) {
+                formData.images.forEach((file) => data.append("images", file));
+            }
+        } else if (formData[key] !== null && formData[key] !== undefined) {
+            data.append(key, formData[key]);
+        }
     });
 
-    const url = isEditing
-      ? `/api/admin/books/${currentBookId}`
-      : "/api/admin/books";
+    // Edit ke liye URL sahi format mein hona chahiye
+    const url = isEditing ? `/api/admin/books/${currentBookId}` : "/api/admin/books";
     const method = isEditing ? "PUT" : "POST";
 
-    const res = await fetch(url, { method, body: data });
-    if (res.ok) {
-      alert(isEditing ? "Book Updated!" : "Book Published Successfully!");
-      resetForm();
-      fetchAdminBooks();
-    } else {
-      alert("Something went wrong!");
+    try {
+        const res = await fetch(url, { method, body: data });
+        if (res.ok) {
+            alert(isEditing ? "Book Updated Successfully!" : "Book Published Successfully!");
+            resetForm();
+            // Naye data ko fetch karke table refresh karein
+            await fetchAdminBooks(); 
+        } else {
+            const errData = await res.json();
+            alert(errData.error || "Something went wrong!");
+        }
+    } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("Failed to connect to server.");
     }
-  };
+};
 
   // Edit Trigger
   const startEdit = (book) => {
@@ -160,7 +167,7 @@ export default function AdminPanel() {
                 value={formData.title}
                 onChange={handleInputChange}
                 required
-                style={{ flex: 2, padding: "0.5rem" }}
+                style={{ flex: 2, padding: "0.5rem", border: "1px solid gray"}}
               />
               <input
                 type="text"
@@ -169,7 +176,7 @@ export default function AdminPanel() {
                 value={formData.price}
                 onChange={handleInputChange}
                 required
-                style={{ flex: 1, padding: "0.5rem" }}
+                style={{ flex: 1, padding: "0.5rem" , border: "1px solid gray"}}
               />
             </div>
 
@@ -180,7 +187,7 @@ export default function AdminPanel() {
               value={formData.description}
               onChange={handleInputChange}
               required
-              style={{ padding: "0.5rem" }}
+              style={{ padding: "0.5rem" , border: "1px solid gray"}}
             />
 
             <textarea
@@ -189,7 +196,7 @@ export default function AdminPanel() {
               value={formData.longDescription}
               onChange={handleInputChange}
               rows={3}
-              style={{ padding: "0.5rem" }}
+              style={{ padding: "0.5rem" , border: "1px solid gray"}}
             />
 
             <div style={{ display: "flex", gap: "1rem" }}>
@@ -200,13 +207,13 @@ export default function AdminPanel() {
                 value={formData.pages}
                 onChange={handleInputChange}
                 required
-                style={{ flex: 1, padding: "0.5rem" }}
+                style={{ flex: 1, padding: "0.5rem" , border: "1px solid gray"}}
               />
               <select
                 name="category"
                 value={formData.category}
                 onChange={handleInputChange}
-                style={{ flex: 1, padding: "0.5rem" }}
+                style={{ flex: 1, padding: "0.5rem", border: "1px solid gray" }}
               >
                 <option value="Chemistry">Chemistry</option>
                 <option value="Research">Research</option>
@@ -232,7 +239,7 @@ export default function AdminPanel() {
                   accept=".pdf"
                   onChange={handleFileChange}
                   required={!isEditing}
-                  style={{ display: "block", marginTop: "0.25rem" }}
+                  style={{ display: "block", marginTop: "0.25rem", border: "1px solid gray" }}
                 />
               </div>
               <div>
@@ -245,7 +252,7 @@ export default function AdminPanel() {
                   accept="image/*"
                   multiple
                   onChange={handleFileChange}
-                  style={{ display: "block", marginTop: "0.25rem" }}
+                  style={{ display: "block", marginTop: "0.25rem", border: "1px solid gray" }}
                 />
               </div>
             </div>
