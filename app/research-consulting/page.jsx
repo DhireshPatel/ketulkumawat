@@ -1354,7 +1354,7 @@ export default function ResearchConsultingPage() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Jane Doe"
+                  placeholder="Your full name"
                   className="form-group__input"
                 />
               </div>
@@ -1368,7 +1368,7 @@ export default function ResearchConsultingPage() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="jane@university.edu"
+                  placeholder="you@example.com"
                   className="form-group__input"
                 />
               </div>

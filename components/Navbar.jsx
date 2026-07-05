@@ -38,6 +38,7 @@ const Navbar = () => {
                 {/* New Page link adding ->  */}
                 <li><a href="/research-consulting" onClick={closeMenu}>Research Consulting</a></li>
                 <li><a href="/HireMe" onClick={closeMenu}>Hire Me</a></li>
+                <li><a href="/Ebooks" onClick={closeMenu}>E books</a></li>
 
             </ul>
         </nav>

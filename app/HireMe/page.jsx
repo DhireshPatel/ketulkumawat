@@ -1,6 +1,8 @@
 "use client";
+import Link from "next/link";
 
 import { useState } from "react";
+import { IoIosArrowBack } from "react-icons/io";
 
 const SERVICES = [
     {
@@ -205,6 +207,13 @@ export default function HireMePage() {
         <main className="hm-root">
             {/* 1. HERO */}
             <section className="hm-hero">
+                <div className="back-button-container">
+                    <Link href="/#about">
+                        <button className="back-button" title="Back to Home">
+                            <IoIosArrowBack className="back-button__icon" />
+                        </button>
+                    </Link>
+                </div>
                 <div className="hm-hero-inner">
                     <div className="hm-hero-text">
                         <span className="hm-eyebrow">Available for Freelance Projects</span>
