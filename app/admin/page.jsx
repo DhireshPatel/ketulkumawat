@@ -67,16 +67,16 @@ export default function AdminPanel() {
   // Upload & Edit Handler
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const data = new FormData();
     Object.keys(formData).forEach((key) => {
-        if (key === "images") {
-            if (formData.images && formData.images.length > 0) {
-                formData.images.forEach((file) => data.append("images", file));
-            }
-        } else if (formData[key] !== null && formData[key] !== undefined) {
-            data.append(key, formData[key]);
+      if (key === "images") {
+        if (formData.images && formData.images.length > 0) {
+          formData.images.forEach((file) => data.append("images", file));
         }
+      } else if (formData[key] !== null && formData[key] !== undefined) {
+        data.append(key, formData[key]);
+      }
     });
 
     // Edit ke liye URL sahi format mein hona chahiye
@@ -84,21 +84,21 @@ export default function AdminPanel() {
     const method = isEditing ? "PUT" : "POST";
 
     try {
-        const res = await fetch(url, { method, body: data });
-        if (res.ok) {
-            alert(isEditing ? "Book Updated Successfully!" : "Book Published Successfully!");
-            resetForm();
-            // Naye data ko fetch karke table refresh karein
-            await fetchAdminBooks(); 
-        } else {
-            const errData = await res.json();
-            alert(errData.error || "Something went wrong!");
-        }
+      const res = await fetch(url, { method, body: data });
+      if (res.ok) {
+        alert(isEditing ? "Book Updated Successfully!" : "Book Published Successfully!");
+        resetForm();
+        // Naye data ko fetch karke table refresh karein
+        await fetchAdminBooks();
+      } else {
+        const errData = await res.json();
+        alert(errData.error || "Something went wrong!");
+      }
     } catch (error) {
-        console.error("Error submitting form:", error);
-        alert("Failed to connect to server.");
+      console.error("Error submitting form:", error);
+      alert("Upload Failed: " + (error.message || "Failed to connect to server."));
     }
-};
+  };
 
   // Edit Trigger
   const startEdit = (book) => {
@@ -167,7 +167,7 @@ export default function AdminPanel() {
                 value={formData.title}
                 onChange={handleInputChange}
                 required
-                style={{ flex: 2, padding: "0.5rem", border: "1px solid gray"}}
+                style={{ flex: 2, padding: "0.5rem", border: "1px solid gray" }}
               />
               <input
                 type="text"
@@ -176,7 +176,7 @@ export default function AdminPanel() {
                 value={formData.price}
                 onChange={handleInputChange}
                 required
-                style={{ flex: 1, padding: "0.5rem" , border: "1px solid gray"}}
+                style={{ flex: 1, padding: "0.5rem", border: "1px solid gray" }}
               />
             </div>
 
@@ -187,7 +187,7 @@ export default function AdminPanel() {
               value={formData.description}
               onChange={handleInputChange}
               required
-              style={{ padding: "0.5rem" , border: "1px solid gray"}}
+              style={{ padding: "0.5rem", border: "1px solid gray" }}
             />
 
             <textarea
@@ -196,7 +196,7 @@ export default function AdminPanel() {
               value={formData.longDescription}
               onChange={handleInputChange}
               rows={3}
-              style={{ padding: "0.5rem" , border: "1px solid gray"}}
+              style={{ padding: "0.5rem", border: "1px solid gray" }}
             />
 
             <div style={{ display: "flex", gap: "1rem" }}>
@@ -207,7 +207,7 @@ export default function AdminPanel() {
                 value={formData.pages}
                 onChange={handleInputChange}
                 required
-                style={{ flex: 1, padding: "0.5rem" , border: "1px solid gray"}}
+                style={{ flex: 1, padding: "0.5rem", border: "1px solid gray" }}
               />
               <select
                 name="category"
@@ -312,58 +312,30 @@ export default function AdminPanel() {
                 </tr>
               </thead>
               <tbody>
-                {books.map((book) => (
-                  <tr key={book.id} style={{ borderBottom: "1px solid #ddd" }}>
-                    <td style={{ padding: "1rem", fontWeight: "600" }}>
-                      {book.title}
-                    </td>
-                    <td style={{ padding: "1rem" }}>{book.category}</td>
-                    <td style={{ padding: "1rem" }}>{book.pages} Pages</td>
-                    <td
-                      style={{
-                        padding: "1rem",
-                        color: "#2e7d32",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      {book.price}
-                    </td>
-                    <td
-                      style={{
-                        padding: "1rem",
-                        display: "flex",
-                        gap: "0.5rem",
-                      }}
-                    >
-                      <button
-                        onClick={() => startEdit(book)}
-                        style={{
-                          background: "#0288d1",
-                          color: "#fff",
-                          border: "none",
-                          padding: "0.25rem 0.75rem",
-                          borderRadius: "4px",
-                          cursor: "pointer",
-                        }}
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleDelete(book.id)}
-                        style={{
-                          background: "#d32f2f",
-                          color: "#fff",
-                          border: "none",
-                          padding: "0.25rem 0.75rem",
-                          borderRadius: "4px",
-                          cursor: "pointer",
-                        }}
-                      >
-                        Delete
-                      </button>
+                {Array.isArray(books) ? (
+                  books.map((book) => (
+                    <tr key={book._id || book.id} style={{ borderBottom: "1px solid #ddd" }}>
+                      <td style={{ padding: "1rem", fontWeight: "600" }}>{book.title}</td>
+                      <td style={{ padding: "1rem" }}>{book.category}</td>
+                      <td style={{ padding: "1rem" }}>{book.pages} Pages</td>
+                      <td style={{ padding: "1rem", color: "#2e7d32", fontWeight: "bold" }}>{book.price}</td>
+                      <td style={{ padding: "1rem", display: "flex", gap: "0.5rem" }}>
+                        <button onClick={() => startEdit(book)} style={{ background: "#0288d1", color: "#fff", border: "none", padding: "0.25rem 0.75rem", borderRadius: "4px", cursor: "pointer" }}>
+                          Edit
+                        </button>
+                        <button onClick={() => handleDelete(book._id || book.id)} style={{ background: "#d32f2f", color: "#fff", border: "none", padding: "0.25rem 0.75rem", borderRadius: "4px", cursor: "pointer" }}>
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="5" style={{ padding: "2rem", textAlign: "center", color: "#777" }}>
+                      No E-books uploaded yet or Database connecting...
                     </td>
                   </tr>
-                ))}
+                )}
                 {books.length === 0 && (
                   <tr>
                     <td

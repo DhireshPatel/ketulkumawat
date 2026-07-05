@@ -200,7 +200,7 @@ export async function POST(request) {
       { status: 201 },
     );
   } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: "Upload failed" }, { status: 500 });
+    console.error("Cloud Upload Error:", error);
+    return NextResponse.json({ error: `Upload failed: ${error.message}` }, { status: 500 });
   }
 }
