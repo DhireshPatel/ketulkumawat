@@ -103,7 +103,7 @@ export default function AdminPanel() {
   // Edit Trigger
   const startEdit = (book) => {
     setIsEditing(true);
-    setCurrentBookId(book.id);
+    setCurrentBookId(book._id || book.id);
     setFormData({
       title: book.title,
       description: book.description,
@@ -114,7 +114,7 @@ export default function AdminPanel() {
       author: book.author,
       language: book.language,
       rating: book.rating,
-      pdfFile: null, // Security कारणों से इसे दुबारा select करना होगा
+      pdfFile: null,
       images: [],
     });
   };
@@ -357,4 +357,4 @@ export default function AdminPanel() {
       </div>
     </section>
   );
-}
+} 
