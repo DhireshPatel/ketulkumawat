@@ -4447,13 +4447,13 @@ footer {
   font-size: 13px;
 }
 
-.btn-primary {
+.btn-primary1 {
   background-color: var(--gold);
   color: var(--warm-white);
   box-shadow: var(--shadow-sm);
 }
 
-.btn-primary:hover {
+.btn-primary1:hover {
   background-color: var(--brown);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
