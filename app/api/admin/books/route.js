@@ -102,7 +102,6 @@
 
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase-admin";
-import { uploadImage, uploadPdf } from "@/lib/storage";
 
 export async function GET() {
   try {
@@ -121,52 +120,23 @@ export async function GET() {
 
 export async function POST(request) {
   try {
-    const formData = await request.formData();
-
-    const pdfFile = formData.get("pdfFile");
-    const imageFiles = formData.getAll("images");
-
-    if (!pdfFile) {
-      return NextResponse.json({ error: "PDF is required" }, { status: 400 });
-    }
-
-    // ---------- Upload PDF ----------
-
-    const pdfName = `pdfs/${Date.now()}-${pdfFile.name}`;
-
-    const pdfPath = await uploadPdf(pdfFile, pdfName);
-
-    // ---------- Upload Images ----------
-
-    const imageUrls = [];
-
-    for (const image of imageFiles) {
-      if (!image || !image.name) continue;
-
-      const imageName = `images/${Date.now()}-${image.name}`;
-
-      const publicUrl = await uploadImage(image, imageName);
-
-      imageUrls.push(publicUrl);
-    }
-
-    // ---------- Save Database ----------
+    const body = await request.json();
 
     const { data, error } = await supabaseAdmin
       .from("ebooks")
       .insert([
         {
-          title: formData.get("title"),
-          short_description: formData.get("description"),
-          long_description: formData.get("longDescription"),
-          price: Number(formData.get("price")),
-          pages: Number(formData.get("pages")),
-          category: formData.get("category"),
-          author: formData.get("author"),
-          language: formData.get("language"),
-          rating: Number(formData.get("rating")),
-          pdf_path: pdfPath,
-          images: imageUrls,
+          title: body.title,
+          short_description: body.description,
+          long_description: body.longDescription,
+          price: Number(body.price),
+          pages: Number(body.pages),
+          category: body.category,
+          author: body.author,
+          language: body.language,
+          rating: Number(body.rating),
+          pdf_path: body.pdfPath,
+          images: body.imageUrls,
         },
       ])
       .select()
@@ -179,20 +149,14 @@ export async function POST(request) {
         message: "Book Uploaded Successfully",
         book: data,
       },
-      {
-        status: 201,
-      },
+      { status: 201 },
     );
   } catch (error) {
-    console.error(error);
-
     return NextResponse.json(
       {
         error: error.message,
       },
-      {
-        status: 500,
-      },
+      { status: 500 },
     );
   }
 }

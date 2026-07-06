@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
+import { uploadImage, uploadPdf } from "@/lib/storage-client";
 
 export default function AdminPanel() {
   const [books, setBooks] = useState([]);
@@ -81,46 +82,120 @@ export default function AdminPanel() {
   };
 
   // Upload & Edit Handler
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const data = new FormData();
+  //   Object.keys(formData).forEach((key) => {
+  //     if (key === "images") {
+  //       if (formData.images && formData.images.length > 0) {
+  //         formData.images.forEach((file) => data.append("images", file));
+  //       }
+  //     } else if (formData[key] !== null && formData[key] !== undefined) {
+  //       data.append(key, formData[key]);
+  //     }
+  //   });
+
+  //   // Edit ke liye URL sahi format mein hona chahiye
+  //   const url = isEditing
+  //     ? `/api/admin/books/${currentBookId}`
+  //     : "/api/admin/books";
+  //   const method = isEditing ? "PUT" : "POST";
+
+  //   try {
+  //     const res = await fetch(url, { method, body: data });
+  //     if (res.ok) {
+  //       alert(
+  //         isEditing
+  //           ? "Book Updated Successfully!"
+  //           : "Book Published Successfully!",
+  //       );
+  //       resetForm();
+  //       // Naye data ko fetch karke table refresh karein
+  //       await fetchAdminBooks();
+  //     } else {
+  //       const errData = await res.json();
+  //       alert(errData.error || "Something went wrong!");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error submitting form:", error);
+  //     alert(
+  //       "Upload Failed: " + (error.message || "Failed to connect to server."),
+  //     );
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = new FormData();
-    Object.keys(formData).forEach((key) => {
-      if (key === "images") {
-        if (formData.images && formData.images.length > 0) {
-          formData.images.forEach((file) => data.append("images", file));
-        }
-      } else if (formData[key] !== null && formData[key] !== undefined) {
-        data.append(key, formData[key]);
-      }
-    });
-
-    // Edit ke liye URL sahi format mein hona chahiye
-    const url = isEditing
-      ? `/api/admin/books/${currentBookId}`
-      : "/api/admin/books";
-    const method = isEditing ? "PUT" : "POST";
-
     try {
-      const res = await fetch(url, { method, body: data });
-      if (res.ok) {
-        alert(
-          isEditing
-            ? "Book Updated Successfully!"
-            : "Book Published Successfully!",
-        );
-        resetForm();
-        // Naye data ko fetch karke table refresh karein
-        await fetchAdminBooks();
-      } else {
-        const errData = await res.json();
-        alert(errData.error || "Something went wrong!");
+      // ---------- Upload PDF ----------
+
+      let pdfPath = "";
+
+      if (formData.pdfFile) {
+        const pdfName = `pdfs/${Date.now()}-${formData.pdfFile.name}`;
+        pdfPath = await uploadPdf(formData.pdfFile, pdfName);
       }
-    } catch (error) {
-      console.error("Error submitting form:", error);
+
+      // ---------- Upload Images ----------
+
+      const imageUrls = [];
+
+      for (const image of formData.images) {
+        const imageName = `images/${Date.now()}-${image.name}`;
+
+        const imageUrl = await uploadImage(image, imageName);
+
+        imageUrls.push(imageUrl);
+      }
+
+      // ---------- Save Database ----------
+
+      const url = isEditing
+        ? `/api/admin/books/${currentBookId}`
+        : "/api/admin/books";
+
+      const method = isEditing ? "PUT" : "POST";
+
+      const res = await fetch(url, {
+        method,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: formData.title,
+          description: formData.description,
+          longDescription: formData.longDescription,
+          price: formData.price,
+          pages: formData.pages,
+          category: formData.category,
+          author: formData.author,
+          language: formData.language,
+          rating: formData.rating,
+          pdfPath,
+          imageUrls,
+        }),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.error);
+      }
+
       alert(
-        "Upload Failed: " + (error.message || "Failed to connect to server."),
+        isEditing
+          ? "Book Updated Successfully!"
+          : "Book Published Successfully!",
       );
+
+      resetForm();
+
+      fetchAdminBooks();
+    } catch (error) {
+      console.error(error);
+
+      alert(error.message);
     }
   };
 
