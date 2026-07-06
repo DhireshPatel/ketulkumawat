@@ -1,11 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { supabase } from "@/lib/supabase";
 
 export default function AdminPanel() {
   const [books, setBooks] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [currentBookId, setCurrentBookId] = useState(null);
+  const router = useRouter();
 
   // Form States
   const [formData, setFormData] = useState({
@@ -23,8 +26,21 @@ export default function AdminPanel() {
   });
 
   useEffect(() => {
-    fetchAdminBooks();
+    checkSession();
   }, []);
+
+  const checkSession = async () => {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    if (!session) {
+      router.replace("/admin/login");
+      return;
+    }
+
+    fetchAdminBooks();
+  };
 
   const fetchAdminBooks = async () => {
     const res = await fetch("/api/admin/books");
@@ -80,13 +96,19 @@ export default function AdminPanel() {
     });
 
     // Edit ke liye URL sahi format mein hona chahiye
-    const url = isEditing ? `/api/admin/books/${currentBookId}` : "/api/admin/books";
+    const url = isEditing
+      ? `/api/admin/books/${currentBookId}`
+      : "/api/admin/books";
     const method = isEditing ? "PUT" : "POST";
 
     try {
       const res = await fetch(url, { method, body: data });
       if (res.ok) {
-        alert(isEditing ? "Book Updated Successfully!" : "Book Published Successfully!");
+        alert(
+          isEditing
+            ? "Book Updated Successfully!"
+            : "Book Published Successfully!",
+        );
         resetForm();
         // Naye data ko fetch karke table refresh karein
         await fetchAdminBooks();
@@ -96,7 +118,9 @@ export default function AdminPanel() {
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Upload Failed: " + (error.message || "Failed to connect to server."));
+      alert(
+        "Upload Failed: " + (error.message || "Failed to connect to server."),
+      );
     }
   };
 
@@ -105,10 +129,21 @@ export default function AdminPanel() {
     setIsEditing(true);
     setCurrentBookId(book._id || book.id);
     setFormData({
+      // title: book.title,
+      // description: book.description,
+      // longDescription: book.longDescription || "",
+      // price: book.price.replace("₹", ""), // Stored clean integer/string
+      // pages: book.pages,
+      // category: book.category,
+      // author: book.author,
+      // language: book.language,
+      // rating: book.rating,
+      // pdfFile: null,
+      // images: [],
       title: book.title,
-      description: book.description,
-      longDescription: book.longDescription || "",
-      price: book.price.replace("₹", ""), // Stored clean integer/string
+      description: book.short_description,
+      longDescription: book.long_description || "",
+      price: String(book.price),
       pages: book.pages,
       category: book.category,
       author: book.author,
@@ -137,6 +172,14 @@ export default function AdminPanel() {
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         <h2>✨ Book & PDF Admin Dashboard</h2>
+        <button
+          onClick={async () => {
+            await supabase.auth.signOut();
+            router.replace("/admin/login");
+          }}
+        >
+          Logout
+        </button>
         <hr style={{ margin: "1.5rem 0" }} />
 
         {/* ===== FORM: UPLOAD & EDIT ===== */}
@@ -239,7 +282,11 @@ export default function AdminPanel() {
                   accept=".pdf"
                   onChange={handleFileChange}
                   required={!isEditing}
-                  style={{ display: "block", marginTop: "0.25rem", border: "1px solid gray" }}
+                  style={{
+                    display: "block",
+                    marginTop: "0.25rem",
+                    border: "1px solid gray",
+                  }}
                 />
               </div>
               <div>
@@ -252,7 +299,11 @@ export default function AdminPanel() {
                   accept="image/*"
                   multiple
                   onChange={handleFileChange}
-                  style={{ display: "block", marginTop: "0.25rem", border: "1px solid gray" }}
+                  style={{
+                    display: "block",
+                    marginTop: "0.25rem",
+                    border: "1px solid gray",
+                  }}
                 />
               </div>
             </div>
@@ -314,16 +365,55 @@ export default function AdminPanel() {
               <tbody>
                 {Array.isArray(books) ? (
                   books.map((book) => (
-                    <tr key={book._id || book.id} style={{ borderBottom: "1px solid #ddd" }}>
-                      <td style={{ padding: "1rem", fontWeight: "600" }}>{book.title}</td>
+                    <tr
+                      key={book._id || book.id}
+                      style={{ borderBottom: "1px solid #ddd" }}
+                    >
+                      <td style={{ padding: "1rem", fontWeight: "600" }}>
+                        {book.title}
+                      </td>
                       <td style={{ padding: "1rem" }}>{book.category}</td>
                       <td style={{ padding: "1rem" }}>{book.pages} Pages</td>
-                      <td style={{ padding: "1rem", color: "#2e7d32", fontWeight: "bold" }}>{book.price}</td>
-                      <td style={{ padding: "1rem", display: "flex", gap: "0.5rem" }}>
-                        <button onClick={() => startEdit(book)} style={{ background: "#0288d1", color: "#fff", border: "none", padding: "0.25rem 0.75rem", borderRadius: "4px", cursor: "pointer" }}>
+                      <td
+                        style={{
+                          padding: "1rem",
+                          color: "#2e7d32",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {book.price}
+                      </td>
+                      <td
+                        style={{
+                          padding: "1rem",
+                          display: "flex",
+                          gap: "0.5rem",
+                        }}
+                      >
+                        <button
+                          onClick={() => startEdit(book)}
+                          style={{
+                            background: "#0288d1",
+                            color: "#fff",
+                            border: "none",
+                            padding: "0.25rem 0.75rem",
+                            borderRadius: "4px",
+                            cursor: "pointer",
+                          }}
+                        >
                           Edit
                         </button>
-                        <button onClick={() => handleDelete(book._id || book.id)} style={{ background: "#d32f2f", color: "#fff", border: "none", padding: "0.25rem 0.75rem", borderRadius: "4px", cursor: "pointer" }}>
+                        <button
+                          onClick={() => handleDelete(book._id || book.id)}
+                          style={{
+                            background: "#d32f2f",
+                            color: "#fff",
+                            border: "none",
+                            padding: "0.25rem 0.75rem",
+                            borderRadius: "4px",
+                            cursor: "pointer",
+                          }}
+                        >
                           Delete
                         </button>
                       </td>
@@ -331,7 +421,14 @@ export default function AdminPanel() {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="5" style={{ padding: "2rem", textAlign: "center", color: "#777" }}>
+                    <td
+                      colSpan="5"
+                      style={{
+                        padding: "2rem",
+                        textAlign: "center",
+                        color: "#777",
+                      }}
+                    >
                       No E-books uploaded yet or Database connecting...
                     </td>
                   </tr>
@@ -357,4 +454,4 @@ export default function AdminPanel() {
       </div>
     </section>
   );
-} 
+}
