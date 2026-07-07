@@ -124,118 +124,6 @@ export default function AdminPanel() {
   //     );
   //   }
   // };
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const {
-  //     data: { session },
-  //   } = await supabase.auth.getSession();
-
-  //   console.log("SESSION:", session);
-
-  //   if (!session) {
-  //     alert("No active session found");
-  //     return;
-  //   }
-
-  //   try {
-  //     // ---------- Upload PDF ----------
-
-  //     // let pdfPath = "";
-
-  //     // if (formData.pdfFile) {
-  //     //   const pdfName = `pdfs/${Date.now()}-${formData.pdfFile.name}`;
-  //     //   pdfPath = await uploadPdf(formData.pdfFile, pdfName);
-  //     // }
-
-  //     // // ---------- Upload Images ----------
-
-  //     // const imageUrls = [];
-
-  //     // for (const image of formData.images) {
-  //     //   const imageName = `images/${Date.now()}-${image.name}`;
-
-  //     //   const imageUrl = await uploadImage(image, imageName);
-
-  //     //   imageUrls.push(imageUrl);
-  //     // }
-
-  //     const uploadData = new FormData();
-
-  //     if (formData.pdfFile) {
-  //       uploadData.append("pdf", formData.pdfFile);
-  //     }
-
-  //     formData.images.forEach((img) => {
-  //       uploadData.append("images", img);
-  //     });
-
-  //     const uploadRes = await fetch("/api/admin/upload", {
-  //       method: "POST",
-  //       body: uploadData,
-  //     });
-
-  //     const uploadResult = await uploadRes.json();
-
-  //     if (!uploadRes.ok) {
-  //       throw new Error(uploadResult.error);
-  //     }
-
-  //     const pdfPath = uploadResult.pdfPath;
-  //     const imageUrls = uploadResult.imageUrls;
-
-  //     // ---------- Save Database ----------
-
-  //     const url = isEditing
-  //       ? `/api/admin/books/${currentBookId}`
-  //       : "/api/admin/books";
-
-  //     const method = isEditing ? "PUT" : "POST";
-
-  //     const res = await fetch(url, {
-  //       method,
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         title: formData.title,
-  //         description: formData.description,
-  //         longDescription: formData.longDescription,
-  //         price: formData.price,
-  //         pages: formData.pages,
-  //         category: formData.category,
-  //         author: formData.author,
-  //         language: formData.language,
-  //         rating: formData.rating,
-  //         pdfPath,
-  //         imageUrls,
-  //       }),
-  //     });
-
-  //     const result = await res.json();
-
-  //     if (!res.ok) {
-  //       throw new Error(result.error);
-  //     }
-
-  //     alert(
-  //       isEditing
-  //         ? "Book Updated Successfully!"
-  //         : "Book Published Successfully!",
-  //     );
-
-  //     resetForm();
-
-  //     fetchAdminBooks();
-  //   } catch (error) {
-  //     console.error(error);
-
-  //     alert(error.message);
-  //   }
-  // };
-
-  // by GEMI.
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -243,76 +131,61 @@ export default function AdminPanel() {
       data: { session },
     } = await supabase.auth.getSession();
 
+    console.log("SESSION:", session);
+
     if (!session) {
-      alert("No active session found. Please login again.");
+      alert("No active session found");
       return;
     }
 
     try {
-      let pdfPath = "";
-      let imageUrls = [];
+      // ---------- Upload PDF ----------
 
-      // =========================================================
-      // 1. CHRONICLE UPLOAD: PDF FILE (Bypass Vercel via Signed URL)
-      // =========================================================
+      // let pdfPath = "";
+
+      // if (formData.pdfFile) {
+      //   const pdfName = `pdfs/${Date.now()}-${formData.pdfFile.name}`;
+      //   pdfPath = await uploadPdf(formData.pdfFile, pdfName);
+      // }
+
+      // // ---------- Upload Images ----------
+
+      // const imageUrls = [];
+
+      // for (const image of formData.images) {
+      //   const imageName = `images/${Date.now()}-${image.name}`;
+
+      //   const imageUrl = await uploadImage(image, imageName);
+
+      //   imageUrls.push(imageUrl);
+      // }
+
+      const uploadData = new FormData();
+
       if (formData.pdfFile) {
-        // Backend se Signed URL maangein
-        const tokenResponse = await fetch("/api/admin/upload", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            fileName: formData.pdfFile.name,
-            fileType: "pdf",
-          }),
-        });
-
-        const tokenData = await tokenResponse.json();
-        if (!tokenResponse.ok)
-          throw new Error(tokenData.error || "Failed to get PDF upload URL");
-
-        const { uploadUrl, dbPath } = tokenData;
-
-        // Direct browser se Supabase Storage mein PUT request bhejain (No Vercel Size Limit!)
-        const uploadResponse = await fetch(uploadUrl, {
-          method: "PUT",
-          body: formData.pdfFile,
-          headers: { "Content-Type": formData.pdfFile.type },
-        });
-
-        if (!uploadResponse.ok)
-          throw new Error("Supabase Storage mein PDF upload fail ho gaya!");
-
-        // Final public URL construct karein
-        const supabaseProjectUrl = "https://your-project-id.supabase.co"; // 👈 Apni exact Supabase project URL dalein
-        pdfPath = `${supabaseProjectUrl}/storage/v1/object/public/your-bucket-name/${dbPath}`;
+        uploadData.append("pdf", formData.pdfFile);
       }
 
-      // =========================================================
-      // 2. CHRONICLE UPLOAD: IMAGES (Optional backend logic or standard fallback)
-      // =========================================================
-      // Agar aapki images choti hain (<4MB), toh aap puraane API logic par sirf images bhej sakte hain,
-      // Lekin safest tarika hai ki unhe abhi ke liye aapki existing API par uploadData ke roop mein pass karein.
-      if (formData.images.length > 0) {
-        const uploadData = new FormData();
-        formData.images.forEach((img) => {
-          uploadData.append("images", img);
-        });
+      formData.images.forEach((img) => {
+        uploadData.append("images", img);
+      });
 
-        // Yeh API sirf images save karegi backend par (Kyunki humne PDF direct bhej diya)
-        const uploadRes = await fetch("/api/admin/upload", {
-          method: "POST",
-          body: uploadData, // Isme ab heavy PDF nahi hai, sirf images hain!
-        });
+      const uploadRes = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: uploadData,
+      });
 
-        const uploadResult = await uploadRes.json();
-        if (!uploadRes.ok)
-          throw new Error(uploadResult.error || "Images upload failed");
-        imageUrls = uploadResult.imageUrls || [];
+      const uploadResult = await uploadRes.json();
+
+      if (!uploadRes.ok) {
+        throw new Error(uploadResult.error);
       }
 
-      // =========================================================
-      // 3. FINAL DATABASE SAVE (MongoDB / Postgres Node Endpoint)
-      // =========================================================
+      const pdfPath = uploadResult.pdfPath;
+      const imageUrls = uploadResult.imageUrls;
+
+      // ---------- Save Database ----------
+
       const url = isEditing
         ? `/api/admin/books/${currentBookId}`
         : "/api/admin/books";
@@ -334,24 +207,30 @@ export default function AdminPanel() {
           author: formData.author,
           language: formData.language,
           rating: formData.rating,
-          pdfPath: pdfPath || undefined, // Naya path ya puraana agar edit chal raha hai
-          imageUrls: imageUrls.length > 0 ? imageUrls : undefined,
+          pdfPath,
+          imageUrls,
         }),
       });
 
       const result = await res.json();
-      if (!res.ok) throw new Error(result.error);
+
+      if (!res.ok) {
+        throw new Error(result.error);
+      }
 
       alert(
         isEditing
           ? "Book Updated Successfully!"
-          : "Book Published Successfully! 🎉",
+          : "Book Published Successfully!",
       );
+
       resetForm();
+
       fetchAdminBooks();
     } catch (error) {
-      console.error("Upload error details:", error);
-      alert("Error: " + error.message);
+      console.error(error);
+
+      alert(error.message);
     }
   };
 
