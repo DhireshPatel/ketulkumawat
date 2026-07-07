@@ -60,36 +60,44 @@ export default function AdminLogin() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleLogin}>
-        <h2>Admin Login</h2>
+    <section className="login-page">
+      <div className="login-card">
+        <h2 className="login-title">Admin Login</h2>
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <p className="login-subtitle">
+          Login to access Book & PDF Admin Dashboard
+        </p>
 
-        <br />
-        <br />
+        <form className="login-form" onSubmit={handleLogin}>
+          <div className="login-group">
+            <label>Email Address</label>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="login-input"
+            />
+          </div>
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          <div className="login-group">
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="login-input"
+            />
+          </div>
 
-        <br />
-        <br />
+          {error && <p style={{ color: "red" }}>{error}</p>}
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
-
-        <button disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
-        </button>
-      </form>
-    </div>
+          <button className="login-btn" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
+          </button>
+        </form>
+      </div>
+    </section>
   );
 }
