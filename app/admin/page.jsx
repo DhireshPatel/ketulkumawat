@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
-import { uploadImage, uploadPdf } from "@/lib/storage-client";
+// import { uploadImage, uploadPdf } from "@/lib/storage-client";
 
 export default function AdminPanel() {
   const [books, setBooks] = useState([]);
@@ -127,27 +127,62 @@ export default function AdminPanel() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    console.log("SESSION:", session);
+
+    if (!session) {
+      alert("No active session found");
+      return;
+    }
+
     try {
       // ---------- Upload PDF ----------
 
-      let pdfPath = "";
+      // let pdfPath = "";
+
+      // if (formData.pdfFile) {
+      //   const pdfName = `pdfs/${Date.now()}-${formData.pdfFile.name}`;
+      //   pdfPath = await uploadPdf(formData.pdfFile, pdfName);
+      // }
+
+      // // ---------- Upload Images ----------
+
+      // const imageUrls = [];
+
+      // for (const image of formData.images) {
+      //   const imageName = `images/${Date.now()}-${image.name}`;
+
+      //   const imageUrl = await uploadImage(image, imageName);
+
+      //   imageUrls.push(imageUrl);
+      // }
+
+      const uploadData = new FormData();
 
       if (formData.pdfFile) {
-        const pdfName = `pdfs/${Date.now()}-${formData.pdfFile.name}`;
-        pdfPath = await uploadPdf(formData.pdfFile, pdfName);
+        uploadData.append("pdf", formData.pdfFile);
       }
 
-      // ---------- Upload Images ----------
+      formData.images.forEach((img) => {
+        uploadData.append("images", img);
+      });
 
-      const imageUrls = [];
+      const uploadRes = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: uploadData,
+      });
 
-      for (const image of formData.images) {
-        const imageName = `images/${Date.now()}-${image.name}`;
+      const uploadResult = await uploadRes.json();
 
-        const imageUrl = await uploadImage(image, imageName);
-
-        imageUrls.push(imageUrl);
+      if (!uploadRes.ok) {
+        throw new Error(uploadResult.error);
       }
+
+      const pdfPath = uploadResult.pdfPath;
+      const imageUrls = uploadResult.imageUrls;
 
       // ---------- Save Database ----------
 
