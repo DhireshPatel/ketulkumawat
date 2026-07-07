@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
-// import { uploadImage, uploadPdf } from "@/lib/storage-client";
+import { uploadImage, uploadPdf } from "@/lib/storage-client";
 
 export default function AdminPanel() {
   const [books, setBooks] = useState([]);
@@ -141,48 +141,48 @@ export default function AdminPanel() {
     try {
       // ---------- Upload PDF ----------
 
-      // let pdfPath = "";
-
-      // if (formData.pdfFile) {
-      //   const pdfName = `pdfs/${Date.now()}-${formData.pdfFile.name}`;
-      //   pdfPath = await uploadPdf(formData.pdfFile, pdfName);
-      // }
-
-      // // ---------- Upload Images ----------
-
-      // const imageUrls = [];
-
-      // for (const image of formData.images) {
-      //   const imageName = `images/${Date.now()}-${image.name}`;
-
-      //   const imageUrl = await uploadImage(image, imageName);
-
-      //   imageUrls.push(imageUrl);
-      // }
-
-      const uploadData = new FormData();
+      let pdfPath = "";
 
       if (formData.pdfFile) {
-        uploadData.append("pdf", formData.pdfFile);
+        const pdfName = `pdfs/${Date.now()}-${formData.pdfFile.name}`;
+        pdfPath = await uploadPdf(formData.pdfFile, pdfName);
       }
 
-      formData.images.forEach((img) => {
-        uploadData.append("images", img);
-      });
+      // ---------- Upload Images ----------
 
-      const uploadRes = await fetch("/api/admin/upload", {
-        method: "POST",
-        body: uploadData,
-      });
+      const imageUrls = [];
 
-      const uploadResult = await uploadRes.json();
+      for (const image of formData.images) {
+        const imageName = `images/${Date.now()}-${image.name}`;
 
-      if (!uploadRes.ok) {
-        throw new Error(uploadResult.error);
+        const imageUrl = await uploadImage(image, imageName);
+
+        imageUrls.push(imageUrl);
       }
 
-      const pdfPath = uploadResult.pdfPath;
-      const imageUrls = uploadResult.imageUrls;
+      // const uploadData = new FormData();
+
+      // if (formData.pdfFile) {
+      //   uploadData.append("pdf", formData.pdfFile);
+      // }
+
+      // formData.images.forEach((img) => {
+      //   uploadData.append("images", img);
+      // });
+
+      // const uploadRes = await fetch("/api/admin/upload", {
+      //   method: "POST",
+      //   body: uploadData,
+      // });
+
+      // const uploadResult = await uploadRes.json();
+
+      // if (!uploadRes.ok) {
+      //   throw new Error(uploadResult.error);
+      // }
+
+      // const pdfPath = uploadResult.pdfPath;
+      // const imageUrls = uploadResult.imageUrls;
 
       // ---------- Save Database ----------
 
