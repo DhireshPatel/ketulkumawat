@@ -280,79 +280,117 @@ export default function AdminPanel() {
       className="admin-panel"
       style={{ padding: "2rem", background: "#f9f9f9" }}
     >
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        <h2>✨ Book & PDF Admin Dashboard</h2>
-        <button
-          onClick={async () => {
-            await supabase.auth.signOut();
-            router.replace("/admin/login");
-          }}
+      <div
+        className="admin-container"
+        // style={{ maxWidth: "1200px", margin: "0 auto" }}
+      >
+        <div
+          className="admin-header"
+          // style={{ display: "flex", justifyContent: "space-between" }}
         >
-          Logout
-        </button>
-        <hr style={{ margin: "1.5rem 0" }} />
+          <h2
+            className="admin-title"
+            // style={{ fontSize: "20px", fontWeight: "bold" }}
+          >
+            Book & PDF Admin Dashboard
+          </h2>
+          <button
+            className="logOut"
+            onClick={async () => {
+              await supabase.auth.signOut();
+              router.replace("/admin/login");
+            }}
+          >
+            Logout
+          </button>
+        </div>
+        {/* <hr style={{ margin: "1.5rem 0" }} /> */}
+        <hr className="admin-divider" />
 
         {/* ===== FORM: UPLOAD & EDIT ===== */}
         <div
           className="admin-card"
-          style={{
-            background: "#fff",
-            padding: "2rem",
-            borderRadius: "8px",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
-          }}
+          // style={{
+          //   background: "#fff",
+          //   padding: "2rem",
+          //   borderRadius: "8px",
+          //   boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+          // }}
         >
-          <h3>
-            {isEditing
-              ? "✏️ Edit E-Book Detail"
-              : "📤 Upload & Publish New E-Book"}
+          <h3 className="admin-form-title">
+            {isEditing ? " Edit E-Book Detail" : " Upload & Publish New E-Book"}
           </h3>
 
           <form
+            className="admin-form"
             onSubmit={handleSubmit}
-            style={{ display: "grid", gap: "1rem", marginTop: "1rem" }}
+            // style={{ display: "grid", gap: "1rem", marginTop: "1rem" }}
           >
-            <div style={{ display: "flex", gap: "1rem" }}>
+            <div
+              className="row-two"
+              // style={{ display: "flex", gap: "1rem" }}
+            >
+              <div className="form-group flex-2">
+                <label htmlFor="text">Book Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="Book Title"
+                  value={formData.title}
+                  onChange={handleInputChange}
+                  required
+                  style={{
+                    flex: 2,
+                    padding: "0.5rem",
+                    border: "1px solid gray",
+                  }}
+                />
+              </div>
+              <div className="form-group flex-1">
+                <label htmlFor="">Price</label>
+                <input
+                  type="text"
+                  name="price"
+                  placeholder="Price (e.g. 199)"
+                  value={formData.price}
+                  onChange={handleInputChange}
+                  required
+                  style={{
+                    flex: 1,
+                    padding: "0.5rem",
+                    border: "1px solid gray",
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label>Short Card Description</label>
               <input
                 type="text"
-                name="title"
-                placeholder="Book Title"
-                value={formData.title}
+                name="description"
+                placeholder="Short Card Description"
+                value={formData.description}
                 onChange={handleInputChange}
                 required
-                style={{ flex: 2, padding: "0.5rem", border: "1px solid gray" }}
-              />
-              <input
-                type="text"
-                name="price"
-                placeholder="Price (e.g. 199)"
-                value={formData.price}
-                onChange={handleInputChange}
-                required
-                style={{ flex: 1, padding: "0.5rem", border: "1px solid gray" }}
+                style={{ padding: "0.5rem", border: "1px solid gray" }}
               />
             </div>
 
-            <input
-              type="text"
-              name="description"
-              placeholder="Short Card Description"
-              value={formData.description}
-              onChange={handleInputChange}
-              required
-              style={{ padding: "0.5rem", border: "1px solid gray" }}
-            />
+            <div className="form-group">
+              <label>Detailed About Info (For Modal View)</label>
+              <textarea
+                name="longDescription"
+                placeholder="Detailed About Info (For Modal View)"
+                value={formData.longDescription}
+                onChange={handleInputChange}
+                rows={3}
+                style={{ padding: "0.5rem", border: "1px solid gray" }}
+              />
+            </div>
 
-            <textarea
-              name="longDescription"
-              placeholder="Detailed About Info (For Modal View)"
-              value={formData.longDescription}
-              onChange={handleInputChange}
-              rows={3}
-              style={{ padding: "0.5rem", border: "1px solid gray" }}
-            />
-
-            <div style={{ display: "flex", gap: "1rem" }}>
+            {/* <div style={{ display: "flex", gap: "1rem" }}> */}
+            <div className="row-two">
               <input
                 type="number"
                 name="pages"
@@ -361,12 +399,14 @@ export default function AdminPanel() {
                 onChange={handleInputChange}
                 required
                 style={{ flex: 1, padding: "0.5rem", border: "1px solid gray" }}
+                className="admin-input"
               />
               <select
                 name="category"
                 value={formData.category}
                 onChange={handleInputChange}
                 style={{ flex: 1, padding: "0.5rem", border: "1px solid gray" }}
+                className="admin-select"
               >
                 <option value="Chemistry">Chemistry</option>
                 <option value="Research">Research</option>
@@ -381,8 +421,9 @@ export default function AdminPanel() {
                 gridTemplateColumns: "1fr 1fr",
                 gap: "1rem",
               }}
+              className="upload-grid"
             >
-              <div>
+              <div className="upload-box">
                 <label style={{ fontSize: "0.85rem", fontWeight: "bold" }}>
                   Upload PDF Document:
                 </label>
@@ -397,9 +438,10 @@ export default function AdminPanel() {
                     marginTop: "0.25rem",
                     border: "1px solid gray",
                   }}
+                  className="admin-file"
                 />
               </div>
-              <div>
+              <div className="upload-box">
                 <label style={{ fontSize: "0.85rem", fontWeight: "bold" }}>
                   Preview Images (Max 4):
                 </label>
@@ -414,14 +456,19 @@ export default function AdminPanel() {
                     marginTop: "0.25rem",
                     border: "1px solid gray",
                   }}
+                  className="admin-file"
                 />
               </div>
             </div>
 
-            <div style={{ marginTop: "1rem", display: "flex", gap: "0.5rem" }}>
+            <div
+              className="button-group"
+              style={{ marginTop: "1rem", display: "flex", gap: "0.5rem" }}
+            >
               <button
                 type="submit"
-                className="btn btn-primary1"
+                // className="btn btn-primary1"
+                className="publish-btn"
                 style={{
                   border: "none",
                   padding: "0.75rem 2rem",
@@ -442,6 +489,7 @@ export default function AdminPanel() {
                     borderRadius: "4px",
                     cursor: "pointer",
                   }}
+                  className="cancel-btn"
                 >
                   Cancel
                 </button>
@@ -451,10 +499,15 @@ export default function AdminPanel() {
         </div>
 
         {/* ===== LIST VIEW: ALL UPLOADED PDFS ===== */}
-        <div style={{ marginTop: "3rem" }}>
-          <h3>📚 All Active E-Books ({books.length})</h3>
+        <div className="book-list" style={{ marginTop: "3rem" }}>
+          <h3 className="table-title">
+             All Active E-Books ({books.length})
+          </h3>
 
-          <div style={{ overflowX: "auto", marginTop: "1rem" }}>
+          <div
+            className="table-wrapper"
+            style={{ overflowX: "auto", marginTop: "1rem" }}
+          >
             <table
               style={{
                 width: "100%",
@@ -462,6 +515,7 @@ export default function AdminPanel() {
                 background: "#fff",
                 boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
               }}
+              className="admin-table"
             >
               <thead>
                 <tr style={{ background: "#eee", textAlign: "left" }}>
@@ -510,6 +564,7 @@ export default function AdminPanel() {
                             borderRadius: "4px",
                             cursor: "pointer",
                           }}
+                          className="edit-btn"
                         >
                           Edit
                         </button>
@@ -523,6 +578,7 @@ export default function AdminPanel() {
                             borderRadius: "4px",
                             cursor: "pointer",
                           }}
+                          className="delete-btn"
                         >
                           Delete
                         </button>
