@@ -78,7 +78,14 @@ export default function Book() {
               target="_blank"
               className="paper-btn"
             >
-              View Paper
+              View Paper 1
+            </a>
+            <a
+              href="assets/ResearchPublication2.pdf"
+              target="_blank"
+              className="paper-btn"
+            >
+              View Paper 2
             </a>
           </div>
 
