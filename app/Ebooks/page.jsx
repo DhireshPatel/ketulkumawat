@@ -380,13 +380,13 @@ function PreviewModal({ book, onClose }) {
               >
                 Buy Now
               </a>
-              <a
+              {/* <a
                 href="#contact"
                 className="btn btn-secondary"
                 onClick={onClose}
               >
                 Contact Me
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
@@ -589,7 +589,7 @@ export default function EbooksPage() {
       </section>
 
       {/* CATEGORIES */}
-      <section className="section">
+      {/* <section className="section">
         <div className="section-inner">
           <div className="section-header">
             <span className="eyebrow">Explore by Topic</span>
@@ -607,10 +607,10 @@ export default function EbooksPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* PURCHASE PROCESS */}
-      <section className="section section--muted">
+      <section className="section">
         <div className="section-inner">
           <div className="section-header">
             <span className="eyebrow">How It Works</span>
@@ -664,7 +664,11 @@ export default function EbooksPage() {
             learning journey.
           </p>
           <div className="cta-buttons">
-            <a href="#collection" className="btn btn-primary1">
+            <a
+              href="#collection"
+              className="btn btn-primary1"
+              style={{ color: "white" }}
+            >
               Browse Collection
             </a>
             <a href="#contact" className="btn btn-secondary btn-on-dark">
