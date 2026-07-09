@@ -5680,6 +5680,26 @@ footer {
   }
 }
 
+/*--------Preview Image of ebook----------*/
+.preview-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.gallery-thumb {
+  width: 70px;
+  height: 90px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid transparent;
+}
+
+.gallery-thumb--active {
+  border-color: #2563eb;
+}
+
 /* ----------------admin page-------------- */
 .logOut {
   background-color: #dc2626;
