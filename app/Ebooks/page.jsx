@@ -155,7 +155,8 @@ function StarRating({ rating }) {
 // ===== PREVIEW MODAL COMPONENT (FIXED HOOKS) =====
 function PreviewModal({ book, onClose }) {
   const [activeImage, setActiveImage] = useState(0);
-  const totalImages = 4; // Constant length to avoid rule of hooks violation
+  // const totalImages = 4; // Constant length to avoid rule of hooks violation
+  const totalImages = book.images?.length || 0;
 
   const goToPrev = useCallback(() => {
     setActiveImage((prev) => (prev === 0 ? totalImages - 1 : prev - 1));
@@ -222,13 +223,24 @@ function PreviewModal({ book, onClose }) {
                 >
                   ‹
                 </button>
-                <div className="gallery-main-image">
+                {/* <div className="gallery-main-image">
                   <span className="gallery-placeholder-label">
                     {book.title}
                   </span>
                   <span className="gallery-placeholder-index">
                     Image {activeImage + 1} of {totalImages}
                   </span>
+                </div> */}
+                <div className="gallery-main-image">
+                  <img
+                    src={book.images[activeImage]}
+                    alt={book.title}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
                 </div>
                 <button
                   className="gallery-arrow gallery-arrow--right"
@@ -480,13 +492,30 @@ export default function EbooksPage() {
             <div className="books-grid">
               {books.map((book) => (
                 <article className="book-card" key={book.id}>
-                  <div className="book-cover">
+                  {/* <div className="book-cover">
                     <div className="book-cover-inner">
                       <span className="book-cover-category">
                         {book.category}
                       </span>
                       <span className="book-cover-title">{book.title}</span>
                     </div>
+                  </div> */}
+                  <div className="book-cover">
+                    {book.images?.length > 0 ? (
+                      <img
+                        src={book.images[0]}
+                        alt={book.title}
+                        className="book-cover-image"
+                      />
+                    ) : (
+                      <div className="book-cover-inner">
+                        <span className="book-cover-category">
+                          {book.category}
+                        </span>
+
+                        <span className="book-cover-title">{book.title}</span>
+                      </div>
+                    )}
                   </div>
                   <div className="book-info">
                     <h3 className="book-title">{book.title}</h3>
