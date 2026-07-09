@@ -129,7 +129,8 @@ export async function POST(request) {
           title: body.title,
           short_description: body.description,
           long_description: body.longDescription,
-          price: Number(body.price),
+          // price: Number(body.price),
+          price: body.type === "free" ? 0 : Number(body.price),
           pages: Number(body.pages),
           category: body.category,
           author: body.author,
@@ -137,6 +138,7 @@ export async function POST(request) {
           rating: Number(body.rating),
           pdf_path: body.pdfPath,
           images: body.imageUrls,
+          type: body.type,
         },
       ])
       .select()

@@ -154,7 +154,8 @@ export async function PUT(request, { params }) {
         title: body.title,
         short_description: body.description,
         long_description: body.longDescription,
-        price: Number(body.price),
+        // price: Number(body.price),
+        price: body.type === "free" ? 0 : Number(body.price),
         pages: Number(body.pages),
         category: body.category,
         author: body.author,
@@ -163,6 +164,7 @@ export async function PUT(request, { params }) {
         pdf_path: body.pdfPath,
         images: body.imageUrls,
         updated_at: new Date().toISOString(),
+        type: body.type,
       })
       .eq("id", id)
       .select()

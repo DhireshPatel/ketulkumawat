@@ -24,6 +24,7 @@ export default function AdminPanel() {
     rating: 5,
     pdfFile: null,
     images: [],
+    type: "free",
   });
 
   useEffect(() => {
@@ -76,6 +77,7 @@ export default function AdminPanel() {
       rating: 5,
       pdfFile: null,
       images: [],
+      type: "free",
     });
     setIsEditing(false);
     setCurrentBookId(null);
@@ -201,7 +203,8 @@ export default function AdminPanel() {
           title: formData.title,
           description: formData.description,
           longDescription: formData.longDescription,
-          price: formData.price,
+          // price: formData.price,
+          price: formData.type === "free" ? 0 : Number(formData.price),
           pages: formData.pages,
           category: formData.category,
           author: formData.author,
@@ -209,6 +212,7 @@ export default function AdminPanel() {
           rating: formData.rating,
           pdfPath,
           imageUrls,
+          type: formData.type,
         }),
       });
 
@@ -261,6 +265,7 @@ export default function AdminPanel() {
       rating: book.rating,
       pdfFile: null,
       images: [],
+      type: book.type || "free",
     });
   };
 
@@ -346,7 +351,19 @@ export default function AdminPanel() {
                   }}
                 />
               </div>
-              <div className="form-group flex-1">
+              <div>
+                <label>Book Type</label>
+
+                <select
+                  name="type"
+                  value={formData.type}
+                  onChange={handleInputChange}
+                >
+                  <option value="free">Free</option>
+                  <option value="paid">Paid</option>
+                </select>
+              </div>
+              {/* <div className="form-group flex-1">
                 <label htmlFor="">Price</label>
                 <input
                   type="text"
@@ -361,7 +378,21 @@ export default function AdminPanel() {
                     border: "1px solid gray",
                   }}
                 />
-              </div>
+              </div> */}
+              {formData.type === "paid" && (
+                <div className="form-group flex-1">
+                  <label>Price</label>
+
+                  <input
+                    type="number"
+                    name="price"
+                    placeholder="Price"
+                    value={formData.price}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+              )}
             </div>
 
             <div className="form-group">
@@ -500,9 +531,7 @@ export default function AdminPanel() {
 
         {/* ===== LIST VIEW: ALL UPLOADED PDFS ===== */}
         <div className="book-list" style={{ marginTop: "3rem" }}>
-          <h3 className="table-title">
-             All Active E-Books ({books.length})
-          </h3>
+          <h3 className="table-title">All Active E-Books ({books.length})</h3>
 
           <div
             className="table-wrapper"
@@ -522,6 +551,7 @@ export default function AdminPanel() {
                   <th style={{ padding: "1rem" }}>Title</th>
                   <th style={{ padding: "1rem" }}>Category</th>
                   <th style={{ padding: "1rem" }}>Pages</th>
+                  <th style={{ padding: "1rem" }}>Type</th>
                   <th style={{ padding: "1rem" }}>Price</th>
                   <th style={{ padding: "1rem" }}>Actions</th>
                 </tr>
@@ -538,6 +568,9 @@ export default function AdminPanel() {
                       </td>
                       <td style={{ padding: "1rem" }}>{book.category}</td>
                       <td style={{ padding: "1rem" }}>{book.pages} Pages</td>
+                      <td style={{ padding: "1rem" }}>
+                        {book.type === "free" ? "🟢 Free" : "💎 Paid"}
+                      </td>
                       <td
                         style={{
                           padding: "1rem",
