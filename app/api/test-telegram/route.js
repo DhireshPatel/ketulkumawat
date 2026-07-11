@@ -1,28 +1,10 @@
 export async function GET() {
-  try {
-    const response = await fetch(
-      `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          chat_id: process.env.TELEGRAM_CHAT_ID,
-          text: "✅ Test message from Vercel",
-        }),
-      },
-    );
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chat = process.env.TELEGRAM_CHAT_ID;
 
-    const result = await response.json();
-
-    return Response.json(result);
-  } catch (err) {
-    return Response.json(
-      {
-        error: err.message,
-      },
-      { status: 500 },
-    );
-  }
+  return Response.json({
+    tokenExists: !!token,
+    tokenPreview: token ? `${token.slice(0, 10)}...${token.slice(-5)}` : null,
+    chat,
+  });
 }
