@@ -243,6 +243,7 @@ export default function ResearchConsultingPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     area: "",
     service: "",
     message: "",
@@ -266,7 +267,7 @@ export default function ResearchConsultingPage() {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/api/consultation", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -279,10 +280,10 @@ export default function ResearchConsultingPage() {
       if (result.success) {
         setSubmitted(true);
 
-        // Form Clear
         setFormData({
           name: "",
           email: "",
+          phone: "",
           area: "",
           service: "",
           message: "",
@@ -657,6 +658,22 @@ export default function ResearchConsultingPage() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="you@example.com"
+                  className="form-group__input"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="email" className="form-group__label">
+                  Contact Number
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="number"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="9876543210"
                   className="form-group__input"
                 />
               </div>
