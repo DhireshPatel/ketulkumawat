@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/lib/supabase/server";
+import { supabase } from "@/lib/supabase/client";
 import { uploadImage, uploadPdf } from "@/lib/storage-client";
 
 export default function AdminPanel() {
