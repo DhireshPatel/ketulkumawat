@@ -8,10 +8,14 @@ export async function POST(request) {
     const { name, email, projectType, service, budget, deadline, description } =
       body;
 
-    if (!name || !email || !description) {
+    if (!name || !email || !phone) {
       return NextResponse.json(
-        { error: "Required fields missing." },
-        { status: 400 },
+        {
+          error: "Required fields missing.",
+        },
+        {
+          status: 400,
+        },
       );
     }
 
@@ -20,16 +24,15 @@ export async function POST(request) {
     //-----------------------------------
 
     const { data, error } = await supabaseAdmin
-      .from("hire_me_requests")
+      .from("consultations")
       .insert([
         {
           full_name: name,
           email,
-          project_type: projectType,
+          mobile: phone,
+          research_area: area,
           service,
-          budget,
-          deadline,
-          description,
+          message,
           telegram_sent: false,
         },
       ])
@@ -38,7 +41,14 @@ export async function POST(request) {
     if (error) {
       console.log(error);
 
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json(
+        {
+          error: error.message,
+        },
+        {
+          status: 500,
+        },
+      );
     }
 
     //-----------------------------------
@@ -46,37 +56,35 @@ export async function POST(request) {
     //-----------------------------------
 
     const telegramMessage = `
-📩 NEW HIRE ME REQUEST
+📩 New Hire Me Request
 
-👤 Name:
-${name}
+👤 Name: ${name}
+📧 Email: ${email}
 
-📧 Email:
-${email}
-
-📁 Project Type:
-${projectType || "N/A"}
+📁 Project Type: ${projectType}
 
 🛠 Service:
-${service || "N/A"}
+${service}
 
 💰 Budget:
-${budget || "N/A"}
+${budget}
 
 📅 Deadline:
-${deadline || "N/A"}
+${deadline}
 
-📝 Project Description:
-${description || "N/A"}
+📝 Description:
+${description}
 `;
 
     const telegramResponse = await fetch(
       `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
       {
         method: "POST",
+
         headers: {
           "Content-Type": "application/json",
         },
+
         body: JSON.stringify({
           chat_id: process.env.TELEGRAM_CHAT_ID,
           text: telegramMessage,
@@ -90,7 +98,7 @@ ${description || "N/A"}
 
     if (telegramResponse.ok) {
       await supabaseAdmin
-        .from("hire_me_requests")
+        .from("consultations")
         .update({
           telegram_sent: true,
         })
@@ -99,7 +107,7 @@ ${description || "N/A"}
 
     return NextResponse.json({
       success: true,
-      request: data[0],
+      consultation: data[0],
     });
   } catch (err) {
     console.log(err);
