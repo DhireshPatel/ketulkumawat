@@ -14,7 +14,7 @@ const featuredPublications = [
     downloadLink: "/assets/research-papers/applicable.pdf",
   },
   {
-    id: 4,
+    id: 2,
     title: "Oxidation of some aliphatic aldehydes",
     journal: "Research Journal of Chemistry and Environment",
     author: "Dr. Ketul kumawat",
@@ -84,7 +84,7 @@ export default function FeaturedPublications() {
         </ul>
 
         <div className="fpub-cta-wrap">
-          <Link href="/publications" className="fpub-cta">
+          <Link href="/research-papers" className="fpub-cta">
             View All Publications
             <span className="fpub-cta-arrow" aria-hidden="true">
               &rarr;

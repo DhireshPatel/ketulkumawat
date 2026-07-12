@@ -1,6 +1,7 @@
-//new2
-
 "use client";
+
+import Link from "next/link";
+import { IoIosArrowBack } from "react-icons/io";
 
 import { useState, useEffect, useCallback } from "react";
 
@@ -434,6 +435,13 @@ export default function EbooksPage() {
 
   return (
     <main className="ebooks-page">
+      <div className="back-button-container">
+        <Link href="/#about">
+          <button className="back-button" title="Back to Home">
+            <IoIosArrowBack className="back-button__icon" />
+          </button>
+        </Link>
+      </div>
       {/* HERO */}
       <section className="hero1">
         <div className="hero1-inner">

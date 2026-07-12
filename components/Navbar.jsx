@@ -38,19 +38,24 @@ const Navbar = () => {
         {/* <li><a href="#contact" onClick={closeMenu}>Contact</a></li> */}
         {/* New Page link adding ->  */}
         <li>
-          <a href="/Ebooks" onClick={closeMenu}>
+          <Link href="/" onClick={closeMenu}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link href="/Ebooks" onClick={closeMenu}>
             E books
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/HireMe" onClick={closeMenu}>
+          <Link href="/HireMe" onClick={closeMenu}>
             Hire Me
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/research-consulting" onClick={closeMenu}>
+          <Link href="/research-consulting" onClick={closeMenu}>
             Research Consulting
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
