@@ -6965,7 +6965,7 @@ footer {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 
@@ -7476,14 +7476,14 @@ footer {
   position: relative;
   width: 100%;
   background-color: var(--section-bg);
-  background-image:
+  /* background-image:
     radial-gradient(circle at 12% 8%, rgba(160, 97, 26, 0.1), transparent 45%),
     radial-gradient(
       circle at 90% 15%,
       rgba(196, 144, 48, 0.12),
       transparent 50%
     ),
-    radial-gradient(circle at 50% 100%, rgba(74, 46, 28, 0.08), transparent 55%);
+    radial-gradient(circle at 50% 100%, rgba(74, 46, 28, 0.08), transparent 55%); */
   padding: 80px 24px;
   overflow: hidden;
 }
@@ -7596,7 +7596,8 @@ footer {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* object-fit: cover; */
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 
@@ -7781,8 +7782,8 @@ footer {
 
   .fpub-thumb-wrap {
     flex: 0 0 150px;
-    width: 150px;
-    height: 200px;
+    /* width: 150px;
+    height: 200px; */
   }
 
   .fpub-card-title {
