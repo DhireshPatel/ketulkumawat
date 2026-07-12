@@ -22,7 +22,7 @@ const publications = [
     author: "Dr. Ketul kumawat",
     date: "Published: ---",
     description:
-      "We benchmark ensemble deep learning architectures against traditional numerical models for regional precipitation forecasting.",
+      "Structure-reactivity relation in the oxidation of some aliphatic aldehydes by Tripropylammonium chlorochromate",
     thumbnail: "assets/research-papers/photo/ResearchPublication2.png",
     viewLink: "/assets/research-papers/ResearchPublication2.pdf",
     downloadLink: "/assets/research-papers/ResearchPublication2.pdf",
@@ -130,7 +130,7 @@ export default function Publications() {
     <section className="pub-section" aria-labelledby="pub-heading">
       {/* <Navbar /> */}
       <div className="back-button-container">
-        <Link href="/#about">
+        <Link href="/#research-publications">
           <button className="back-button" title="Back to Home">
             <IoIosArrowBack className="back-button__icon" />
           </button>

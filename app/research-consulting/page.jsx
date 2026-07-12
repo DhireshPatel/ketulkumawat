@@ -253,6 +253,8 @@ export default function ResearchConsultingPage() {
   const statsRef = useRef(null);
   const statsInView = useInView(statsRef, { once: true, margin: "-100px" });
 
+  const [loading, setLoading] = useState(false);
+
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -265,6 +267,8 @@ export default function ResearchConsultingPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    setLoading(true);
 
     try {
       const response = await fetch("/api/consultation", {
@@ -734,8 +738,12 @@ export default function ResearchConsultingPage() {
                 />
               </div>
 
-              <button type="submit" className="btn btn--submit">
-                Submit
+              <button
+                type="submit"
+                className="btn btn--submit"
+                disabled={loading}
+              >
+                {loading ? "Submitting..." : "Submit"}
                 <ArrowRight size={16} className="btn__arrow" />
               </button>
             </form>

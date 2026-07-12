@@ -11,7 +11,7 @@ import ResearchPublications from "./ResearchPublication";
 
 export default function EbookSection() {
   return (
-    <section className="ebook-section" aria-label="Ebooks Promotion">
+    <section id="ebooks" className="ebook-section" aria-label="Ebooks Promotion">
       <div className="ebook-container">
         {/* Decorative CSS-only book illustration */}
         <div className="ebook-illustration" aria-hidden="true">

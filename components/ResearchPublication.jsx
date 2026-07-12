@@ -20,7 +20,7 @@ const featuredPublications = [
     author: "Dr. Ketul kumawat",
     date: "Published: ---",
     description:
-      "We benchmark ensemble deep learning architectures against traditional numerical models for regional precipitation forecasting.",
+      "Structure-reactivity relation in the oxidation of some aliphatic aldehydes by Tripropylammonium chlorochromate",
     thumbnail: "assets/research-papers/photo/ResearchPublication2.png",
     viewLink: "/assets/research-papers/ResearchPublication2.pdf",
     downloadLink: "/assets/research-papers/ResearchPublication2.pdf",
@@ -29,7 +29,7 @@ const featuredPublications = [
 
 export default function FeaturedPublications() {
   return (
-    <section className="fpub-section" aria-labelledby="fpub-heading">
+    <section id="research-publications" className="fpub-section" aria-labelledby="fpub-heading">
       <div className="fpub-container">
         <header className="fpub-header">
           <span className="fpub-eyebrow">Publications</span>

@@ -436,7 +436,7 @@ export default function EbooksPage() {
   return (
     <main className="ebooks-page">
       <div className="back-button-container">
-        <Link href="/#about">
+        <Link href="/#ebooks">
           <button className="back-button" title="Back to Home">
             <IoIosArrowBack className="back-button__icon" />
           </button>
