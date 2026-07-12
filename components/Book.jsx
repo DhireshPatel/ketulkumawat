@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { FaBook } from "react-icons/fa6";
-import ResearchPublications from "./ResearchPublication";
 
 export default function Book() {
   const [imgError, setImgError] = useState(false);
@@ -81,7 +80,6 @@ export default function Book() {
         </div>
       </div>
       
-      <ResearchPublications />
 
       {/* <section className="featured-paper reveal">
         <div className="paper-card">
