@@ -1,178 +1,95 @@
-"use client";
+import Link from "next/link";
 
-import { useEffect, useRef } from "react";
-import {
-  FiExternalLink,
-  FiDownload,
-  FiBookOpen,
-  FiCalendar,
-  FiHash,
-  FiLayers,
-  FiBookmark,
-  FiAward,
-} from "react-icons/fi";
-
-/**
- * Dummy publication data.
- * Replace with CMS / API data as needed.
- */
-const PUBLICATIONS = [
+const featuredPublications = [
   {
     id: 1,
-    year: "2025",
-    type: "Journal",
-    title:
-      "Oxidation of Aliphatic Primary Alcohols",
-    authors: "Dr. Ketul Kumawat",
+    title: "Oxidation of Aliphatic Primary Alcohols",
     journal: "Journal of Applicable Chemistry",
-    // volume: "41",
-    // issue: "3",
-    // pages: "512–528",
-    // publisher: "IEEE",
-    doi: "assets/applicable.pdf",
-    date: "March 04, 2025",
+    author: "Dr. Ketul Kumawat",
+    date: "Published: March 04, 2025",
+    description:
+      "Structure-Reactivity Correlation in the Oxidation of Aliphatic Primary Alcohols by Tripropylammonium chlorochromate",
+    thumbnail: "assets/research-papers/photo/applicable.png",
+    viewLink: "/assets/research-papers/applicable.pdf",
+    downloadLink: "/assets/research-papers/applicable.pdf",
   },
   {
-    id: 2,
-    year: "2024",
-    type: "Conference",
-    title:
-      "Oxidation of some aliphatic aldehydes",
-    authors: "Dr. Ketul Kumawat",
+    id: 4,
+    title: "Oxidation of some aliphatic aldehydes",
     journal: "Research Journal of Chemistry and Environment",
-    // volume: "—",
-    // issue: "—",
-    // pages: "1102–1114",
-    // publisher: "PMLR",
-    doi: "assets/ResearchPublication2.pdf",
-    date: "---",
+    author: "Dr. Ketul kumawat",
+    date: "Published: ---",
+    description:
+      "We benchmark ensemble deep learning architectures against traditional numerical models for regional precipitation forecasting.",
+    thumbnail: "assets/research-papers/photo/ResearchPublication2.png",
+    viewLink: "/assets/research-papers/ResearchPublication2.pdf",
+    downloadLink: "/assets/research-papers/ResearchPublication2.pdf",
   },
 ];
 
-/**
- * Single publication card.
- */
-function PublicationCard({ publication, index }) {
-  const cardRef = useRef(null);
-
-  useEffect(() => {
-    const node = cardRef.current;
-    if (!node) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          node.classList.add("rp-card--visible");
-          observer.unobserve(node);
-        }
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
+export default function FeaturedPublications() {
   return (
-    <article
-      ref={cardRef}
-      className="rp-card"
-      style={{ transitionDelay: `${(index % 6) * 90}ms` }}
-    >
-      <span className="rp-card__icon" aria-hidden="true">
-        <FiAward />
-      </span>
-
-      {/* <header className="rp-card__header">
-        <span className="rp-badge rp-badge--year">
-          <FiCalendar aria-hidden="true" />
-          {publication.year}
-        </span>
-        <span className="rp-badge rp-badge--type">{publication.type}</span>
-      </header> */}
-
-      <h3 className="rp-card__title">{publication.title}</h3>
-
-      <p className="rp-card__authors">{publication.authors}</p>
-
-      <p className="rp-card__journal">{publication.journal}</p>
-
-      {/* <dl className="rp-card__meta">
-        <div className="rp-card__meta-item">
-          <dt>
-            <FiLayers aria-hidden="true" /> Volume
-          </dt>
-          <dd>{publication.volume}</dd>
-        </div>
-        <div className="rp-card__meta-item">
-          <dt>
-            <FiBookOpen aria-hidden="true" /> Issue
-          </dt>
-          <dd>{publication.issue}</dd>
-        </div>
-        <div className="rp-card__meta-item">
-          <dt>
-            <FiHash aria-hidden="true" /> Pages
-          </dt>
-          <dd>{publication.pages}</dd>
-        </div>
-        <div className="rp-card__meta-item">
-          <dt>
-            <FiBookmark aria-hidden="true" /> Publisher
-          </dt>
-          <dd>{publication.publisher}</dd>
-        </div>
-      </dl> */}
-
-      {/* <p className="rp-card__doi">
-        DOI: <span>{publication.doi}</span>
-      </p> */}
-      <p className="rp-card__date">Published: {publication.date}</p>
-
-      <div className="rp-card__actions">
-        <a
-          href={publication.doi}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rp-btn rp-btn--primary"
-        >
-          <FiExternalLink aria-hidden="true" />
-          <span>View Paper</span>
-        </a>
-        <a href={publication.doi} className="rp-btn rp-btn--secondary" download>
-          <FiDownload aria-hidden="true" />
-          <span>Download PDF</span>
-        </a>
-      </div>
-    </article>
-  );
-}
-
-/**
- * Research Publications Section
- */
-export default function ResearchPublications() {
-  return (
-    <section className="rp-section" id="publications">
-      <div className="rp-container">
-        <header className="rp-heading">
-          <span className="rp-heading__eyebrow">Publications</span>
-          <h2 className="rp-heading__title">Research Publications</h2>
-          <p className="rp-heading__subtitle">
+    <section className="fpub-section" aria-labelledby="fpub-heading">
+      <div className="fpub-container">
+        <header className="fpub-header">
+          <span className="fpub-eyebrow">Publications</span>
+          <h2 id="fpub-heading" className="fpub-title">
+            Research Publications
+          </h2>
+          <div className="fpub-divider" aria-hidden="true"></div>
+          <p className="fpub-intro">
             A collection of peer-reviewed journal articles, conference papers
             and research contributions.
           </p>
-          <div className="rp-heading__divider" aria-hidden="true" />
         </header>
 
-        <div className="rp-grid">
-          {PUBLICATIONS.map((publication, index) => (
-            <PublicationCard
-              key={publication.id}
-              publication={publication}
-              index={index}
-            />
+        <ul className="fpub-grid">
+          {featuredPublications.map((pub) => (
+            <li className="fpub-card" key={pub.id}>
+              <div className="fpub-thumb-wrap">
+                <img
+                  src={pub.thumbnail}
+                  alt={`First page preview of "${pub.title}"`}
+                  className="fpub-thumb"
+                  loading="lazy"
+                  width="180"
+                  height="240"
+                />
+              </div>
+
+              <div className="fpub-content">
+                <div className="fpub-text">
+                  <h3 className="fpub-card-title">{pub.title}</h3>
+                  <p className="fpub-journal">{pub.journal}</p>
+                  <p className="fpub-author">{pub.author}</p>
+                  <p className="fpub-date">{pub.date}</p>
+                  <p className="fpub-description">{pub.description}</p>
+                </div>
+
+                <div className="fpub-actions">
+                  <a href={pub.viewLink} className="fpub-btn fpub-btn-filled">
+                    View Paper
+                  </a>
+                  <a
+                    href={pub.downloadLink}
+                    className="fpub-btn fpub-btn-outline"
+                    download
+                  >
+                    Download PDF
+                  </a>
+                </div>
+              </div>
+            </li>
           ))}
+        </ul>
+
+        <div className="fpub-cta-wrap">
+          <Link href="/publications" className="fpub-cta">
+            View All Publications
+            <span className="fpub-cta-arrow" aria-hidden="true">
+              &rarr;
+            </span>
+          </Link>
         </div>
       </div>
     </section>
