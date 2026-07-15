@@ -4,6 +4,7 @@ import Book from "@/components/Book";
 import CertificateHome from "@/components/CertificateHome";
 import Contact from "@/components/Contact";
 import EbookSection from "@/components/EbookSection";
+import HiremeConsulting from "@/components/Hireme-Consulting";
 import ResearchPublications from "@/components//ResearchPublication";
 import Education from "@/components/Education";
 import Footer from "@/components/Footer";
@@ -46,9 +47,10 @@ export default function Home() {
       <Navbar />
       <Hero onOpenLightbox={openLightbox} />
       <Achievements onOpenLightbox={openLightbox} />
+      <ResearchPublications />
+      <HiremeConsulting />
       <Book />
       <EbookSection />
-      <ResearchPublications />
       <Gallery onOpenLightbox={openLightbox} />
       <News onOpenLightbox={openLightbox} />
       <Education onOpenLightbox={openLightbox} />

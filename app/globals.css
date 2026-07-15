@@ -7867,3 +7867,271 @@ footer {
     transform: none;
   }
 }
+
+/* ------------Hire me & Consultigng Section---------------- */
+.ps-section {
+  --cream: #ede8df;
+  --warm-white: #f5f0e8;
+  --deep: #12100d;
+  --brown: #4a2e1c;
+  --gold: #a0611a;
+  --gold-light: #c49030;
+  --muted: #5a4a38;
+  --border: #c8b89a;
+  --section-bg: #e2d9cc;
+  --card-bg: #faf6ef;
+  --text-main: #1e1a14;
+
+  /* background-color: var(--section-bg); */
+  padding: 6rem 1.5rem;
+  overflow: hidden;
+}
+
+.ps-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ---------- Header ---------- */
+
+.ps-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 4rem;
+}
+
+.ps-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  color: var(--text-main);
+  letter-spacing: 0.3px;
+  margin: 0 0 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.ps-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: 0.85rem auto 0;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 2px;
+}
+
+.ps-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 1.25rem 0 0;
+}
+
+/* ---------- Grid ---------- */
+
+.ps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.25rem;
+}
+
+/* ---------- Card ---------- */
+
+.ps-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.75rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 8px 24px rgba(74, 46, 28, 0.06);
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.3, 1),
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+  position: relative;
+}
+
+.ps-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 40px rgba(74, 46, 28, 0.14);
+  border-color: var(--gold-light);
+}
+
+.ps-icon-wrap {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--warm-white), var(--cream));
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.ps-icon-wrap svg {
+  width: 42px;
+  height: 42px;
+}
+
+.ps-card:hover .ps-icon-wrap {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 6px 18px rgba(160, 97, 26, 0.18);
+}
+
+.ps-card-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.55rem;
+  color: var(--text-main);
+  margin: 0 0 0.85rem;
+}
+
+.ps-card-desc {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 0 1.75rem;
+}
+
+/* ---------- Features ---------- */
+
+.ps-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.25rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ps-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.ps-check {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ---------- Button ---------- */
+
+.ps-button {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.9rem;
+  background: linear-gradient(135deg, var(--brown), var(--gold));
+  color: var(--warm-white);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+  box-shadow: 0 6px 18px rgba(74, 46, 28, 0.2);
+}
+
+.ps-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.ps-button span,
+.ps-button .ps-arrow {
+  position: relative;
+  z-index: 1;
+}
+
+.ps-arrow {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.35s ease;
+}
+
+.ps-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(74, 46, 28, 0.28);
+}
+
+.ps-button:hover::before {
+  opacity: 1;
+}
+
+.ps-button:hover .ps-arrow {
+  transform: translateX(4px);
+}
+
+/* ---------- Fade-up animation ---------- */
+
+.ps-fade {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.ps-fade.ps-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .ps-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .ps-grid {
+    gap: 1.75rem;
+  }
+
+  .ps-card {
+    padding: 2.25rem 1.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .ps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ps-header {
+    margin-bottom: 3rem;
+  }
+
+  .ps-card {
+    padding: 2.25rem 1.75rem;
+  }
+
+  .ps-icon-wrap {
+    width: 72px;
+    height: 72px;
+  }
+
+  .ps-icon-wrap svg {
+    width: 36px;
+    height: 36px;
+  }
+}
