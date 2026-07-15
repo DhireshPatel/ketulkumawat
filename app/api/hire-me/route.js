@@ -5,10 +5,18 @@ export async function POST(request) {
   try {
     const body = await request.json();
 
-    const { name, email, projectType, service, budget, deadline, description } =
-      body;
+    const {
+      name,
+      email,
+      phone,
+      projectType,
+      service,
+      budget,
+      deadline,
+      description,
+    } = body;
 
-    if (!name || !email || !phone) {
+    if (!name || !phone) {
       return NextResponse.json(
         {
           error: "Required fields missing.",
@@ -24,15 +32,17 @@ export async function POST(request) {
     //-----------------------------------
 
     const { data, error } = await supabaseAdmin
-      .from("consultations")
+      .from("hire_requests")
       .insert([
         {
-          full_name: name,
+          name,
           email,
-          mobile: phone,
-          research_area: area,
+          phone,
+          project_type: projectType,
           service,
-          message,
+          budget,
+          deadline,
+          description,
           telegram_sent: false,
         },
       ])
@@ -59,7 +69,10 @@ export async function POST(request) {
 📩 New Hire Me Request
 
 👤 Name: ${name}
-📧 Email: ${email}
+
+📧 Email: ${email || "Not Provided"}
+
+📞 Phone: ${phone}
 
 📁 Project Type: ${projectType}
 
@@ -98,7 +111,7 @@ ${description}
 
     if (telegramResponse.ok) {
       await supabaseAdmin
-        .from("consultations")
+        .from("hire_requests")
         .update({
           telegram_sent: true,
         })
@@ -107,7 +120,7 @@ ${description}
 
     return NextResponse.json({
       success: true,
-      consultation: data[0],
+      hireRequest: data[0],
     });
   } catch (err) {
     console.log(err);

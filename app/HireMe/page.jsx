@@ -322,6 +322,7 @@ export default function HireMePage() {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
     projectType: "",
     service: "",
     budget: "",
@@ -329,6 +330,8 @@ export default function HireMePage() {
     description: "",
   });
   const [submitted, setSubmitted] = useState(false);
+
+  const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -338,6 +341,7 @@ export default function HireMePage() {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    setLoading(true);
     try {
       const response = await fetch("/api/hire-me", {
         method: "POST",
@@ -355,6 +359,7 @@ export default function HireMePage() {
         setForm({
           name: "",
           email: "",
+          phone: "",
           projectType: "",
           service: "",
           budget: "",
@@ -362,11 +367,13 @@ export default function HireMePage() {
           description: "",
         });
       } else {
-        alert("Something went wrong.");
+        alert(result.error || "Something went wrong.");
       }
     } catch (err) {
       console.error(err);
       alert("Server Error");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -678,6 +685,21 @@ export default function HireMePage() {
                     placeholder="you@example.com"
                     value={form.email}
                     onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className="hm-form-row">
+                <div className="hm-form-group">
+                  <label htmlFor="phone">Phone Number</label>
+
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="+91 9876543210"
+                    value={form.phone}
+                    onChange={handleChange}
                     required
                   />
                 </div>
@@ -754,8 +776,9 @@ export default function HireMePage() {
               <button
                 type="submit"
                 className="hm-btn hm-btn-primary hm-btn-full"
+                disabled={loading}
               >
-                Submit
+                {loading ? "Submitting..." : "Submit"}
               </button>
             </form>
           )}
