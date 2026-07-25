@@ -17,6 +17,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Teaching from "@/components/Teaching";
 import Image from "next/image";
 import { useState } from "react";
+import AIAssistant from "@/components/ai/AIAssistant";
 
 export default function Home() {
   const [lightboxSrc, setLightboxSrc] = useState(null);
@@ -45,6 +46,7 @@ export default function Home() {
     <>
       <ScrollReveal />
       <Navbar />
+      <AIAssistant />
       <Hero onOpenLightbox={openLightbox} />
       <Achievements onOpenLightbox={openLightbox} />
       <ResearchPublications />
