@@ -31,6 +31,7 @@ export default function SuggestedPrompts({ onSelect }) {
           style={{
             backgroundColor: 'var(--ai-bg-elevated)',
             border: '1px solid var(--ai-border-color)',
+            padding: "0 12px"
           }}
         >
           <span

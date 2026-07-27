@@ -100,12 +100,41 @@ export async function POST(req) {
   } catch (error) {
     console.error(error);
 
+    let message =
+      "⚠️ Sorry! The AI assistant is temporarily unavailable. Please try again after some time.";
+
+    let status = 500;
+
+    // Gemini rate limit
+    if (
+      error?.status === 429 ||
+      error?.message?.includes("RESOURCE_EXHAUSTED")
+    ) {
+      status = 429;
+      message =
+        "⚠️ Our AI tutor is currently very busy.\n\nPlease try again in a little while. Thank you for your patience. 💙";
+    }
+
+    // Invalid API Key
+    else if (error?.status === 401 || error?.message?.includes("API key")) {
+      status = 401;
+      message =
+        "⚠️ AI configuration error. Please contact the website administrator.";
+    }
+
+    // Gemini temporarily unavailable
+    else if (error?.status === 503) {
+      status = 503;
+      message =
+        "🤖 The AI service is temporarily busy. Please try again in a few minutes.";
+    }
+
     return Response.json(
       {
-        reply: "Something went wrong.",
+        reply: message,
       },
       {
-        status: 500,
+        status,
       },
     );
   }

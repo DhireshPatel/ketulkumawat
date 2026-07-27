@@ -76,7 +76,7 @@ export default function AIDrawer({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 32 }}
-            className="fixed top-0 right-0 z-50 h-dvh w-full sm:w-105 lg:w-120 flex flex-col outline-none"
+            className="fixed top-0 right-0 z-9999 h-dvh w-full sm:w-105 lg:w-120 flex flex-col outline-none"
             style={{
               backgroundColor: "var(--ai-bg)",
               boxShadow: "var(--ai-shadow)",

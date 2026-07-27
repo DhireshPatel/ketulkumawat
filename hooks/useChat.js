@@ -59,6 +59,10 @@ export function useChat() {
 
         const data = await response.json();
 
+        if (!response.ok) {
+          throw new Error(data.reply || "AI service unavailable");
+        }
+
         setMessages((prev) => [
           ...prev,
           createMessage("assistant", data.reply),
@@ -70,7 +74,13 @@ export function useChat() {
           ...prev,
           createMessage(
             "assistant",
-            "Sorry, something went wrong generating a response. Please try again.",
+            // "Sorry, something went wrong generating a response. Please try again.",
+            err.message ||
+              `⚠️ Sorry! The AI assistant is temporarily unavailable.
+
+This may happen because the AI usage limit has been reached or the service is temporarily busy.
+
+Please try again after some time.`,
           ),
         ]);
       } finally {

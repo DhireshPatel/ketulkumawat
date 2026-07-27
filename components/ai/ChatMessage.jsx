@@ -53,15 +53,16 @@ export default function ChatMessage({ message, isLast, onRegenerate, onReact }) 
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25, ease: 'easeOut' }}
         className="flex items-start justify-end gap-2.5 px-4 sm:px-5"
+        style={{padding: "16px"}}
       >
         <div className="flex max-w-[80%] flex-col items-end">
           <div
-            className="rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm leading-relaxed whitespace-pre-wrap break-words"
-            style={{ backgroundColor: 'var(--ai-user-bubble)', color: 'var(--ai-user-bubble-text)' }}
+            className="rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm leading-relaxed whitespace-pre-wrap wrap-break-word"
+            style={{ backgroundColor: 'var(--ai-user-bubble)', color: 'var(--ai-user-bubble-text)', padding: "8px 12px" }}
           >
             {message.content}
           </div>
-          <span className="mt-1 mr-1 text-[11px]" style={{ color: 'var(--ai-text-muted)' }}>
+          <span className="mt-1 mr-1 text-[11px]" style={{ color: 'var(--ai-text-muted)', marginTop: "4px", marginRight: "4px" }}>
             {formatTime(message.createdAt)}
           </span>
         </div>
@@ -81,6 +82,7 @@ export default function ChatMessage({ message, isLast, onRegenerate, onReact }) 
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25, ease: 'easeOut' }}
       className="flex items-start gap-2.5 px-4 sm:px-5"
+      style={{padding: "0 14px"}}
     >
       <div
         className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
@@ -96,13 +98,14 @@ export default function ChatMessage({ message, isLast, onRegenerate, onReact }) 
             backgroundColor: 'var(--ai-assistant-bubble)',
             color: 'var(--ai-text)',
             border: '1px solid var(--ai-border-color)',
+            padding: "12px 16px 12px 20px"
           }}
         >
           {renderMarkdown(message.content)}
         </div>
 
-        <div className="mt-1.5 ml-1 flex items-center gap-1">
-          <span className="text-[11px] mr-1.5" style={{ color: 'var(--ai-text-muted)' }}>
+        <div className="mt-1.5 ml-1 flex items-center gap-1" style={{marginTop: "6px"}}>
+          <span className="text-[11px] mr-1.5" style={{ color: 'var(--ai-text-muted)' , marginRight: "6px"}}>
             {formatTime(message.createdAt)}
           </span>
 

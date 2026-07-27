@@ -15,6 +15,7 @@ export default function TypingIndicator() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
       className="flex items-start gap-2.5 px-4 sm:px-5"
+      style={{padding: "0 16px"}}
       aria-live="polite"
       aria-label="Assistant is typing"
     >
@@ -27,9 +28,9 @@ export default function TypingIndicator() {
 
       <div
         className="max-w-[75%] rounded-2xl rounded-tl-sm px-4 py-3"
-        style={{ backgroundColor: 'var(--ai-assistant-bubble)', border: '1px solid var(--ai-border-color)' }}
+        style={{ backgroundColor: 'var(--ai-assistant-bubble)', border: '1px solid var(--ai-border-color)', padding: "12px" }}
       >
-        <div className="flex items-center gap-1.5 mb-2">
+        <div className="flex items-center gap-1.5 mb-2" style={{marginBottom: "8px"}}>
           <span
             className="ai-typing-dot h-1.5 w-1.5 rounded-full"
             style={{ backgroundColor: 'var(--ai-accent)' }}

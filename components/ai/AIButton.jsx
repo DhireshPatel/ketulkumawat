@@ -28,7 +28,7 @@ export default function AIButton({ onOpen, isOpen }) {
                 "linear-gradient(135deg, var(--ai-accent), var(--ai-brown))",
               boxShadow: "var(--ai-shadow)",
               color: "var(--ai-warm-white)",
-              padding: "15px "
+              padding: "12px 16px 12px 14px"
             }}
           >
             <Sparkles className="ai-button-icon" />
