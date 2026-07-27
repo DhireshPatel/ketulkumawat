@@ -37,6 +37,8 @@
 // new (for last chat history)
 
 import { GoogleGenAI } from "@google/genai";
+import { SYSTEM_PROMPT } from "@/lib/systemPrompt";
+import { PROMPTS } from "@/lib/prompts";
 
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
@@ -45,8 +47,27 @@ const ai = new GoogleGenAI({
 export async function POST(req) {
   try {
     const { message, history } = await req.json();
-    console.log("History Length:", history.length);
-    console.log(history);
+
+    let finalMessage = message;
+
+    const lower = message.toLowerCase().trim();
+
+    if (lower.startsWith("mcq ")) {
+      const topic = message.substring(4);
+      finalMessage = PROMPTS.MCQ(topic);
+    } else if (lower.startsWith("summary ")) {
+      const topic = message.substring(8);
+      finalMessage = PROMPTS.SUMMARY(topic);
+    } else if (lower.startsWith("revision ")) {
+      const topic = message.substring(9);
+      finalMessage = PROMPTS.REVISION(topic);
+    } else if (lower.startsWith("formula ")) {
+      const topic = message.substring(8);
+      finalMessage = PROMPTS.FORMULA(topic);
+    }
+
+    // console.log("History Length:", history.length);
+    // console.log(history);
 
     // Frontend history -> Gemini history
     const geminiHistory = (history || []).map((msg) => ({
@@ -54,13 +75,23 @@ export async function POST(req) {
       parts: [{ text: msg.content }],
     }));
 
+    // const chat = ai.chats.create({
+    //   model: "gemini-3.6-flash",
+    //   history: geminiHistory,
+    // }); // we replace this for making ai to professor ketul ai.
+
     const chat = ai.chats.create({
       model: "gemini-3.6-flash",
+
+      config: {
+        systemInstruction: SYSTEM_PROMPT,
+      },
+
       history: geminiHistory,
     });
 
     const response = await chat.sendMessage({
-      message,
+      message: finalMessage,
     });
 
     return Response.json({
