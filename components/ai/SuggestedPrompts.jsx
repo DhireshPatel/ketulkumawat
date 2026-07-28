@@ -1,14 +1,20 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Atom, FlaskConical, ListChecks, GitCompare, NotebookPen } from 'lucide-react';
+import { motion } from "framer-motion";
+import {
+  Atom,
+  FlaskConical,
+  ListChecks,
+  GitCompare,
+  NotebookPen,
+} from "lucide-react";
 
 const PROMPTS = [
-  { icon: Atom, text: 'Explain Chemical Bonding' },
-  { icon: FlaskConical, text: 'Summarize Thermodynamics' },
-  { icon: ListChecks, text: 'Generate 20 NEET MCQs' },
-  { icon: GitCompare, text: 'Explain SN1 vs SN2' },
-  { icon: NotebookPen, text: 'Revision Notes for Haloalkanes' },
+  { icon: Atom, text: "Explain Chemical Bonding" },
+  { icon: FlaskConical, text: "Summarize Thermodynamics" },
+  { icon: ListChecks, text: "Generate 20 NEET MCQs" },
+  { icon: GitCompare, text: "Explain SN1 vs SN2" },
+  { icon: NotebookPen, text: "Revision Notes for Haloalkanes" },
 ];
 
 /**
@@ -24,23 +30,29 @@ export default function SuggestedPrompts({ onSelect }) {
           onClick={() => onSelect(text)}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.05 * i, duration: 0.3 }}
-          whileHover={{ y: -2 }}
+          transition={{ delay: 0.01, duration: "0.1, easeOut" }}
+          whileHover={{
+            borderColor: "#6F4E37",
+          }}
           whileTap={{ scale: 0.98 }}
           className="group flex items-center gap-3 rounded-xl px-3.5 py-3 text-left transition-colors"
           style={{
-            backgroundColor: 'var(--ai-bg-elevated)',
-            border: '1px solid var(--ai-border-color)',
-            padding: "0 12px"
+            backgroundColor: "var(--ai-bg-elevated)",
+            border: "1px solid var(--ai-border-color)",
+            padding: "2px 12px 2px 5px",
+            margin: "5px 5px 0 15px",
           }}
         >
           <span
             className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors"
-            style={{ backgroundColor: 'var(--ai-bg-subtle)' }}
+            style={{ backgroundColor: "var(--ai-bg-subtle)" }}
           >
-            <Icon className="h-4 w-4" style={{ color: 'var(--ai-accent)' }} />
+            <Icon className="h-4 w-4" style={{ color: "var(--ai-accent)" }} />
           </span>
-          <span className="text-sm font-medium leading-snug" style={{ color: 'var(--ai-text)' }}>
+          <span
+            className="text-sm font-medium leading-snug"
+            style={{ color: "var(--ai-text)" }}
+          >
             {text}
           </span>
         </motion.button>

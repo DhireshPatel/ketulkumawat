@@ -32,6 +32,8 @@ export default function MessageInput({ value, onChange, onSend, disabled }) {
       style={{
         backgroundColor: "var(--ai-bg)",
         borderColor: "var(--ai-border-color)",
+        marginBottom: "0px",
+        margin: "5px",
       }}
     >
       <div
