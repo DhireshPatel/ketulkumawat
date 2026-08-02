@@ -75,7 +75,7 @@ nav.scrolled {
 
 .nav-logo {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--brown);
   letter-spacing: 0.03em;
@@ -91,10 +91,10 @@ nav.scrolled {
 .nav-links a {
   text-decoration: none;
   color: var(--brown);
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
   transition: color 0.2s;
   position: relative;
   padding-bottom: 2px;
@@ -171,7 +171,9 @@ nav.scrolled {
   inset: 0;
   pointer-events: none;
   background-image: url("/noise.png");
-  opacity: 0.4;
+  opacity: 0.04;
+  background-size: 400px auto;
+  background-repeat: repeat;
 }
 
 .hero::before {
