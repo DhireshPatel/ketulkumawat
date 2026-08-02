@@ -27,7 +27,7 @@ const Hero = ({ onOpenLightbox }) => {
               Young Scientist and Chemical Sciences researcher dedicated to innovation, patents, and impactful academic research, committed to advancing scientific knowledge and education.
             </p>
             <div className="hero-badges">
-              <span className="badge">ICS Young Scientist 2025</span>
+              <span className="badge">ICS Young Scientist Award 2025</span>
               <span className="badge">Patent Innovator</span>
               <span className="badge">Research Author</span>
               <span className="badge">CSIR NET JRF &amp; SRF</span>
@@ -71,11 +71,11 @@ const Hero = ({ onOpenLightbox }) => {
             <div className="card-stats">
               <div className="stat-box">
                 <div className="stat-num">3</div>
-                <div className="stat-lbl">Patent</div>
+                <div className="stat-lbl">Patent <br /> Holder</div>
               </div>
               <div className="stat-box">
                 <div className="stat-num">ICS</div>
-                <div className="stat-lbl">Young Scientist &apos;25</div>
+                <div className="stat-lbl">Young Scientist Award &apos;25</div>
               </div>
               <div className="stat-box">
                 <div className="stat-num">PhD</div>
