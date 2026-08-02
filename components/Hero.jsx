@@ -18,13 +18,13 @@ const Hero = ({ onOpenLightbox }) => {
         <div className="hero-noise"></div>
         <div className="hero-inner">
           <div className="hero-text">
-            <div className="hero-tag">✦ Researcher · Patent Holder · Young Scientist</div>
+            <div className="hero-tag">✦ Researcher · Patent Holder · Young Scientist Award</div>
             <h1 className="hero-name">
               Dr. <em>Ketul Kumawat</em>
             </h1>
             <p className="hero-title">Doctorate in Chemical Sciences | Research & Innovation</p>
             <p className="hero-desc">
-              Young Scientist and Chemical Sciences researcher dedicated to innovation, patents, and impactful academic research, committed to advancing scientific knowledge and education.
+              Young Scientist Award and Chemical Sciences researcher dedicated to innovation, patents, and impactful academic research, committed to advancing scientific knowledge and education.
             </p>
             <div className="hero-badges">
               <span className="badge">ICS Young Scientist Award 2025</span>
