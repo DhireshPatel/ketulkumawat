@@ -1,3 +1,14 @@
+/*Next.js App Router mein home page hai.
+Matlab jab user website ke root URL / par jaata hai:
+
+ketulkumawat.com/
+       ↓
+app/page.js
+       ↓
+Home()
+       ↓
+poori homepage */
+
 "use client";
 import Achievements from "@/components/Achievements";
 import Book from "@/components/Book";
