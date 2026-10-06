@@ -447,7 +447,7 @@ export default function EbooksPage() {
         <div className="hero1-inner">
           <div className="hero1-content">
             <span className="badge2">Premium Study Resources</span>
-            <h1 className="hero1-heading">Paid Notes &amp; E-books</h1>
+            <h1 className="hero1-heading">Notes &amp; E-books</h1>
             <p className="hero1-paragraph">
               Explore high-quality research notes, chemistry study materials,
               academic guides, and premium e-books carefully prepared to support
@@ -475,6 +475,64 @@ export default function EbooksPage() {
               </div>
               <div className="illustration-seal">
                 <span>PDF</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PERIODIC TABLE FEATURE */}
+      <section className="periodic-feature">
+        <div className="periodic-feature-inner">
+          <div className="periodic-feature-content">
+            <span className="periodic-eyebrow">ACADEMIC RESOURCE</span>
+
+            <h2>
+              Explore the <span>Periodic Table</span>
+            </h2>
+
+            <p>
+              Explore an interactive periodic table designed for students,
+              researchers, and chemistry enthusiasts. Select any element to
+              discover its important properties, atomic information, and
+              detailed chemical data.
+            </p>
+
+            <a
+              href="/Ebooks/periodic-table"
+              className="periodic-feature-button"
+            >
+              Explore Periodic Table
+              <span>→</span>
+            </a>
+          </div>
+
+          <div className="periodic-feature-visual">
+            <div className="periodic-decoration">
+              <div className="element-box element-main">
+                <span className="element-number">6</span>
+                <strong>C</strong>
+                <span>Carbon</span>
+              </div>
+
+              <div className="element-box element-small element-one">
+                <span>1</span>
+                <strong>H</strong>
+              </div>
+
+              <div className="element-box element-small element-two">
+                <span>8</span>
+                <strong>O</strong>
+              </div>
+
+              <div className="element-box element-small element-three">
+                <span>7</span>
+                <strong>N</strong>
+              </div>
+
+              <div className="element-box element-small element-four">
+                <span>11</span>
+                <strong>Na</strong>
               </div>
             </div>
           </div>

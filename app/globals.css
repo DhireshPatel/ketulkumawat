@@ -8320,3 +8320,342 @@ footer {
   animation: ai-shimmer 1.6s infinite linear;
   border-radius: 999px;
 }
+
+/* =========================================
+   PERIODIC TABLE FEATURE
+========================================= */
+
+.periodic-feature {
+  padding: 90px 20px;
+  background: #e5ddcf;
+  border-top: 1px solid #d2c5b2;
+  border-bottom: 1px solid #d2c5b2;
+}
+
+.periodic-feature-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+
+  min-height: 390px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 70px;
+
+  padding: 55px 65px;
+
+  background: #f7f2e9;
+
+  border: 1px solid #d0c0a9;
+  border-radius: 4px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle decorative line */
+
+.periodic-feature-inner::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 5px;
+  height: 100%;
+
+  background: #a0611a;
+}
+
+/* CONTENT */
+
+.periodic-feature-content {
+  max-width: 620px;
+  position: relative;
+  z-index: 2;
+}
+
+.periodic-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 14px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #a0611a;
+}
+
+.periodic-feature-content h2 {
+  margin: 0 0 18px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.1;
+
+  font-weight: 600;
+
+  color: #432819;
+}
+
+.periodic-feature-content h2 span {
+  color: #a0611a;
+}
+
+.periodic-feature-content p {
+  max-width: 570px;
+
+  margin: 0 0 28px;
+
+  font-size: 15px;
+  line-height: 1.8;
+
+  color: #5d5146;
+}
+
+/* BUTTON */
+
+.periodic-feature-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 14px 22px;
+
+  /* background: #4a2e1c; */
+  /* color: #fff;   */
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  border: 1px solid #4a2e1c;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.periodic-feature-button span {
+  font-size: 18px;
+  line-height: 1;
+
+  transition: transform 0.3s ease;
+}
+
+.periodic-feature-button:hover {
+  background: #a0611a;
+  border-color: #a0611a;
+
+  transform: translateY(-2px);
+}
+
+.periodic-feature-button:hover span {
+  transform: translateX(5px);
+}
+
+/* =========================================
+   PERIODIC TABLE VISUAL
+========================================= */
+
+.periodic-feature-visual {
+  width: 340px;
+  min-width: 340px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.periodic-decoration {
+  width: 290px;
+  height: 260px;
+
+  position: relative;
+}
+
+/* ELEMENT BOX */
+
+.element-box {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: #efe7da;
+
+  border: 1px solid #cdbda6;
+
+  color: #4a2e1c;
+
+  box-shadow: 0 8px 20px rgba(70, 45, 25, 0.07);
+}
+
+.element-box strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.element-box span {
+  font-size: 9px;
+  letter-spacing: 0.5px;
+}
+
+/* MAIN ELEMENT */
+
+.element-main {
+  width: 130px;
+  height: 130px;
+
+  top: 65px;
+  left: 80px;
+
+  background: #4a2e1c;
+  border-color: #4a2e1c;
+
+  color: #f7f2e9;
+
+  z-index: 3;
+}
+
+.element-main strong {
+  font-size: 58px;
+  margin: 5px 0;
+}
+
+.element-main .element-number {
+  align-self: flex-start;
+  margin-left: 15px;
+
+  color: #c8a978;
+
+  font-size: 10px;
+}
+
+/* SMALL ELEMENTS */
+
+.element-small {
+  width: 72px;
+  height: 72px;
+
+  z-index: 2;
+}
+
+.element-small strong {
+  font-size: 27px;
+}
+
+.element-small span {
+  font-size: 8px;
+}
+
+/* Positions */
+
+.element-one {
+  top: 5px;
+  left: 0;
+}
+
+.element-two {
+  top: 5px;
+  right: 0;
+}
+
+.element-three {
+  bottom: 5px;
+  left: 0;
+}
+
+.element-four {
+  bottom: 5px;
+  right: 0;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+  .periodic-feature-inner {
+    padding: 45px 35px;
+
+    gap: 40px;
+  }
+
+  .periodic-feature-visual {
+    width: 280px;
+    min-width: 280px;
+  }
+
+  .periodic-decoration {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 700px) {
+  .periodic-feature {
+    padding: 60px 16px;
+  }
+
+  .periodic-feature-inner {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 40px 28px;
+
+    gap: 45px;
+  }
+
+  .periodic-feature-content {
+    max-width: 100%;
+  }
+
+  .periodic-feature-content h2 {
+    font-size: 34px;
+  }
+
+  .periodic-feature-content p {
+    font-size: 14px;
+  }
+
+  .periodic-feature-visual {
+    width: 100%;
+    min-width: 0;
+
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .periodic-feature-inner {
+    padding: 35px 22px;
+  }
+
+  .periodic-feature-content h2 {
+    font-size: 30px;
+  }
+
+  .periodic-feature-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .periodic-decoration {
+    transform: scale(0.75);
+  }
+}
