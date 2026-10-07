@@ -24,6 +24,7 @@ import Hero from "@/components/Hero";
 import Lightbox from "@/components/Lightbox";
 import Navbar from "@/components/Navbar";
 import News from "@/components/News";
+import NobelSpotlight from "../components/NobelSpotlight";
 import ScrollReveal from "@/components/ScrollReveal";
 import Teaching from "@/components/Teaching";
 import Image from "next/image";
@@ -59,8 +60,10 @@ export default function Home() {
       <Navbar />
       <AIAssistant />
       <Hero onOpenLightbox={openLightbox} />
+      {/* <NobelSpotlight /> */}
       <Achievements onOpenLightbox={openLightbox} />
       <ResearchPublications />
+      <NobelSpotlight />
       <HiremeConsulting />
       <Book />
       <EbookSection />

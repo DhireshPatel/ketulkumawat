@@ -52,9 +52,14 @@ const Navbar = () => {
             Hire Me
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link href="/research-consulting" onClick={closeMenu}>
             Research Consulting
+          </Link>
+        </li> */}
+        <li>
+          <Link href="/nobel-prize-chemistry-2026" onClick={closeMenu}>
+            NOBEL 2026
           </Link>
         </li>
       </ul>

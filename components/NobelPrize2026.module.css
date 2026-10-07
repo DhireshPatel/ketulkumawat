@@ -1,0 +1,751 @@
+/* ------------------------------------------------------------------
+   Nobel Prize 2026 page.
+   The block below maps this page to your site's theme. If your global
+   CSS already defines variables (e.g. --accent, --text), point these
+   fallbacks to them. Otherwise the values match the website screenshot.
+------------------------------------------------------------------- */
+.page {
+  --n-bg: var(--bg, #efe9e0);
+  --n-bg-alt: var(--bg-alt, #e8e0d3);
+  --n-card: var(--card-bg, #faf6f0);
+  --n-text: var(--text, #3f2615);
+  --n-heading: var(--heading, #1f140c);
+  --n-muted: var(--text-muted, #6b5a4b);
+  --n-accent: var(--accent, #a8641a);
+  --n-accent-dark: var(--accent-dark, #7c4510);
+  --n-border: var(--border, #d6c4a3);
+  --n-radius: var(--radius, 18px);
+  --n-radius-sm: 12px;
+  --n-serif: var(--font-serif, "Times New Roman", Georgia, serif);
+  --n-sans: var(--font-sans, Arial, Helvetica, sans-serif);
+  --n-max: var(--container-width, 1180px);
+
+  color: var(--n-text);
+  font-family: var(--n-sans);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: var(--n-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 72px 0;
+}
+.alt {
+  background: var(--n-bg-alt);
+  border-top: 1px solid var(--n-border);
+  border-bottom: 1px solid var(--n-border);
+}
+.narrow {
+  max-width: 760px;
+}
+
+/* ---------- Typography ---------- */
+.h1 {
+  font-family: var(--n-serif);
+  font-weight: 400;
+  font-size: clamp(2.3rem, 6vw, 4.2rem);
+  line-height: 1.08;
+  color: var(--n-heading);
+  margin: 20px 0 12px;
+}
+.h1 em {
+  color: #4a2c17;
+  font-style: italic;
+}
+.subtitle {
+  font-family: var(--n-serif);
+  font-style: italic;
+  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+  color: var(--n-muted);
+  margin: 0 0 20px;
+}
+.lead {
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin: 0 0 24px;
+}
+.h2 {
+  font-family: var(--n-serif);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+  line-height: 1.2;
+  color: var(--n-heading);
+  margin: 0 0 28px;
+  padding-bottom: 14px;
+  position: relative;
+}
+.h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  height: 2px;
+  background: var(--n-accent);
+}
+.h3 {
+  font-family: var(--n-serif);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--n-heading);
+  margin: 18px 0 14px;
+  text-align: center;
+}
+.h3s {
+  font-family: var(--n-serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--n-heading);
+  margin: 10px 0 6px;
+  line-height: 1.3;
+}
+.p {
+  margin: 0 0 16px;
+  font-size: 1rem;
+}
+.pLead {
+  margin: 0 0 16px;
+  font-family: var(--n-serif);
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--n-heading);
+}
+.small {
+  margin: 0;
+  font-size: 0.93rem;
+  color: var(--n-muted);
+  line-height: 1.6;
+}
+.eyebrow {
+  display: inline-block;
+  margin: 0;
+  background: var(--n-accent);
+  color: #fff;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 8px 14px;
+  border-radius: 3px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 64px 0 56px;
+  position: relative;
+}
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chip {
+  border: 1px solid var(--n-text);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--n-text);
+}
+.citationCard {
+  background: var(--n-card);
+  border: 1px solid var(--n-border);
+  border-radius: 24px;
+  padding: 32px 28px;
+  box-shadow: 0 8px 28px rgba(80, 50, 20, 0.1);
+}
+.cardLabel {
+  margin: 0 0 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--n-accent);
+}
+.citation {
+  margin: 0 0 24px;
+  font-family: var(--n-serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+  line-height: 1.4;
+  color: var(--n-heading);
+}
+.citationMeta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.citationMeta span {
+  background: var(--n-bg-alt);
+  border: 1px solid var(--n-border);
+  border-radius: var(--n-radius-sm);
+  padding: 12px 6px;
+  text-align: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--n-muted);
+}
+.citationMeta strong {
+  display: block;
+  font-family: var(--n-serif);
+  font-size: 1.25rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--n-accent);
+  margin-bottom: 2px;
+}
+
+/* ---------- Laureates ---------- */
+.laureateGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.laureateCard {
+  background: var(--n-card);
+  border: 1px solid var(--n-border);
+  border-radius: var(--n-radius);
+  padding: 32px 28px;
+}
+.portrait {
+  width: 132px;
+  height: 132px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 4px solid var(--n-accent);
+  overflow: hidden;
+  background: var(--n-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.portraitPlaceholder {
+  font-family: var(--n-serif);
+  font-size: 2.4rem;
+  color: var(--n-accent);
+}
+.dl {
+  margin: 0 0 18px;
+  border-top: 1px solid var(--n-border);
+}
+.dlRow {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--n-border);
+  font-size: 0.93rem;
+}
+.dlRow dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--n-muted);
+  padding-top: 3px;
+}
+.dlRow dd {
+  margin: 0;
+}
+
+/* ---------- Layout helpers ---------- */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.visualCard {
+  background: var(--n-card);
+  border: 1px solid var(--n-border);
+  border-radius: var(--n-radius);
+  padding: 28px 24px;
+}
+.featured {
+  border-color: var(--n-accent);
+  border-width: 2px;
+}
+
+/* ---------- Hands + mirror diagram ---------- */
+.handsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 8px;
+}
+.handCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--n-muted);
+}
+.handSvg {
+  width: 56px;
+  height: 70px;
+  margin-bottom: 4px;
+}
+.handShape {
+  fill: var(--n-bg-alt);
+  stroke: var(--n-accent);
+  stroke-width: 2;
+}
+.swap {
+  font-size: 1.8rem;
+  color: var(--n-accent);
+}
+.mirrorSvg {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 8px;
+}
+.bond {
+  stroke: var(--n-text);
+  stroke-width: 2.5;
+}
+.bondDash {
+  stroke: var(--n-text);
+  stroke-width: 2;
+  stroke-dasharray: 4 4;
+}
+.plane {
+  stroke: var(--n-accent);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 5;
+}
+.centre {
+  fill: var(--n-heading);
+}
+.dotA {
+  fill: var(--n-accent);
+}
+.dotB {
+  fill: #4a2c17;
+}
+.dotC {
+  fill: #c9a56b;
+}
+.dotD {
+  fill: var(--n-muted);
+}
+
+/* ---------- Vertical flow ---------- */
+.flow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.flowItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.flowBox {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+  background: var(--n-bg);
+  border: 1px solid var(--n-border);
+  border-radius: var(--n-radius-sm);
+  padding: 12px 16px;
+  font-family: var(--n-serif);
+  font-size: 1.05rem;
+  color: var(--n-heading);
+}
+.flowArrow {
+  color: var(--n-accent);
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+/* ---------- Cards ---------- */
+.cardGrid5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.cardGrid5b {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+}
+.cardGrid5b > :nth-child(-n + 3) {
+  grid-column: span 2;
+}
+.cardGrid5b > :nth-child(n + 4) {
+  grid-column: span 3;
+}
+.miniCard,
+.impactCard {
+  background: var(--n-card);
+  border: 1px solid var(--n-border);
+  border-radius: var(--n-radius);
+  padding: 22px 20px;
+}
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid var(--n-accent);
+  border-radius: 8px;
+  font-family: var(--n-serif);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--n-accent);
+}
+.num {
+  font-family: var(--n-serif);
+  font-size: 1.6rem;
+  color: var(--n-accent);
+}
+
+/* ---------- Homochirality stepper ---------- */
+.stepper {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  position: relative;
+}
+.stepper::before {
+  content: "";
+  position: absolute;
+  top: 19px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: var(--n-border);
+}
+.stepperItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 8px;
+}
+.stepperNum {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--n-card);
+  border: 2px solid var(--n-accent);
+  color: var(--n-accent);
+  font-family: var(--n-serif);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.stepperItem:last-child .stepperNum {
+  background: var(--n-accent);
+  color: #fff;
+}
+.stepperText {
+  margin-top: 12px;
+  font-family: var(--n-serif);
+  font-size: 1.05rem;
+  color: var(--n-heading);
+}
+
+/* ---------- Simple terms ---------- */
+.simpleCard {
+  background: var(--n-card);
+  border: 1px solid var(--n-border);
+  border-left: 5px solid var(--n-accent);
+  border-radius: var(--n-radius);
+  padding: 40px 44px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.h2Plain {
+  font-family: var(--n-serif);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.6vw, 2.3rem);
+  color: var(--n-heading);
+  margin: 0 0 16px;
+}
+.simpleText {
+  margin: 0;
+  font-family: var(--n-serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  line-height: 1.65;
+  color: var(--n-heading);
+}
+
+/* ---------- Facts ---------- */
+.factsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.fact {
+  background: var(--n-card);
+  border: 1px solid var(--n-border);
+  border-radius: var(--n-radius-sm);
+  padding: 18px 20px;
+}
+.factWide {
+  grid-column: 1 / -1;
+}
+.factLabel {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--n-accent);
+}
+.factValue {
+  margin: 0;
+  font-family: var(--n-serif);
+  font-size: 1.15rem;
+  color: var(--n-heading);
+  line-height: 1.45;
+}
+.factList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--n-serif);
+  font-size: 1.1rem;
+  color: var(--n-heading);
+}
+
+/* ---------- Timeline (horizontal on desktop) ---------- */
+.timeline {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 19px;
+  left: 4%;
+  right: 4%;
+  height: 2px;
+  background: var(--n-border);
+}
+.tlItem {
+  position: relative;
+  text-align: center;
+  padding: 0 4px;
+}
+.tlDot {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 8px;
+  border-radius: 50%;
+  background: var(--n-card);
+  border: 2px solid var(--n-accent);
+  color: var(--n-accent);
+  font-family: var(--n-serif);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.tlItem:last-child .tlDot {
+  background: var(--n-accent);
+  color: #fff;
+}
+
+/* ---------- Callout ---------- */
+.callout {
+  margin: 28px 0 0;
+  padding: 20px 24px;
+  border-left: 3px solid var(--n-accent);
+  background: var(--n-card);
+  border-radius: 0 var(--n-radius-sm) var(--n-radius-sm) 0;
+  font-family: var(--n-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.55;
+  color: var(--n-heading);
+}
+
+/* ---------- Sources ---------- */
+.sources {
+  padding: 40px 0 56px;
+}
+.h2Small {
+  font-family: var(--n-serif);
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: var(--n-heading);
+  margin: 0 0 12px;
+}
+.sourceList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.sourceList a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--n-accent);
+  border-radius: 8px;
+  color: var(--n-accent-dark);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.sourceList a:hover,
+.sourceList a:focus-visible {
+  background: var(--n-accent);
+  color: #fff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .cardGrid5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stepper,
+  .timeline {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 32px;
+  }
+  .stepper::before,
+  .timeline::before {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 56px 0;
+  }
+  .heroGrid,
+  .twoCol,
+  .laureateGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .cardGrid5b {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cardGrid5b > :nth-child(n) {
+    grid-column: auto;
+  }
+  .factsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: vertical timeline and stepper */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 18px;
+  }
+  .hero {
+    padding: 40px 0 40px;
+  }
+  .section {
+    padding: 44px 0;
+  }
+  .cardGrid5,
+  .cardGrid5b,
+  .factsGrid {
+    grid-template-columns: 1fr;
+  }
+  .laureateCard {
+    padding: 26px 20px;
+  }
+  .dlRow {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .simpleCard {
+    padding: 28px 22px;
+  }
+  .citationCard {
+    padding: 24px 20px;
+  }
+
+  .stepper,
+  .timeline {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+    margin-top: 28px;
+  }
+  .stepper::before,
+  .timeline::before {
+    display: block;
+    top: 20px;
+    bottom: 20px;
+    left: 19px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+  .stepperItem,
+  .tlItem {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 0 22px 0;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    column-gap: 16px;
+  }
+  .stepperText {
+    margin-top: 8px;
+  }
+  .tlDot {
+    grid-row: 1 / span 2;
+    margin: 0;
+  }
+  .tlItem .h3s {
+    margin-top: 6px;
+  }
+  .sourceList a {
+    width: 100%;
+  }
+}
