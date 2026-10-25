@@ -1,15 +1,26 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Sparkles, Copy, Check, RotateCcw, ThumbsUp, ThumbsDown, User } from 'lucide-react';
-import { renderMarkdown } from './renderMarkdown';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Sparkles,
+  Copy,
+  Check,
+  RotateCcw,
+  ThumbsUp,
+  ThumbsDown,
+  User,
+} from "lucide-react";
+import { renderMarkdown } from "./renderMarkdown";
 
 function formatTime(iso) {
   try {
-    return new Date(iso).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return new Date(iso).toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
   } catch {
-    return '';
+    return "";
   }
 }
 
@@ -22,8 +33,8 @@ function IconButton({ onClick, active, activeColor, label, children }) {
       aria-pressed={!!active}
       className="flex h-7 w-7 items-center justify-center rounded-lg transition-colors hover:opacity-100"
       style={{
-        color: active ? activeColor : 'var(--ai-text-muted)',
-        backgroundColor: active ? 'var(--ai-bg-subtle)' : 'transparent',
+        color: active ? activeColor : "var(--ai-text-muted)",
+        backgroundColor: active ? "var(--ai-bg-subtle)" : "transparent",
         opacity: active ? 1 : 0.7,
       }}
     >
@@ -32,9 +43,14 @@ function IconButton({ onClick, active, activeColor, label, children }) {
   );
 }
 
-export default function ChatMessage({ message, isLast, onRegenerate, onReact }) {
+export default function ChatMessage({
+  message,
+  isLast,
+  onRegenerate,
+  onReact,
+}) {
   const [copied, setCopied] = useState(false);
-  const isUser = message.role === 'user';
+  const isUser = message.role === "user";
 
   const handleCopy = async () => {
     try {
@@ -51,26 +67,40 @@ export default function ChatMessage({ message, isLast, onRegenerate, onReact }) 
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.25, ease: 'easeOut' }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
         className="flex items-start justify-end gap-2.5 px-4 sm:px-5"
-        style={{padding: "16px"}}
+        style={{ padding: "16px" }}
       >
         <div className="flex max-w-[80%] flex-col items-end">
           <div
             className="rounded-2xl rounded-tr-sm px-4 py-2.5 text-sm leading-relaxed whitespace-pre-wrap wrap-break-word"
-            style={{ backgroundColor: 'var(--ai-user-bubble)', color: 'var(--ai-user-bubble-text)', padding: "8px 12px" }}
+            style={{
+              backgroundColor: "var(--ai-user-bubble)",
+              color: "var(--ai-user-bubble-text)",
+              padding: "8px 12px",
+            }}
           >
             {message.content}
           </div>
-          <span className="mt-1 mr-1 text-[11px]" style={{ color: 'var(--ai-text-muted)', marginTop: "4px", marginRight: "4px" }}>
+          <span
+            className="mt-1 mr-1 text-[11px]"
+            style={{
+              color: "var(--ai-text-muted)",
+              marginTop: "4px",
+              marginRight: "4px",
+            }}
+          >
             {formatTime(message.createdAt)}
           </span>
         </div>
         <div
           className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
-          style={{ backgroundColor: 'var(--ai-bg-subtle)' }}
+          style={{ backgroundColor: "var(--ai-bg-subtle)" }}
         >
-          <User className="h-3.5 w-3.5" style={{ color: 'var(--ai-text-muted)' }} />
+          <User
+            className="h-3.5 w-3.5"
+            style={{ color: "var(--ai-text-muted)" }}
+          />
         </div>
       </motion.div>
     );
@@ -80,37 +110,50 @@ export default function ChatMessage({ message, isLast, onRegenerate, onReact }) 
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.25, ease: 'easeOut' }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
       className="flex items-start gap-2.5 px-4 sm:px-5"
-      style={{padding: "0 14px"}}
+      style={{ padding: "0 14px" }}
     >
       <div
         className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
-        style={{ backgroundColor: 'var(--ai-accent)' }}
+        style={{ backgroundColor: "var(--ai-accent)" }}
       >
-        <Sparkles className="h-3.5 w-3.5" style={{ color: 'var(--ai-accent-text)' }} />
+        <Sparkles
+          className="h-3.5 w-3.5"
+          style={{ color: "var(--ai-accent-text)" }}
+        />
       </div>
 
       <div className="flex max-w-[85%] flex-col items-start">
         <div
           className="ai-markdown rounded-2xl rounded-tl-sm px-4 py-3 text-sm"
           style={{
-            backgroundColor: 'var(--ai-assistant-bubble)',
-            color: 'var(--ai-text)',
-            border: '1px solid var(--ai-border-color)',
-            padding: "12px 16px 12px 20px"
+            backgroundColor: "var(--ai-assistant-bubble)",
+            color: "var(--ai-text)",
+            border: "1px solid var(--ai-border-color)",
+            padding: "12px 16px 12px 20px",
           }}
         >
           {renderMarkdown(message.content)}
         </div>
 
-        <div className="mt-1.5 ml-1 flex items-center gap-1" style={{marginTop: "6px"}}>
-          <span className="text-[11px] mr-1.5" style={{ color: 'var(--ai-text-muted)' , marginRight: "6px"}}>
+        <div
+          className="mt-1.5 ml-1 flex items-center gap-1"
+          style={{ marginTop: "6px" }}
+        >
+          <span
+            className="text-[11px] mr-1.5"
+            style={{ color: "var(--ai-text-muted)", marginRight: "6px" }}
+          >
             {formatTime(message.createdAt)}
           </span>
 
           <IconButton onClick={handleCopy} label="Copy response">
-            {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+            {copied ? (
+              <Check className="h-3.5 w-3.5" />
+            ) : (
+              <Copy className="h-3.5 w-3.5" />
+            )}
           </IconButton>
 
           {isLast && (

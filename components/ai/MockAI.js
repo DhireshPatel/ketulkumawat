@@ -23,7 +23,7 @@ const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  */
 const TOPIC_HANDLERS = [
   {
-    keywords: ['hybridization', 'hybridisation'],
+    keywords: ["hybridization", "hybridisation"],
     build: () => `## Hybridization
 
 Hybridization is the mixing of atomic orbitals to form new, equivalent hybrid orbitals suited for pairing in a chemical bond.
@@ -51,7 +51,7 @@ Steps to find hybridization:
 Want me to walk through a specific molecule, like NH₃ or SF₄?`,
   },
   {
-    keywords: ['sn1', 'sn2', 'nucleophilic substitution'],
+    keywords: ["sn1", "sn2", "nucleophilic substitution"],
     build: () => `## SN1 vs SN2 Reactions
 
 Both are nucleophilic substitution mechanisms, but they differ in almost every mechanistic detail.
@@ -81,7 +81,7 @@ A useful shortcut: **"SN1 likes stability, SN2 likes space."** Bulky, stable car
 Want a few practice questions to test this?`,
   },
   {
-    keywords: ['thermodynamics'],
+    keywords: ["thermodynamics"],
     build: () => `## Thermodynamics — Chapter Summary
 
 **1. System & Surroundings**
@@ -114,7 +114,7 @@ $$\\Delta G = \\Delta H - T\\Delta S$$
 Would you like a set of numerical problems on this chapter?`,
   },
   {
-    keywords: ['haloalkane', 'haloalkanes', 'alkyl halide'],
+    keywords: ["haloalkane", "haloalkanes", "alkyl halide"],
     build: () => `## Revision Notes — Haloalkanes
 
 **Preparation**
@@ -142,7 +142,7 @@ Would you like a set of numerical problems on this chapter?`,
 Want a diagram-style comparison of E1 vs E2 next?`,
   },
   {
-    keywords: ['chemical bonding', 'ionic bond', 'covalent bond'],
+    keywords: ["chemical bonding", "ionic bond", "covalent bond"],
     build: () => `## Chemical Bonding — Explained
 
 Chemical bonding is the force that holds atoms together in a compound, driven by the tendency to achieve a stable (usually octet) electron configuration.
@@ -188,47 +188,50 @@ function buildMCQs(userText) {
 
   const bank = [
     {
-      q: 'Which of the following has sp³ hybridization at the central atom?',
-      options: ['BF₃', 'CH₄', 'BeCl₂', 'C₂H₂'],
-      answer: 'CH₄',
+      q: "Which of the following has sp³ hybridization at the central atom?",
+      options: ["BF₃", "CH₄", "BeCl₂", "C₂H₂"],
+      answer: "CH₄",
     },
     {
-      q: 'The SN1 reaction proceeds through which intermediate?',
-      options: ['Carbanion', 'Free radical', 'Carbocation', 'Carbene'],
-      answer: 'Carbocation',
+      q: "The SN1 reaction proceeds through which intermediate?",
+      options: ["Carbanion", "Free radical", "Carbocation", "Carbene"],
+      answer: "Carbocation",
     },
     {
-      q: 'For a spontaneous process at constant T and P, ΔG is:',
-      options: ['Positive', 'Zero', 'Negative', 'Infinite'],
-      answer: 'Negative',
+      q: "For a spontaneous process at constant T and P, ΔG is:",
+      options: ["Positive", "Zero", "Negative", "Infinite"],
+      answer: "Negative",
     },
     {
-      q: 'Wurtz reaction is used to prepare:',
-      options: ['Alcohols', 'Alkanes', 'Alkenes', 'Alkynes'],
-      answer: 'Alkanes',
+      q: "Wurtz reaction is used to prepare:",
+      options: ["Alcohols", "Alkanes", "Alkenes", "Alkynes"],
+      answer: "Alkanes",
     },
     {
-      q: 'Which solvent favors SN2 reactions?',
-      options: ['Polar protic', 'Polar aprotic', 'Non-polar', 'Any solvent'],
-      answer: 'Polar aprotic',
+      q: "Which solvent favors SN2 reactions?",
+      options: ["Polar protic", "Polar aprotic", "Non-polar", "Any solvent"],
+      answer: "Polar aprotic",
     },
   ];
 
   const selected = bank.slice(0, count);
-  const lines = [`## Practice MCQs (${selected.length})`, ''];
+  const lines = [`## Practice MCQs (${selected.length})`, ""];
 
   selected.forEach((item, i) => {
     lines.push(`**${i + 1}. ${item.q}**`);
     item.options.forEach((opt, j) => {
       lines.push(`   ${String.fromCharCode(65 + j)}. ${opt}`);
     });
-    lines.push('');
+    lines.push("");
   });
 
-  lines.push('---');
-  lines.push('**Answer Key:** ' + selected.map((item, i) => `${i + 1}. ${item.answer}`).join(' · '));
+  lines.push("---");
+  lines.push(
+    "**Answer Key:** " +
+      selected.map((item, i) => `${i + 1}. ${item.answer}`).join(" · "),
+  );
 
-  return lines.join('\n');
+  return lines.join("\n");
 }
 
 function buildGenericResponse(userText) {
@@ -262,7 +265,10 @@ export async function getMockResponse(userText) {
 
   const lower = userText.toLowerCase();
 
-  if (/(mcq|quiz|questions?\s*(on|for|about))/i.test(lower) && /\d+|mcq|quiz/i.test(lower)) {
+  if (
+    /(mcq|quiz|questions?\s*(on|for|about))/i.test(lower) &&
+    /\d+|mcq|quiz/i.test(lower)
+  ) {
     return buildMCQs(userText);
   }
 

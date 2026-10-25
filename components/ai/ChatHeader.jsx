@@ -12,7 +12,7 @@ export default function ChatHeader({ onClose, onNewChat }) {
       style={{
         borderColor: "var(--ai-border-color)",
         backgroundColor: "var(--ai-bg)",
-        padding: "14px"
+        padding: "14px",
       }}
     >
       <div className="flex items-center gap-3 min-w-0">

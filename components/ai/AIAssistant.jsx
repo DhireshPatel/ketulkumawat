@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 /**
  * AIAssistant.jsx
@@ -17,15 +17,22 @@
  * -----------------------------------------------------------------------
  */
 
-import { useState, useCallback } from 'react';
-import AIButton from './AIButton';
-import AIDrawer from './AIDrawer';
-import { useChat } from '../../hooks/useChat';
+import { useState, useCallback } from "react";
+import AIButton from "./AIButton";
+import AIDrawer from "./AIDrawer";
+import { useChat } from "../../hooks/useChat";
 
 export default function AIAssistant() {
   const [isOpen, setIsOpen] = useState(false);
-  const [inputValue, setInputValue] = useState('');
-  const { messages, isLoading, sendMessage, regenerateLast, setReaction, newChat } = useChat();
+  const [inputValue, setInputValue] = useState("");
+  const {
+    messages,
+    isLoading,
+    sendMessage,
+    regenerateLast,
+    setReaction,
+    newChat,
+  } = useChat();
 
   const handleOpen = useCallback(() => setIsOpen(true), []);
   const handleClose = useCallback(() => setIsOpen(false), []);
@@ -33,7 +40,7 @@ export default function AIAssistant() {
   const handleSend = useCallback(() => {
     if (!inputValue.trim() || isLoading) return;
     sendMessage(inputValue);
-    setInputValue('');
+    setInputValue("");
   }, [inputValue, isLoading, sendMessage]);
 
   const handleSelectPrompt = useCallback((text) => {
@@ -42,7 +49,7 @@ export default function AIAssistant() {
 
   const handleNewChat = useCallback(() => {
     newChat();
-    setInputValue('');
+    setInputValue("");
   }, [newChat]);
 
   return (

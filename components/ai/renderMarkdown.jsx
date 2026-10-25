@@ -27,19 +27,19 @@ function renderInline(text) {
 
   parts.forEach((part) => {
     if (!part) return;
-    if (part.startsWith('**') && part.endsWith('**')) {
+    if (part.startsWith("**") && part.endsWith("**")) {
       nodes.push(
         <strong key={key()} className="font-semibold">
           {part.slice(2, -2)}
-        </strong>
+        </strong>,
       );
-    } else if (part.startsWith('`') && part.endsWith('`')) {
+    } else if (part.startsWith("`") && part.endsWith("`")) {
       nodes.push(<code key={key()}>{part.slice(1, -1)}</code>);
-    } else if (part.startsWith('$') && part.endsWith('$')) {
+    } else if (part.startsWith("$") && part.endsWith("$")) {
       nodes.push(
         <span key={key()} className="italic font-mono text-[0.9em]">
           {part.slice(1, -1)}
-        </span>
+        </span>,
       );
     } else {
       nodes.push(part);
@@ -54,14 +54,14 @@ function isTableRow(line) {
 }
 
 function isTableSeparator(line) {
-  return /^\s*\|?[\s:|-]+\|?\s*$/.test(line) && line.includes('-');
+  return /^\s*\|?[\s:|-]+\|?\s*$/.test(line) && line.includes("-");
 }
 
 function parseTable(lines, startIndex) {
   const headerCells = lines[startIndex]
     .trim()
-    .replace(/^\||\|$/g, '')
-    .split('|')
+    .replace(/^\||\|$/g, "")
+    .split("|")
     .map((c) => c.trim());
 
   let i = startIndex + 2; // skip header + separator
@@ -70,9 +70,9 @@ function parseTable(lines, startIndex) {
     rows.push(
       lines[i]
         .trim()
-        .replace(/^\||\|$/g, '')
-        .split('|')
-        .map((c) => c.trim())
+        .replace(/^\||\|$/g, "")
+        .split("|")
+        .map((c) => c.trim()),
     );
     i++;
   }
@@ -107,7 +107,7 @@ function parseTable(lines, startIndex) {
 export function renderMarkdown(source) {
   if (!source) return null;
 
-  const lines = source.replace(/\r\n/g, '\n').split('\n');
+  const lines = source.replace(/\r\n/g, "\n").split("\n");
   const blocks = [];
   let i = 0;
   let listBuffer = [];
@@ -115,13 +115,13 @@ export function renderMarkdown(source) {
 
   const flushList = () => {
     if (listBuffer.length === 0) return;
-    if (listType === 'ol') {
+    if (listType === "ol") {
       blocks.push(
         <ol key={key()} className="list-decimal pl-5 space-y-1 my-2">
           {listBuffer.map((item) => (
             <li key={key()}>{renderInline(item)}</li>
           ))}
-        </ol>
+        </ol>,
       );
     } else {
       blocks.push(
@@ -129,7 +129,7 @@ export function renderMarkdown(source) {
           {listBuffer.map((item) => (
             <li key={key()}>{renderInline(item)}</li>
           ))}
-        </ul>
+        </ul>,
       );
     }
     listBuffer = [];
@@ -152,8 +152,8 @@ export function renderMarkdown(source) {
       i++; // skip closing fence
       blocks.push(
         <pre key={key()}>
-          <code data-lang={lang || undefined}>{codeLines.join('\n')}</code>
-        </pre>
+          <code data-lang={lang || undefined}>{codeLines.join("\n")}</code>
+        </pre>,
       );
       continue;
     }
@@ -163,7 +163,7 @@ export function renderMarkdown(source) {
       flushList();
       const mathLines = [];
       let firstLine = line.trim().slice(2);
-      if (firstLine.endsWith('$$')) {
+      if (firstLine.endsWith("$$")) {
         mathLines.push(firstLine.slice(0, -2));
         i++;
       } else {
@@ -174,7 +174,7 @@ export function renderMarkdown(source) {
           i++;
         }
         if (i < lines.length) {
-          mathLines.push(lines[i].replace(/\$\$\s*$/, ''));
+          mathLines.push(lines[i].replace(/\$\$\s*$/, ""));
           i++;
         }
       }
@@ -182,16 +182,20 @@ export function renderMarkdown(source) {
         <div
           key={key()}
           className="my-2 rounded-lg px-4 py-3 text-center italic font-mono text-[0.95em]"
-          style={{ backgroundColor: 'var(--ai-bg-subtle)' }}
+          style={{ backgroundColor: "var(--ai-bg-subtle)" }}
         >
-          {mathLines.join(' ')}
-        </div>
+          {mathLines.join(" ")}
+        </div>,
       );
       continue;
     }
 
     // Table
-    if (isTableRow(line) && i + 1 < lines.length && isTableSeparator(lines[i + 1])) {
+    if (
+      isTableRow(line) &&
+      i + 1 < lines.length &&
+      isTableSeparator(lines[i + 1])
+    ) {
       flushList();
       const { node, nextIndex } = parseTable(lines, i);
       blocks.push(node);
@@ -202,7 +206,13 @@ export function renderMarkdown(source) {
     // Horizontal rule
     if (/^\s*---+\s*$/.test(line)) {
       flushList();
-      blocks.push(<hr key={key()} className="my-3 border-t" style={{ borderColor: 'var(--ai-border-color)' }} />);
+      blocks.push(
+        <hr
+          key={key()}
+          className="my-3 border-t"
+          style={{ borderColor: "var(--ai-border-color)" }}
+        />,
+      );
       i++;
       continue;
     }
@@ -214,16 +224,16 @@ export function renderMarkdown(source) {
       const level = headingMatch[1].length;
       const content = renderInline(headingMatch[2]);
       const sizes = {
-        1: 'text-xl font-bold mt-3 mb-2',
-        2: 'text-lg font-bold mt-3 mb-2',
-        3: 'text-base font-semibold mt-2 mb-1',
-        4: 'text-sm font-semibold mt-2 mb-1',
+        1: "text-xl font-bold mt-3 mb-2",
+        2: "text-lg font-bold mt-3 mb-2",
+        3: "text-base font-semibold mt-2 mb-1",
+        4: "text-sm font-semibold mt-2 mb-1",
       };
       const Tag = `h${Math.min(level, 4)}`;
       blocks.push(
         <Tag key={key()} className={sizes[level]}>
           {content}
-        </Tag>
+        </Tag>,
       );
       i++;
       continue;
@@ -232,9 +242,9 @@ export function renderMarkdown(source) {
     // Numbered list item
     const olMatch = line.match(/^\s*\d+\.\s+(.*)$/);
     if (olMatch) {
-      if (listType !== 'ol') {
+      if (listType !== "ol") {
         flushList();
-        listType = 'ol';
+        listType = "ol";
       }
       listBuffer.push(olMatch[1]);
       i++;
@@ -244,9 +254,9 @@ export function renderMarkdown(source) {
     // Bullet list item
     const ulMatch = line.match(/^\s*[-*]\s+(.*)$/);
     if (ulMatch) {
-      if (listType !== 'ul') {
+      if (listType !== "ul") {
         flushList();
-        listType = 'ul';
+        listType = "ul";
       }
       listBuffer.push(ulMatch[1]);
       i++;
@@ -254,7 +264,7 @@ export function renderMarkdown(source) {
     }
 
     // Blank line
-    if (line.trim() === '') {
+    if (line.trim() === "") {
       flushList();
       i++;
       continue;
@@ -265,7 +275,7 @@ export function renderMarkdown(source) {
     blocks.push(
       <p key={key()} className="leading-relaxed">
         {renderInline(line)}
-      </p>
+      </p>,
     );
     i++;
   }
