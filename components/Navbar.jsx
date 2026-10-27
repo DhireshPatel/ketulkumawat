@@ -52,6 +52,11 @@ const Navbar = () => {
             Hire Me
           </Link>
         </li>
+        <li>
+          <Link href="/exam-alerts" onClick={closeMenu}>
+            Exam alerts
+          </Link>
+        </li>
         {/* <li>
           <Link href="/research-consulting" onClick={closeMenu}>
             Research Consulting
