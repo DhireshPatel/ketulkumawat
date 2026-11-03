@@ -1,0 +1,528 @@
+.pyq-admin .admin-shell {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+.pyq-admin .admin-side {
+  background: var(--brown-dark);
+  color: #f3e9dc;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.pyq-admin .admin-brand {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.pyq-admin .admin-sub {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin: 14px 8px 4px;
+}
+.pyq-admin .admin-side a,
+.pyq-admin .admin-side button.linklike {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: #f3e9dc;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  width: 100%;
+}
+.pyq-admin .admin-side a:hover,
+.pyq-admin .admin-side button.linklike:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.pyq-admin .admin-side a.active {
+  background: var(--brown);
+  color: #fff;
+}
+.pyq-admin .admin-side .spacer {
+  flex: 1;
+}
+.pyq-admin .admin-user {
+  font-size: 0.78rem;
+  opacity: 0.75;
+  padding: 0 12px 6px;
+  word-break: break-all;
+}
+.pyq-admin .admin-main {
+  padding: 36px 40px 80px;
+  min-width: 0;
+  background: rgba(236, 231, 223, 0.6);
+}
+.pyq-admin .admin-topbar {
+  display: none;
+}
+.pyq-admin .admin-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 2rem;
+  color: var(--brown-dark);
+  margin-bottom: 4px;
+}
+.pyq-admin .admin-desc {
+  color: var(--text-soft);
+  margin-bottom: 24px;
+}
+.pyq-admin .admin-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.pyq-admin .panel {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 22px;
+}
+.pyq-admin .panel h2 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--brown-dark);
+  margin-bottom: 14px;
+}
+.pyq-admin .stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.pyq-admin .stat-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 18px;
+}
+.pyq-admin .stat-card b {
+  display: block;
+  font-family: var(--serif);
+  font-size: 2.1rem;
+  color: var(--brown);
+  line-height: 1.1;
+}
+.pyq-admin .stat-card span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brown-dark);
+}
+.pyq-admin .btn-outline {
+  background: transparent;
+  color: var(--brown-dark);
+  border: 1px solid var(--brown-dark);
+}
+.pyq-admin .btn-danger {
+  background: #b3261e;
+}
+.pyq-admin .btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+.pyq-admin .btn-xs {
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  border-radius: 6px;
+}
+.pyq-admin .link-btn {
+  background: none;
+  border: 0;
+  color: var(--brown);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+.pyq-admin .link-btn:hover {
+  text-decoration: underline;
+}
+.pyq-admin .link-btn.danger {
+  color: #b3261e;
+}
+.pyq-admin .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+}
+.pyq-admin .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pyq-admin .field.full {
+  grid-column: 1 / -1;
+}
+.pyq-admin .field label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--brown-dark);
+}
+.pyq-admin .field .hint {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+}
+.pyq-admin .field input,
+.pyq-admin .field select,
+.pyq-admin .field textarea,
+.pyq-admin .filters input,
+.pyq-admin .filters select {
+  font: inherit;
+  padding: 10px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  background: #fffdf8;
+  color: var(--text);
+  width: 100%;
+}
+.pyq-admin .field input:focus,
+.pyq-admin .field select:focus,
+.pyq-admin .field textarea:focus,
+.pyq-admin .filters input:focus,
+.pyq-admin .filters select:focus {
+  outline: 2px solid var(--brown);
+  outline-offset: 1px;
+}
+.pyq-admin .field textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+.pyq-admin .field.invalid input,
+.pyq-admin .field.invalid select,
+.pyq-admin .field.invalid textarea {
+  border-color: #b3261e;
+}
+.pyq-admin .field .err {
+  color: #b3261e;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.pyq-admin .check-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pyq-admin .check-row input {
+  width: auto;
+}
+.pyq-admin .form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+.pyq-admin .alert {
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  margin-bottom: 16px;
+}
+.pyq-admin .alert.ok {
+  background: #e4f1e1;
+  border: 1px solid #9cc596;
+  color: #1f4d1a;
+}
+.pyq-admin .alert.bad {
+  background: #fbe7e5;
+  border: 1px solid #e0a39e;
+  color: #7a1c15;
+}
+.pyq-admin .alert.warn {
+  background: #fdf1d9;
+  border: 1px solid #e3c487;
+  color: #6a4a0a;
+}
+.pyq-admin .progress {
+  height: 10px;
+  background: var(--stat-bg);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+}
+.pyq-admin .progress > div {
+  height: 100%;
+  background: var(--brown);
+  transition: width 0.15s;
+}
+.pyq-admin .file-chip {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+  background: var(--stat-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+.pyq-admin .logo-preview {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid var(--card-border);
+  background: #fff;
+}
+.pyq-admin .filters {
+  display: grid;
+  grid-template-columns: 2fr 1.4fr 0.8fr 1fr auto;
+  gap: 10px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+.pyq-admin .table-wrap {
+  overflow-x: auto;
+}
+.pyq-admin table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.pyq-admin table.data th {
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brown-dark);
+  padding: 10px 12px;
+  border-bottom: 2px solid var(--card-border);
+  white-space: nowrap;
+}
+.pyq-admin table.data td {
+  padding: 12px;
+  border-bottom: 1px solid #e6dccb;
+  vertical-align: top;
+}
+.pyq-admin table.data tr:hover td {
+  background: #f6efe3;
+}
+.pyq-admin .cell-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pyq-admin .badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+.pyq-admin .badge.published,
+.pyq-admin .badge.active {
+  background: #e4f1e1;
+  border-color: #9cc596;
+  color: #1f4d1a;
+}
+.pyq-admin .badge.draft,
+.pyq-admin .badge.inactive {
+  background: #fdf1d9;
+  border-color: #e3c487;
+  color: #6a4a0a;
+}
+.pyq-admin .pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
+  color: var(--text-soft);
+}
+.pyq-admin .muted {
+  color: var(--text-soft);
+  font-size: 0.85rem;
+}
+.pyq-admin .modal-back {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 18, 8, 0.55);
+  display: grid;
+  place-items: center;
+  z-index: 100;
+  padding: 16px;
+}
+.pyq-admin .modal {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow: auto;
+  border: 1px solid var(--card-border);
+}
+.pyq-admin .modal h2 {
+  font-family: var(--serif);
+  color: var(--brown-dark);
+  margin-bottom: 10px;
+}
+.pyq-admin .modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+.pyq-admin .modal dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 16px;
+  font-size: 0.9rem;
+}
+.pyq-admin .modal dt {
+  font-weight: 700;
+  color: var(--brown-dark);
+}
+.pyq-admin .login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+.pyq-admin .login-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 34px 30px;
+  box-shadow: 0 20px 45px rgba(74, 44, 23, 0.18);
+}
+.pyq-admin .login-card h1 {
+  font-family: var(--serif);
+  color: var(--brown-dark);
+  font-size: 1.8rem;
+  margin-bottom: 4px;
+}
+.pyq-admin .login-card p.muted {
+  margin-bottom: 20px;
+}
+.pyq-admin .login-card .field {
+  margin-bottom: 14px;
+}
+@media (max-width: 1000px) {
+  .pyq-admin .filters {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 860px) {
+  .pyq-admin .admin-shell {
+    grid-template-columns: 1fr;
+  }
+  .pyq-admin .admin-side {
+    position: static;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 12px;
+    gap: 4px;
+  }
+  .pyq-admin .admin-brand,
+  .pyq-admin .admin-sub,
+  .pyq-admin .admin-user,
+  .pyq-admin .admin-side .spacer {
+    display: none;
+  }
+  .pyq-admin .admin-side a,
+  .pyq-admin .admin-side button.linklike {
+    width: auto;
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+  .pyq-admin .admin-main {
+    padding: 22px 16px 60px;
+  }
+  .pyq-admin .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .pyq-admin table.data thead {
+    display: none;
+  }
+  .pyq-admin table.data,
+  .pyq-admin table.data tbody,
+  .pyq-admin table.data tr,
+  .pyq-admin table.data td {
+    display: block;
+    width: 100%;
+  }
+  .pyq-admin table.data tr {
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 8px 4px;
+    margin-bottom: 12px;
+    background: #fffaf2;
+  }
+  .pyq-admin table.data td {
+    border: 0;
+    padding: 6px 12px;
+  }
+  .pyq-admin table.data td[data-label]::before {
+    content: attr(data-label) ": ";
+    font-weight: 700;
+    color: var(--brown-dark);
+    font-size: 0.78rem;
+  }
+}
+.pyq-admin {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 24px 80px;
+}
+.pyq-admin .pyq-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 26px;
+}
+.pyq-admin .pyq-tabs a {
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--brown-dark);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+}
+.pyq-admin .pyq-tabs a:hover {
+  color: var(--brown);
+}
+.pyq-admin .pyq-tabs a.active {
+  color: var(--brown);
+  border-bottom-color: var(--brown);
+}
+.pyq-admin .pyq-tabs .tab-right {
+  margin-left: auto;
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .pyq-admin {
+    padding: 16px 14px 70px;
+  }
+  .pyq-admin .pyq-tabs .tab-right {
+    margin-left: 0;
+  }
+}
