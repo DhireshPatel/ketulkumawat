@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { THUMBS_BUCKET } from "../../lib/pyq/config";
 
@@ -13,6 +13,16 @@ function logoUrl(path) {
 
 export default function ExamGrid({ exams }) {
   const [q, setQ] = useState("");
+
+  const [opening, setOpening] = useState(null); // jis exam ko khol rahe hain uska slug
+
+  // Safety: agar page 15 sec mein na khule (net band etc.) to "Opening…" hata do
+  useEffect(() => {
+    if (!opening) return undefined;
+    const t = setTimeout(() => setOpening(null), 15000);
+    return () => clearTimeout(t);
+  }, [opening]);
+
   const list = useMemo(() => {
     const term = q.trim().toLowerCase();
     return term
@@ -52,8 +62,16 @@ export default function ExamGrid({ exams }) {
               <li key={exam.id}>
                 <Link
                   href={`/pyq/${exam.slug}`}
-                  className="exam-card"
+                  className={`exam-card${opening === exam.slug ? " is-opening" : ""}`}
                   style={{ height: "100%" }}
+                  aria-busy={opening === exam.slug}
+                  onClick={(e) => {
+                    if (opening) {
+                      e.preventDefault();
+                      return;
+                    } // loading ke time baar-baar click ignore
+                    setOpening(exam.slug);
+                  }}
                 >
                   <span className="exam-logo" aria-hidden="true">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -65,10 +83,17 @@ export default function ExamGrid({ exams }) {
                   </span>
                   <h2>{exam.name}</h2>
                   {exam.description && <p>{exam.description}</p>}
-                  <span className="exam-count">
-                    {exam.paperCount}{" "}
-                    {exam.paperCount === 1 ? "paper" : "papers"}
-                  </span>
+                  {opening === exam.slug ? (
+                    <span className="opening-note" role="status">
+                      <span className="spinner" aria-hidden="true" /> Opening{" "}
+                      {exam.name}…
+                    </span>
+                  ) : (
+                    <span className="exam-count">
+                      {exam.paperCount}{" "}
+                      {exam.paperCount === 1 ? "paper" : "papers"}
+                    </span>
+                  )}
                 </Link>
               </li>
             );

@@ -270,3 +270,32 @@
     justify-content: center;
   }
 }
+
+/* "Opening…" feedback on an exam card after click */
+.pyq-wrap .exam-card.is-opening {
+  border-color: var(--brown);
+  opacity: 0.85;
+  pointer-events: none;
+}
+.pyq-wrap .opening-note {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--brown);
+}
+.pyq-wrap .spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--card-border);
+  border-top-color: var(--brown);
+  border-radius: 50%;
+  animation: pyq-spin 0.7s linear infinite;
+}
+@keyframes pyq-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
