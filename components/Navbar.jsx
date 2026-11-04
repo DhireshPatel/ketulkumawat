@@ -79,6 +79,13 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoBookSharp } from "react-icons/io5";
+import { HiOutlineBriefcase } from "react-icons/hi2";
+import { LuFlaskConical } from "react-icons/lu";
+import { LuBellRing } from "react-icons/lu";
+import { LuFileQuestion } from "react-icons/lu";
+import { LuAward } from "react-icons/lu";
+import { LuBookOpen } from "react-icons/lu";
+
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -146,7 +153,7 @@ const Navbar = () => {
             <li>
               <Link href="/Ebooks" onClick={closeMenu}>
                 <span className="dropdown-icon">
-                  <IoBookSharp />
+                  <LuBookOpen />
                 </span>
                 <span>
                   <strong>E Books</strong>
@@ -177,7 +184,9 @@ const Navbar = () => {
           <ul className="dropdown-menu">
             <li>
               <Link href="/HireMe" onClick={closeMenu}>
-                <span className="dropdown-icon">💼</span>
+                <span className="dropdown-icon">
+                  <HiOutlineBriefcase />
+                </span>
                 <span>
                   <strong>Hire Me</strong>
                   <small>Work with me</small>
@@ -187,7 +196,7 @@ const Navbar = () => {
 
             <li>
               <Link href="/research-consulting" onClick={closeMenu}>
-                <span className="dropdown-icon">🔬</span>
+                <span className="dropdown-icon"><LuFlaskConical /></span>
                 <span>
                   <strong>Research Consulting</strong>
                   <small>Research guidance and consulting</small>
@@ -217,7 +226,7 @@ const Navbar = () => {
           <ul className="dropdown-menu">
             <li>
               <Link href="/exam-alerts" onClick={closeMenu}>
-                <span className="dropdown-icon">🔔</span>
+                <span className="dropdown-icon"><LuBellRing /></span>
                 <span>
                   <strong>Exam Alerts</strong>
                   <small>Latest exam notifications and updates</small>
@@ -227,7 +236,7 @@ const Navbar = () => {
 
             <li>
               <Link href="/pyq" onClick={closeMenu}>
-                <span className="dropdown-icon">📝</span>
+                <span className="dropdown-icon"><LuFileQuestion /></span>
                 <span>
                   <strong>Exam PYQ</strong>
                   <small>Previous year question papers</small>
@@ -257,7 +266,7 @@ const Navbar = () => {
           <ul className="dropdown-menu">
             <li>
               <Link href="/nobel-prize-chemistry-2026" onClick={closeMenu}>
-                <span className="dropdown-icon">🏆</span>
+                <span className="dropdown-icon"><LuAward /></span>
                 <span>
                   <strong>Nobel Prize 2026</strong>
                   <small>Nobel Prize in Chemistry · 2026</small>
